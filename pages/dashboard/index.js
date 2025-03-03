@@ -1,13 +1,13 @@
 import { useRouter } from "@/routes/hooks";
 import { paths } from "@/routes/paths";
 
-import OverviewSection from "@/sections/dashboard/overview";
-import DocumentExpirationSection from "@/sections/dashboard/document_expiration";
-import EmployeesCaregiversSection from "@/sections/dashboard/enployeesCaregivers";
-import RevenueDetailsSection from "@/sections/dashboard/revenueDetails";
-import ClaimDetailsSection from "@/sections/dashboard/claimDetails";
-import AnnouncementSection from "@/sections/dashboard/announcement";
-import RecentActivitySection from "@/sections/dashboard/recentlyActivity";
+import Overview from "@/sections/dashboard/overview";
+import DocumentExpiration from "@/sections/dashboard/document-expiration";
+import EmployeesCaregivers from "@/sections/dashboard/employees-caregivers";
+import RevenueDetails from "@/sections/dashboard/revenue-details";
+import ClaimDetails from "@/sections/dashboard/claim-details";
+import Announcement from "@/sections/dashboard/announcement";
+import RecentActivity from "@/sections/dashboard/recently-activity";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -38,16 +38,16 @@ export default function DashboardPage() {
           Manage Dashboard
         </button>
       </div>
-      <OverviewSection />
-      <DocumentExpirationSection />
-      <EmployeesCaregiversSection />
+      <Overview />
+      <DocumentExpiration />
+      <EmployeesCaregivers />
       <div className="grid grid-cols-3 gap-14 mt-[60px]">
-        <RevenueDetailsSection />
-        <ClaimDetailsSection />
+        <RevenueDetails />
+        <ClaimDetails />
       </div>
       <div className="grid grid-cols-3 gap-14 mt-[60px]">
-        <AnnouncementSection />
-        <RecentActivitySection />
+        <Announcement />
+        <RecentActivity />
       </div>
     </div>
   );

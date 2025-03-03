@@ -5,32 +5,32 @@ const overViewData = [
   {
     title: "Total Clients",
     value: 170,
-    icon: "./assets/icons/dashboard/totlaClients.svg",
+    icon: "/assets/icons/dashboard/totlaClients.svg",
   },
   {
     title: "Total Caregivers",
     value: 75,
-    icon: "./assets/icons/dashboard/totalCaregivers.svg",
+    icon: "/assets/icons/dashboard/totalCaregivers.svg",
   },
   {
     title: "Pending Requests",
     value: 5,
-    icon: "./assets/icons/dashboard/pendingRequests.svg",
+    icon: "/assets/icons/dashboard/pendingRequests.svg",
   },
   {
     title: "Upcoming Appointments",
     value: 18,
-    icon: "./assets/icons/dashboard/upcomingAppointments.svg",
+    icon: "/assets/icons/dashboard/upcomingAppointments.svg",
   },
   {
     title: "Active Shifts",
     value: 32,
-    icon: "./assets/icons/dashboard/activeShifts.svg",
+    icon: "/assets/icons/dashboard/activeShifts.svg",
   },
   {
     title: "Billing Due",
     value: "$10,000",
-    icon: "./assets/icons/dashboard/billingDue.svg",
+    icon: "/assets/icons/dashboard/billingDue.svg",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function OverviewSection() {
           hollow: {
             margin: 15,
             size: "60%",
-            image: "./assets/icons/dashboard/chartUser.svg",
+            image: "/assets/icons/dashboard/chartUser.svg",
             imageWidth: 42,
             imageHeight: 42,
             imageClipped: false,
