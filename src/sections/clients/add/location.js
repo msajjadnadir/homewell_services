@@ -7,11 +7,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { format } from "date-fns";
 import { Calendar } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Calendar as CalendarIcon } from "@/components/ui/calendar";
 import {
   Popover,
   PopoverContent,
@@ -106,7 +106,7 @@ export default function AddCaregiverLocation() {
                   !date && "text-muted-foreground"
                 )}
               >
-                <span>Pick a date</span>
+                {date ? format(date, "PPP") : <span>Pick a date</span>}
                 <Calendar className="ml-auto h-4 w-4 opacity-50" />
               </Button>
             </PopoverTrigger>
@@ -133,7 +133,7 @@ export default function AddCaregiverLocation() {
                   !date && "text-muted-foreground"
                 )}
               >
-                <span>Pick a date</span>
+                {date ? format(date, "PPP") : <span>Pick a date</span>}
                 <Calendar className="ml-auto h-4 w-4 opacity-50" />
               </Button>
             </PopoverTrigger>
