@@ -68,7 +68,7 @@ export function useNavData() {
       },
       {
         title: "Document Management",
-        path: paths.dashboard.document_management,
+        path: paths.dashboard.document_management.root,
         icon: ICONS.document_management,
       },
       {

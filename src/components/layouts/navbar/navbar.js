@@ -6,7 +6,7 @@ export default function Navbar() {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col h-screen w-[280px] p-6 overflow-y-auto border border-[#00000010]">
+    <div className="flex flex-col h-screen w-[320px] p-6 overflow-y-auto border border-[#00000010]">
       <div className="flex flex-row gap-3 w-full items-center" id="title">
         <img src="/assets/icons/logo.png" alt="logo" className="w-11 h-11" />
         <span className="font-satoshi text-sm font-bold leading-5">

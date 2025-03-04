@@ -33,7 +33,10 @@ export const paths = {
     forms: `/forms`,
     time_cards: `/time_cards`,
     evv_compliance: `/evv_compliance`,
-    document_management: `/document_management`,
+    document_management: {
+      root: `/document_management`,
+      add: `/document_management/add`,
+    },
     role_setup: `/role_setup`,
     snapshots: `/snapshots`,
     map_view: `/map_view`,
