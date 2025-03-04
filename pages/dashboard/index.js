@@ -1,13 +1,15 @@
 import { useRouter } from "@/routes/hooks";
 import { paths } from "@/routes/paths";
+import dynamic from 'next/dynamic'; // Dynamic import کے لیے
 
-import Overview from "@/sections/dashboard/overview";
-import DocumentExpiration from "@/sections/dashboard/document-expiration";
-import EmployeesCaregivers from "@/sections/dashboard/employees-caregivers";
-import RevenueDetails from "@/sections/dashboard/revenue-details";
-import ClaimDetails from "@/sections/dashboard/claim-details";
-import Announcement from "@/sections/dashboard/announcement";
-import RecentActivity from "@/sections/dashboard/recently-activity";
+// Dynamic imports for all components
+const Overview = dynamic(() => import("@/sections/dashboard/overview"), { ssr: false });
+const DocumentExpiration = dynamic(() => import("@/sections/dashboard/document-expiration"), { ssr: false });
+const EmployeesCaregivers = dynamic(() => import("@/sections/dashboard/employees-caregivers"), { ssr: false });
+const RevenueDetails = dynamic(() => import("@/sections/dashboard/revenue-details"), { ssr: false });
+const ClaimDetails = dynamic(() => import("@/sections/dashboard/claim-details"), { ssr: false });
+const Announcement = dynamic(() => import("@/sections/dashboard/announcement"), { ssr: false });
+const RecentActivity = dynamic(() => import("@/sections/dashboard/recently-activity"), { ssr: false });
 
 export default function DashboardPage() {
   const router = useRouter();
