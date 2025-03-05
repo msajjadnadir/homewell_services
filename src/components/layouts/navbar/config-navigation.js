@@ -63,7 +63,7 @@ export function useNavData() {
       },
       {
         title: "EVV Compliance",
-        path: paths.dashboard.evv_compliance,
+        path: paths.dashboard.evv_compliance.root,
         icon: ICONS.evv_compliance,
       },
       {

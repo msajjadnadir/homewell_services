@@ -32,7 +32,11 @@ export const paths = {
     claims: `/claims`,
     forms: `/forms`,
     time_cards: `/time_cards`,
-    evv_compliance: `/evv_compliance`,
+    evv_compliance: {
+      root: `/evv_compliance`,
+      compliance_report: `/evv_compliance/compliance_report`,
+      audit_report: `/evv_compliance/audit_report`,
+    },
     document_management: {
       root: `/document_management`,
       add: `/document_management/add`,
