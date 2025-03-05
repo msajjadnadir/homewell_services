@@ -28,7 +28,9 @@ export const paths = {
       add: `/clients/add`,
     },
     agency: `/agency`,
-    schedules: `/schedules`,
+    schedules: {
+      root: `/schedules`,
+    },
     claims: `/claims`,
     forms: `/forms`,
     time_cards: `/time_cards`,
