@@ -1,4 +1,4 @@
-import { tabData } from "@/contants/const";
+import { tabData } from "@/constants/const";
 
 export default function AddCaregiverTabs({ tab, setTab }) {
   return (

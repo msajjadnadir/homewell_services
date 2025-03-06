@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import AddCaregiverGeneral from "@/sections/caregivers/add/general";
 import AddCaregiverTabs from "@/sections/caregivers/add/tabs";
-import { tabData } from "@/contants/const";
+import { tabData } from "@/constants/const";
 import AddCaregiverLocation from "@/sections/caregivers/add/location";
 import AddCaregiverAdvanced from "@/sections/caregivers/add/advanced";
 import AddCaregiverPreferences from "@/sections/caregivers/add/preferences";
