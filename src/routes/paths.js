@@ -30,6 +30,7 @@ export const paths = {
     agency: `/agency`,
     schedules: {
       root: `/schedules`,
+      add: `/schedules/add`,
     },
     claims: `/claims`,
     forms: `/forms`,
@@ -44,7 +45,10 @@ export const paths = {
       add: `/document_management/add`,
     },
     role_setup: `/role_setup`,
-    snapshots: `/snapshots`,
+    snapshot: {
+      root: `/snapshot`,
+      add: `/snapshot/add`,
+    },
     map_view: `/map_view`,
     invoices: `/invoices`,
     announcements: `/announcements`,

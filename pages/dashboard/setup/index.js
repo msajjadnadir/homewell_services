@@ -12,7 +12,7 @@ export default function SetupPage() {
       <div className="flex flex-row w-full justify-between">
         <div className="flex flex-col">
           <span className="font-satoshi text-[40px] font-bold leading-[54px] tracking-[0.016] text-gray-900">
-            Dashboard Setupp
+            Dashboard Setup
           </span>
           <div className="flex flex-row gap-10 items-center mt-11">
             <span className="font-satoshi text-[18px] font-medium leading-[24px] tracking-[-0.02] text-black">

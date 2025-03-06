@@ -20,7 +20,7 @@ const ICONS = {
   evv_compliance: "evv_compliance",
   document_management: "document_management",
   role_setup: "role_setup",
-  snapshots: "snapshots",
+  snapshot: "snapshot",
   map_view: "map_view",
   invoices: "invoices",
   announcements: "announcements",
@@ -77,9 +77,9 @@ export function useNavData() {
         icon: ICONS.role_setup,
       },
       {
-        title: "Snapshots",
-        path: paths.dashboard.snapshots,
-        icon: ICONS.snapshots,
+        title: "Snapshot",
+        path: paths.dashboard.snapshot.root,
+        icon: ICONS.snapshot,
       },
       {
         title: "Map View",
