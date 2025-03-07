@@ -5,6 +5,9 @@ export const clientsTabData = [
   "Notes",
   "Care Plans/Docs",
   "Forms",
-  "Grant Admin Access",
-  "Notes",
+  "Activity Code",
+  "Billing",
+  "Insurance",
+  "Custom Prompts",
+  "Authorizations",
 ];

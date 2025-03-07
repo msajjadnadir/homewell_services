@@ -1,12 +1,5 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { format } from "date-fns";
 import { Calendar } from "lucide-react";
 
@@ -19,96 +12,67 @@ import {
 } from "@/components/ui/popover";
 
 export default function AddCaregiverLocation() {
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(null);
 
   return (
     <div className="flex flex-col gap-6 mt-[46px]">
+      {/* Address Fields */}
       <div className="flex flex-col gap-4">
-        <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-          Address Line
-        </span>
+        <span className="font-medium text-[18px] text-gray-900">Address Line</span>
         <Input placeholder="Enter your Address" />
       </div>
       <div className="flex flex-col gap-4">
-        <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-          Address Line 2
-        </span>
-        <Input placeholder="Enter your Address 2 (optionla)" />
+        <span className="font-medium text-[18px] text-gray-900">Address Line 2</span>
+        <Input placeholder="Enter your Address 2 (optional)" />
       </div>
+
+      {/* Zip, County, City, State */}
       <div className="flex flex-col gap-4">
-        <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
+        <span className="font-medium text-[18px] text-gray-900">
           Zip/County/City/State
         </span>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-4 gap-4">
           <Input placeholder="Zip" />
           <Input placeholder="County" />
           <Input placeholder="City" />
           <Input placeholder="State" />
         </div>
       </div>
-      <div className="flex flex-col gap-4">
-        <div className="grid grid-cols-2 gap-6">
-          <div className="flex flex-col gap-4">
-            <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-              Country
-            </span>
-            <Input placeholder="Country" />
-          </div>
-          <div className="flex flex-col gap-4">
-            <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-              Timezone
-            </span>
-            <Input placeholder="Timezone" />
-          </div>
-        </div>
-        <span className="font-satoshi font-medium text-base leading-[39.2px] tracking-[-0.63px] underline text-secondaryShades-base cursor-pointer">
-          Click here to View Map in Google
-        </span>
-      </div>
-      <div className="flex flex-col gap-4">
-        <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-          SSN
-        </span>
-        <Input placeholder="Enter SSN i;e: XXX-XX-XXXX" />
-      </div>
+
+      {/* Country & Timezone */}
       <div className="grid grid-cols-2 gap-6">
         <div className="flex flex-col gap-4">
-          <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-            Choose Pay Class
-          </span>
-          <Select>
-            <SelectTrigger>
-              <SelectValue placeholder="Select Pay Class" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="none">None</SelectItem>
-            </SelectContent>
-          </Select>
+          <span className="font-medium text-[18px] text-gray-900">Country</span>
+          <Input placeholder="Country" />
         </div>
         <div className="flex flex-col gap-4">
-          <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-            Pay Rate
-          </span>
-          <Input placeholder="Enter Pay Rate" />
+          <span className="font-medium text-[18px] text-gray-900">Timezone</span>
+          <Input placeholder="Timezone" />
         </div>
       </div>
+
+      <span className="font-medium text-base underline text-blue-600 cursor-pointer">
+        Click here to View Map in Google
+      </span>
+
+      {/* Authorized Phone & Birthday */}
       <div className="grid grid-cols-2 gap-6">
         <div className="flex flex-col gap-4">
-          <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-            Hire Date
-          </span>
+          <span className="font-medium text-[18px] text-gray-900">Authorized Phone</span>
+          <Input placeholder="Phone" />
+        </div>
+        <div className="flex flex-col gap-4 relative">
+          <span className="font-medium text-[18px] text-gray-900">Birthday</span>
           <Popover>
             <PopoverTrigger asChild>
-              <Button
-                variant={"outline"}
-                className={cn(
-                  "justify-start text-left font-normal h-10",
-                  !date && "text-muted-foreground"
-                )}
-              >
-                {date ? format(date, "PPP") : <span>Pick a date</span>}
-                <Calendar className="ml-auto h-4 w-4 opacity-50" />
-              </Button>
+              <div className="relative">
+                <Input
+                  placeholder="dd/mm/yyyy"
+                  value={date ? format(date, "dd/MM/yyyy") : ""}
+                  readOnly
+                />
+                <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
+              </div>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0">
               <Calendar
@@ -120,33 +84,28 @@ export default function AddCaregiverLocation() {
             </PopoverContent>
           </Popover>
         </div>
+      </div>
+
+      {/* SSN */}
+      <div className="flex flex-col gap-4">
+        <span className="font-medium text-[18px] text-gray-900">SSN</span>
+        <Input placeholder="Enter SSN i.e: XXX-XX-XXXX" />
+      </div>
+
+      {/* Email, Cell Phone, Work Phone */}
+      <div className="grid grid-cols-2 gap-6">
         <div className="flex flex-col gap-4">
-          <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-            Birthday
-          </span>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button
-                variant={"outline"}
-                className={cn(
-                  "justify-start text-left font-normal h-10",
-                  !date && "text-muted-foreground"
-                )}
-              >
-                {date ? format(date, "PPP") : <span>Pick a date</span>}
-                <Calendar className="ml-auto h-4 w-4 opacity-50" />
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0">
-              <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                initialFocus
-              />
-            </PopoverContent>
-          </Popover>
+          <span className="font-medium text-[18px] text-gray-900">Email</span>
+          <Input placeholder="Enter Email" />
         </div>
+        <div className="flex flex-col gap-4">
+          <span className="font-medium text-[18px] text-gray-900">Cell Phone</span>
+          <Input placeholder="Phone" />
+        </div>
+      </div>
+      <div className="flex flex-col gap-4">
+        <span className="font-medium text-[18px] text-gray-900">Work Phone</span>
+        <Input placeholder="Phone" />
       </div>
     </div>
   );

@@ -8,8 +8,8 @@ export default function ViewCaregiverPage() {
   const router = useRouter();
   
   return (
-    <div className="flex flex-col w-full">
-      <span className="font-satoshi font-bold text-[40px] leading-[54px] tracking-[0.016em] text-[#00261C]">
+    <div className="flex flex-col w-full font-satoshi ">
+      <span className="font-bold text-[40px] leading-[54px] tracking-[0.016em] text-[#00261C]">
         View Caregiver
       </span>
 

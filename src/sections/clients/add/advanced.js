@@ -1,104 +1,286 @@
-import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
-export default function AddCaregiverAdvanced() {
+
+export default function advanced() {
   return (
-    <div className="flex flex-col gap-6 mt-[46px]">
+    <div className="flex flex-col gap-6 mt-12">
       <div className="flex flex-col gap-4">
-        <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-          External Code 1
+        <span>
+          Medical Record Id
         </span>
-        <Input placeholder="External Code 1" />
+        <Input />
       </div>
       <div className="flex flex-col gap-4">
-        <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
+        <span>
+          Medicaid ID
+        </span>
+        <Input />
+      </div>
+      <div className="flex flex-col gap-4">
+        <span>
           External Code 2
         </span>
-        <Input placeholder="External Code 2" />
+        <Input />
+      </div>
+      <div className="flex flex-col gap-4">
+        <span>
+          Agency Job Id
+        </span>
+        <Input />
+      </div>
+      <div className="flex flex-col gap-4">
+        <span>
+          Budgeted Hours
+        </span>
+        <Input />
+      </div>
+      <div className="flex flex-col gap-4">
+        <span>
+          Notes for Budgeted Hours
+        </span>
+        <Input />
       </div>
       <div className="grid grid-cols-2 gap-6">
         <div className="flex flex-col gap-4">
-          <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-            Agency Emp. ID
+          <span>
+            Service Item
           </span>
-          <Input placeholder="Agency Emp. ID" />
+          <Input />
         </div>
         <div className="flex flex-col gap-4">
-          <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-            Phone/Text
+          <span>
+            Pay Type
           </span>
-          <Input placeholder="1234567890000" />
+          <Input />
         </div>
+      </div>
+      <div className="flex flex-col gap-[16px]">
+        <span className="">
+          Caregiver Hourly Pay Override
+        </span>
+        <RadioGroup className="flex flex-row gap-6">
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="yes" id="yes" />
+            <label htmlFor="yes">Yes</label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="no" id="no" checked />
+            <label htmlFor="no">No</label>
+          </div>
+        </RadioGroup>
+      </div>
+      <div className="flex flex-col">
+        <div className="flex flex-col gap-4">
+          <span>
+            Alerts
+          </span>
+          <div className="flex flex-row gap-12">
+            <div className="flex items-center space-x-6">
+              <Checkbox id="terms" className="w-6 h-6" checked />
+              <label
+                htmlFor="terms"
+              >
+                2 Hours Warning
+              </label>
+            </div>
+            <div className="flex items-center space-x-6">
+              <Checkbox id="terms" className="w-6 h-6" checked />
+              <label
+                htmlFor="terms"
+              >
+                Late Clock In
+              </label>
+            </div>
+            <div className="flex items-center space-x-6">
+              <Checkbox id="terms" className="w-6 h-6" checked />
+              <label
+                htmlFor="terms"
+              >
+                Late Clock Out
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-[16px]">
+        <span className="">
+          Send Alerts to
+        </span>
+        <RadioGroup className="flex flex-row gap-6">
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="yes" id="yes" />
+            <label htmlFor="yes">Employee Zone</label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="no" id="no" checked />
+            <label htmlFor="no">Job's Zone</label>
+          </div>
+        </RadioGroup>
+      </div>
+      <div className="flex flex-col gap-[16px]">
+        <span className="">
+          Allow Simultaneous Clock-in
+        </span>
+        <RadioGroup className="flex flex-row gap-6">
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="yes" id="yes" />
+            <label htmlFor="yes">Yes</label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="no" id="no" checked />
+            <label htmlFor="no">No</label>
+          </div>
+        </RadioGroup>
+      </div>
+      <div className="flex flex-col gap-[16px]">
+        <span className="">
+          Live In
+        </span>
+        <RadioGroup className="flex flex-row gap-6">
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="yes" id="yes" />
+            <label htmlFor="yes">Yes</label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="no" id="no" checked />
+            <label htmlFor="no">No</label>
+          </div>
+        </RadioGroup>
+      </div>
+      <div className="flex flex-col gap-[16px]">
+        <span className="">
+          Contigency Plan Available
+        </span>
+        <RadioGroup className="flex flex-row gap-6">
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="yes" id="yes" />
+            <label htmlFor="yes">Yes</label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="no" id="no" checked />
+            <label htmlFor="no">No</label>
+          </div>
+        </RadioGroup>
       </div>
       <div className="flex flex-col gap-4">
-        <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-          Email
+        <span>
+          Job Group
         </span>
-        <Input placeholder="Enter your email" />
+        <Input />
       </div>
-      <div className="flex flex-col gap-[6px]">
+      <div className="flex flex-col">
         <div className="flex flex-col gap-4">
-          <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-            How To Notify?
+          <span>
+            Client Prefrences
           </span>
           <div className="flex flex-row gap-12">
             <div className="flex items-center space-x-6">
               <Checkbox id="terms" className="w-6 h-6" />
               <label
                 htmlFor="terms"
-                className="font-satoshi font-medium text-base leading-[21.6px] tracking-[0] peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
-                Text SMS
+                Spanish Speaking
               </label>
             </div>
             <div className="flex items-center space-x-6">
               <Checkbox id="terms" className="w-6 h-6" />
               <label
                 htmlFor="terms"
-                className="font-satoshi font-medium text-base leading-[21.6px] tracking-[0] peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
-                Email
+                Male Caregiver
+              </label>
+            </div>
+            <div className="flex items-center space-x-6">
+              <Checkbox id="terms" className="w-6 h-6" />
+              <label
+                htmlFor="terms"
+              >
+                Female Caregiver
+              </label>
+            </div>
+            <div className="flex items-center space-x-6">
+              <Checkbox id="terms" className="w-6 h-6" />
+              <label
+                htmlFor="terms"
+              >
+                Dementia
               </label>
             </div>
           </div>
-        </div>
-        <span className="font-satoshi font-normal text-base leading-[31px] tracking-[-0.63px] text-error-500">
-          Based on scheduled shifts, caregiver employee and staff member(s) in
-          Zone/Notify Tab gets alerted for late clock-in, late clock-out and
-          schedule reminder
-        </span>
-      </div>
-      <div className="flex flex-col gap-[6px]">
-        <div className="flex flex-col gap-4">
-          <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
-            Notify Staff When?
-          </span>
           <div className="flex flex-row gap-12">
             <div className="flex items-center space-x-6">
               <Checkbox id="terms" className="w-6 h-6" />
               <label
                 htmlFor="terms"
-                className="font-satoshi font-medium text-base leading-[21.6px] tracking-[0] peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
-                All Check-Ins
+                Incontinence
               </label>
             </div>
             <div className="flex items-center space-x-6">
               <Checkbox id="terms" className="w-6 h-6" />
               <label
                 htmlFor="terms"
-                className="font-satoshi font-medium text-base leading-[21.6px] tracking-[0] peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
-                All Check-Outs
+                Meal Prep
+              </label>
+            </div>
+            <div className="flex items-center space-x-6">
+              <Checkbox id="terms" className="w-6 h-6" />
+              <label
+                htmlFor="terms"
+              >
+                Smoking
+              </label>
+            </div>
+            <div className="flex items-center space-x-6">
+              <Checkbox id="terms" className="w-6 h-6" />
+              <label
+                htmlFor="terms"
+              >
+                Has Dogs
               </label>
             </div>
           </div>
         </div>
-        <span className="font-satoshi font-normal text-base leading-[31px] tracking-[-0.63px] text-error-500">
-          Staff member(s) in Zone/Notify Tab gets alerted for caregiver employee
-          clock-ins and clock-outs
-        </span>
+        <div className="flex flex-col gap-4 mt-6">
+          <span>
+            Client Requirements Skill/License
+          </span>
+          <Input />
+        </div>
+        <div className="flex flex-col">
+          <div className="flex flex-col gap-4 mt-4">
+            <span>
+              Full Weight Transfer
+            </span>
+            <div className="flex flex-row gap-12">
+              <div className="flex items-center space-x-6">
+                <Checkbox id="terms" className="w-6 h-6" />
+                <label
+                  htmlFor="terms"
+
+                >
+                  Full Weight Transfer
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mt-6">
+          <span>
+            Do Not Schedule With Employee
+          </span>
+          <div className="grid grid-cols-2 gap-6 mt-4">
+            <div className="flex flex-col gap-4">
+              <Input />
+            </div>
+            <div className="flex flex-col gap-4">
+              <Input />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

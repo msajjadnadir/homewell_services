@@ -15,6 +15,8 @@ import {
   PaginationEllipsis,
   PaginationNext,
 } from "@/components/ui/pagination";
+import { useRouter } from "next/navigation";
+import { paths } from "@/routes/paths";
 
 const invoices = [
   {
@@ -27,13 +29,16 @@ const invoices = [
 ];
 
 export default function CaregiversList() {
+
+  const router = useRouter();
+
   return (
     <div className="flex flex-col mt-[60px] gap-5 items-start justify-start">
       <Table>
         <TableHeader>
           <TableRow className="bg-[#DED1F6] rounded-t-[8px]">
             <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
-              Job Code  
+              Job Code
             </TableHead>
             <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
               Job Name
@@ -74,7 +79,10 @@ export default function CaregiversList() {
                 <button className="font-satoshi font-medium text-[16px] leading-[21.6px] tracking-[0px] text-gray-900 bg-success-100 px-3 py-1 rounded-[6px]">
                   Edit
                 </button>
-                <button className="font-satoshi font-medium text-[16px] leading-[21.6px] tracking-[0px] text-gray-900 bg-primaryShades-100 px-3 py-1 rounded-[6px]">
+                <button 
+                  className="font-satoshi font-medium text-[16px] leading-[21.6px] tracking-[0px] text-gray-900 bg-primaryShades-100 px-3 py-1 rounded-[6px]"
+                  onClick={() => router.push(paths.dashboard.clients.view)}
+                >
                   View
                 </button>
               </TableCell>
@@ -82,7 +90,7 @@ export default function CaregiversList() {
           ))}
         </TableBody>
       </Table>
-      {/* <Pagination className="justify-start">
+      <Pagination className="justify-start">
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious href="#" />
@@ -100,7 +108,7 @@ export default function CaregiversList() {
             <PaginationNext href="#" />
           </PaginationItem>
         </PaginationContent>
-      </Pagination> */}
+      </Pagination>
     </div>
   );
 }

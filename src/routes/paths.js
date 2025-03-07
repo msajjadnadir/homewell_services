@@ -26,6 +26,7 @@ export const paths = {
     clients: {
       root: `/clients`,
       add: `/clients/add`,
+      view: `/clients/view`,
     },
     agency: `/agency`,
     schedules: {
