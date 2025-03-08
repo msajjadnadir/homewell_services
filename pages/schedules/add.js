@@ -11,8 +11,11 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useRouter } from "next/navigation";
+import { paths } from "@/routes/paths";
 
 export default function AddSchedule() {
+    const router = useRouter();
     const [selectedShift, setSelectedShift] = useState("add-shift");
 
     return (
@@ -170,7 +173,7 @@ export default function AddSchedule() {
                             <Checkbox className="mr-2" /> Distance From Job
                             <Checkbox className="mr-2" /> Not Go Into Overtime
                         </div>
-                        <Button variant="default" className="mt-4 px-8 bg-gray-800 text-white w-36">
+                        <Button variant="default" className="mt-4 px-10 bg-gray-800 text-white w-36">
                             Search
                         </Button>
                     </div>
@@ -178,11 +181,17 @@ export default function AddSchedule() {
             )}
 
             <div className="flex justify-end gap-4">
-                <Button variant="destructive" className="px-8">Cancel</Button>
+                <Button variant="destructive" className="px-10">Cancel</Button>
                 {selectedShift === "open-shift" ? (
-                    <Button variant="default" className="px-8 bg-purple-500 text-white">Schedule Shift</Button>
+                    <Button variant="default" className="px-10 bg-purple-400 text-white">Schedule Shift</Button>
                 ) : (
-                    <Button variant="default" className="px-8 bg-purple-500 text-white">Add Shift</Button>
+                    <Button 
+                        variant="default" 
+                        className="px-10 bg-purple-500 text-white"
+                        onClick={() => router.push(paths.dashboard.schedules.reschedule_shift)}
+                    >
+                        Add Shift
+                    </Button>
                 )}
             </div>
         </div>

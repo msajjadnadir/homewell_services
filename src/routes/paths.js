@@ -1,5 +1,7 @@
 // ----------------------------------------------------------------------
 
+import evv_compliance_report from "../../pages/schedules/evv_compliance_report";
+
 const ROOTS = {
   AUTH: "/auth",
   DASHBOARD: "/dashboard",
@@ -32,6 +34,12 @@ export const paths = {
     schedules: {
       root: `/schedules`,
       add: `/schedules/add`,
+      reschedule_shift: `/schedules/reschedule_shift`,
+      shift_swap_request: `/schedules/shift_swap_request`,
+      shift_details: `/schedules/shift_details`,
+      evv_compliance_report: `/schedules/evv_compliance_report`,
+      overview_review: `/schedules/overview_review`,
+      shift_reassignment: `/schedules/shift_reassignment`,
     },
     claims: `/claims`,
     forms: `/forms`,
