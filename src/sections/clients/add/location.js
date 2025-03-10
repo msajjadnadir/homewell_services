@@ -2,14 +2,8 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { format } from "date-fns";
 import { Calendar } from "lucide-react";
-
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function AddCaregiverLocation() {
   const [date, setDate] = useState(null);
@@ -63,26 +57,15 @@ export default function AddCaregiverLocation() {
         </div>
         <div className="flex flex-col gap-4 relative">
           <span className="font-medium text-[18px] text-gray-900">Birthday</span>
-          <Popover>
-            <PopoverTrigger asChild>
-              <div className="relative">
-                <Input
-                  placeholder="dd/mm/yyyy"
-                  value={date ? format(date, "dd/MM/yyyy") : ""}
-                  readOnly
-                />
-                <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
-              </div>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0">
-              <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                initialFocus
-              />
-            </PopoverContent>
-          </Popover>
+          <div className="relative">
+            <DatePicker
+              selected={date}
+              dateFormat="MM/dd/yyyy"
+              className="w-full border border-gray-300 rounded-md p-2 pl-10"
+              placeholderText="Select date"
+            />
+            <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
+          </div>
         </div>
       </div>
 

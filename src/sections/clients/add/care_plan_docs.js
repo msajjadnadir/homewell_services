@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Calendar } from "lucide-react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function CarePlanDocs() {
+  const [date, setDate] = useState(new Date());
+
   return (
     <div className="flex flex-col mt-[46px] gap-6">
       <div className="flex flex-col gap-4">
@@ -17,8 +22,13 @@ export default function CarePlanDocs() {
             Document Date
           </label>
           <div className="relative">
-            <Input placeholder="dd/mm/yyyy" />
-            <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+            <DatePicker
+              selected={date}
+              dateFormat="MM/dd/yyyy"
+              className="w-full border border-gray-300 rounded-md p-2 pl-10"
+              placeholderText="Select date"
+            />
+            <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
           </div>
         </div>
         <div className="flex flex-col gap-[16px]">
@@ -26,8 +36,13 @@ export default function CarePlanDocs() {
             Renewal Date
           </label>
           <div className="relative">
-            <Input placeholder="dd/mm/yyyy" />
-            <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+            <DatePicker
+              selected={date}
+              dateFormat="MM/dd/yyyy"
+              className="w-full border border-gray-300 rounded-md p-2 pl-10"
+              placeholderText="Select date"
+            />
+            <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
           </div>
         </div>
       </div>

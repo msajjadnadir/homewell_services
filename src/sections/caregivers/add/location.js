@@ -7,17 +7,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { format } from "date-fns";
-import { Calendar } from "lucide-react";
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Calendar as CalendarIcon } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Calendar } from "lucide-react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 export default function AddCaregiverLocation() {
   const [date, setDate] = useState(new Date());
@@ -98,55 +92,29 @@ export default function AddCaregiverLocation() {
           <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Hire Date
           </span>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button
-                variant={"outline"}
-                className={cn(
-                  "justify-start text-left font-normal h-10",
-                  !date && "text-muted-foreground"
-                )}
-              >
-                {date ? format(date, "PPP") : <span>Pick a date</span>}
-                <Calendar className="ml-auto h-4 w-4 opacity-50" />
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0">
-              <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                initialFocus
-              />
-            </PopoverContent>
-          </Popover>
+          <div className="relative">
+            <DatePicker
+              selected={date}
+              dateFormat="MM/dd/yyyy"
+              className="w-full border border-gray-300 rounded-md p-2 pl-10"
+              placeholderText="Select date"
+            />
+            <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
+          </div>
         </div>
         <div className="flex flex-col gap-4">
           <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Birthday
           </span>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button
-                variant={"outline"}
-                className={cn(
-                  "justify-start text-left font-normal h-10",
-                  !date && "text-muted-foreground"
-                )}
-              >
-                {date ? format(date, "PPP") : <span>Pick a date</span>}
-                <Calendar className="ml-auto h-4 w-4 opacity-50" />
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0">
-              <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                initialFocus
-              />
-            </PopoverContent>
-          </Popover>
+          <div className="relative">
+            <DatePicker
+              selected={date}
+              dateFormat="MM/dd/yyyy"
+              className="w-full border border-gray-300 rounded-md p-2 pl-10"
+              placeholderText="Select date"
+            />
+            <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
+          </div>
         </div>
       </div>
     </div>

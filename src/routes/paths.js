@@ -63,5 +63,18 @@ export const paths = {
     announcements: `/announcements`,
     settings: `/settings`,
     dashboardSetup: `${ROOTS.DASHBOARD}/setup`,
+    facility_setup: {
+      root: `/facility_setup`,
+      add: `/facility_setup/add`,
+      edit: `/facility_setup/edit`,
+    },
+    manage_group: {
+      root: `/manage_group`,
+      add: `/manage_group/add`,
+    },
+    zone: {
+      root: `/zone`,
+      add: `/zone/add`,
+    },
   },
 };

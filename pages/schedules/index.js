@@ -4,11 +4,12 @@ import Action from "@/sections/schedules/action";
 import Filter from "@/sections/schedules/filter";
 import Filter2 from "@/sections/schedules/filter2";
 import List from "@/sections/schedules/list";
+import Calendar from "@/sections/schedules/calendar";
 import { Button } from "@/components/ui/button";
 
 export default function CaregiversPage() {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full font-satoshi">
       <Action />
       <Filter />
       <List />
@@ -27,7 +28,8 @@ export default function CaregiversPage() {
         </div>
       </div>
       <div className="flex flex-col mt-12">
-            <img src="/assets/images/schedule_calendar.png" />
+            {/* <img src="/assets/images/schedule_calendar.png" /> */}
+            <Calendar />
       </div>
     </div>
   );
