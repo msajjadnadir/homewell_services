@@ -1,25 +1,24 @@
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Calendar } from "lucide-react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function daily_hours_chart() {
+export default function custom_prompt_report_detail() {
+
     const [date, setDate] = useState(new Date());
 
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
             <span className="text-5xl font-bold">
-                Daily Hours Chart
+                Custom Prompt Report Detail
             </span>
-            <span className="text-gray-500">
-                View the aggregated hours of work per day. You can filter by the Zone, Employee, and a date range.
-            </span>
-            <div className="grid grid-cols-4 gap-6">
+            <div className="grid grid-cols-5 gap-6">
                 <Select>
                     <SelectTrigger>
-                        <SelectValue placeholder="Select Employee" />
+                        <SelectValue placeholder="Select Option" />
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="option">Option</SelectItem>
@@ -28,6 +27,14 @@ export default function daily_hours_chart() {
                 <Select>
                     <SelectTrigger>
                         <SelectValue placeholder="Select Zone" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="option">Option</SelectItem>
+                    </SelectContent>
+                </Select>
+                <Select>
+                    <SelectTrigger>
+                        <SelectValue placeholder="Select Value" />
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="option">Option</SelectItem>
@@ -56,6 +63,17 @@ export default function daily_hours_chart() {
                     </div>
                 </div>
             </div>
+            <div className="grid grid-cols-2 gap-6">
+                <Select>
+                    <SelectTrigger>
+                        <SelectValue placeholder="Select Question" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="option">Option</SelectItem>
+                    </SelectContent>
+                </Select>
+                <Input placeholder="Enter Answer" />
+            </div>
             <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row gap-4 select-none">
                     <Button variant="default" className="bg-success-500 px-10">
@@ -68,6 +86,9 @@ export default function daily_hours_chart() {
                 <div className="flex flex-row gap-4">
                     <Button variant="default" className="bg-sky-900 px-10">
                         Export Excel
+                    </Button>
+                    <Button variant="default" className="bg-sky-900 px-10">
+                        Download PDF
                     </Button>
                 </div>
             </div>

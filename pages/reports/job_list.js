@@ -5,21 +5,19 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function daily_hours_chart() {
+export default function job_list() {
+
     const [date, setDate] = useState(new Date());
 
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
             <span className="text-5xl font-bold">
-                Daily Hours Chart
-            </span>
-            <span className="text-gray-500">
-                View the aggregated hours of work per day. You can filter by the Zone, Employee, and a date range.
+                Job List
             </span>
             <div className="grid grid-cols-4 gap-6">
                 <Select>
                     <SelectTrigger>
-                        <SelectValue placeholder="Select Employee" />
+                        <SelectValue placeholder="Select Zone" />
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="option">Option</SelectItem>
@@ -27,7 +25,7 @@ export default function daily_hours_chart() {
                 </Select>
                 <Select>
                     <SelectTrigger>
-                        <SelectValue placeholder="Select Zone" />
+                        <SelectValue placeholder="Select Field" />
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="option">Option</SelectItem>

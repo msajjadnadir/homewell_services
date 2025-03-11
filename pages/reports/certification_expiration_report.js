@@ -3,18 +3,22 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Calendar } from "lucide-react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
+import { Checkbox } from "@/components/ui/checkbox";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function daily_hours_chart() {
+
+export default function certification_expiration_report() {
+
     const [date, setDate] = useState(new Date());
 
+    const options = [
+        "Include Inactive Employee", "Included Terminated Employee",
+    ];
+
     return (
-        <div className="flex flex-col space-y-8 w-full font-satoshi">
+        <div className="flex flex-col space-y-12 w-full font-satoshi">
             <span className="text-5xl font-bold">
-                Daily Hours Chart
-            </span>
-            <span className="text-gray-500">
-                View the aggregated hours of work per day. You can filter by the Zone, Employee, and a date range.
+                Certification Expiration Report
             </span>
             <div className="grid grid-cols-4 gap-6">
                 <Select>
@@ -56,6 +60,17 @@ export default function daily_hours_chart() {
                     </div>
                 </div>
             </div>
+            <div className="grid grid-cols-4 gap-6">
+                <div className="col-span-4">
+                    <span className="font-semibold">Output Options</span>
+                </div>
+                {options.map((option, index) => (
+                    <div key={index} className="flex items-center space-x-2">
+                        <Checkbox id={option} className="w-5 h-5" />
+                        <label htmlFor={option} className="text-sm">{option}</label>
+                    </div>
+                ))}
+            </div>
             <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row gap-4 select-none">
                     <Button variant="default" className="bg-success-500 px-10">
@@ -68,6 +83,9 @@ export default function daily_hours_chart() {
                 <div className="flex flex-row gap-4">
                     <Button variant="default" className="bg-sky-900 px-10">
                         Export Excel
+                    </Button>
+                    <Button variant="default" className="bg-sky-900 px-10">
+                        Download PDF
                     </Button>
                 </div>
             </div>

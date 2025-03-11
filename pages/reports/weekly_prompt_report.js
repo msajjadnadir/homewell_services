@@ -3,23 +3,27 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Calendar } from "lucide-react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
+import { Checkbox } from "@/components/ui/checkbox";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function daily_hours_chart() {
+
+export default function weekly_prompt_report() {
+
     const [date, setDate] = useState(new Date());
 
+    const options = [
+        "Show Medicaid ID", "Show Client D.O.B", "Show Signature in PDF",
+    ];
+
     return (
-        <div className="flex flex-col space-y-8 w-full font-satoshi">
+        <div className="flex flex-col space-y-12 w-full font-satoshi">
             <span className="text-5xl font-bold">
-                Daily Hours Chart
-            </span>
-            <span className="text-gray-500">
-                View the aggregated hours of work per day. You can filter by the Zone, Employee, and a date range.
+                Weekly Prompt Report
             </span>
             <div className="grid grid-cols-4 gap-6">
                 <Select>
                     <SelectTrigger>
-                        <SelectValue placeholder="Select Employee" />
+                        <SelectValue placeholder="Select Option" />
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="option">Option</SelectItem>
@@ -69,7 +73,21 @@ export default function daily_hours_chart() {
                     <Button variant="default" className="bg-sky-900 px-10">
                         Export Excel
                     </Button>
+                    <Button variant="default" className="bg-sky-900 px-10">
+                        Download PDF
+                    </Button>
+                    <Button variant="default" className="bg-sky-950 px-10">
+                        Download DMAS-90 PDF
+                    </Button>
                 </div>
+            </div>
+            <div className="grid grid-cols-4 gap-6">
+                {options.map((option, index) => (
+                    <div key={index} className="flex items-center space-x-2">
+                        <Checkbox id={option} className="w-5 h-5" />
+                        <label htmlFor={option} className="text-sm">{option}</label>
+                    </div>
+                ))}
             </div>
         </div>
     )
