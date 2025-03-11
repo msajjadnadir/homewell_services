@@ -1,18 +1,28 @@
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function employee_list() {
+export default function authorization_report() {
 
-    const [date, setDate] = useState(new Date());
+    const options = [
+        "Show Inactive Jobs", "Show On Hold Jobs",
+    ];
 
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
             <span className="text-5xl font-bold">
-            Employee List
+                Authorization Report
             </span>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-5 gap-6">
+                <Select>
+                    <SelectTrigger>
+                        <SelectValue placeholder="Select Job" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="option">Option</SelectItem>
+                    </SelectContent>
+                </Select>
                 <Select>
                     <SelectTrigger>
                         <SelectValue placeholder="Select Zone" />
@@ -21,14 +31,14 @@ export default function employee_list() {
                         <SelectItem value="option">Option</SelectItem>
                     </SelectContent>
                 </Select>
-                <Select>
-                    <SelectTrigger>
-                        <SelectValue placeholder="All" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="option">Option</SelectItem>
-                    </SelectContent>
-                </Select>
+            </div>
+            <div className="grid grid-cols-4 gap-6">
+                {options.map((option, index) => (
+                    <div key={index} className="flex items-center space-x-2">
+                        <Checkbox id={option} className="w-5 h-5" />
+                        <label htmlFor={option} className="text-sm">{option}</label>
+                    </div>
+                ))}
             </div>
             <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row gap-4 select-none">

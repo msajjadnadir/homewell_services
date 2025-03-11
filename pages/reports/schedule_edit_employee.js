@@ -5,14 +5,14 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function authorization_vs_expiration_report() {
+export default function schedule_edit_employee() {
 
     const [date, setDate] = useState(new Date());
 
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
             <span className="text-5xl font-bold">
-                Authorization vs Expiration Report
+                Schedule Edit Employee
             </span>
             <div className="grid grid-cols-4 gap-6">
                 <Select>
@@ -61,11 +61,6 @@ export default function authorization_vs_expiration_report() {
                     </Button>
                     <Button variant="default" className="bg-warning-500 px-10">
                         Clear
-                    </Button>
-                </div>
-                <div className="flex flex-row gap-4">
-                    <Button variant="default" className="bg-sky-900 px-10">
-                        Export Excel
                     </Button>
                 </div>
             </div>

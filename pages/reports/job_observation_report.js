@@ -3,27 +3,24 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Calendar } from "lucide-react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
+import { Checkbox } from "@/components/ui/checkbox";
 import "react-datepicker/dist/react-datepicker.css";
 
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table";
 
-export default function completed_forms_report() {
+export default function job_observation_report() {
 
     const [date, setDate] = useState(new Date());
+
+    const options = [
+        "Created At", "Updated At",
+    ];
 
     return (
         <div className="flex flex-col space-y-12 w-full font-satoshi">
             <span className="text-5xl font-bold">
-                Completed Forms Report
+                Job Observation Report
             </span>
-            <div className="grid grid-cols-5 gap-6">
+            <div className="grid grid-cols-4 gap-6">
                 <Select>
                     <SelectTrigger>
                         <SelectValue placeholder="Select Job" />
@@ -40,14 +37,6 @@ export default function completed_forms_report() {
                         <SelectItem value="option">Option</SelectItem>
                     </SelectContent>
                 </Select>
-                <Select>
-                    <SelectTrigger>
-                        <SelectValue placeholder="Select Form" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="option">Option</SelectItem>
-                    </SelectContent>
-                </Select>
                 <div className="flex flex-col gap-4">
                     <div className="relative">
                         <DatePicker
@@ -70,6 +59,14 @@ export default function completed_forms_report() {
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
                 </div>
+            </div>
+            <div className="grid grid-cols-4 gap-6">
+                {options.map((option, index) => (
+                    <div key={index} className="flex items-center space-x-2">
+                        <Checkbox id={option} className="w-5 h-5" />
+                        <label htmlFor={option} className="text-sm">{option}</label>
+                    </div>
+                ))}
             </div>
             <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row gap-4 select-none">
@@ -88,42 +85,6 @@ export default function completed_forms_report() {
                         Download PDF
                     </Button>
                 </div>
-            </div>
-            <div className="flex flex-col w-full">
-                <Table className="w-full">
-                    <TableHeader>
-                        <TableRow className="bg-[#DED1F6] rounded-t-[8px]">
-                            <TableHead className="font-bold text-gray-800">
-                                Id
-                            </TableHead>
-                            <TableHead className="font-bold text-gray-800">
-                                Job First Name
-                            </TableHead>
-                            <TableHead className="font-bold text-gray-800">
-                                Job Last Name
-                            </TableHead>
-                            <TableHead className="font-bold text-gray-800">
-                                Job Code
-                            </TableHead>
-                            <TableHead className="font-bold text-gray-800">
-                                Form Title
-                            </TableHead>
-                            <TableHead className="font-bold text-gray-800">
-                                Completed Date
-                            </TableHead>
-                            <TableHead className="font-bold text-gray-800">
-                                Action
-                            </TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        <TableRow>
-                            <TableCell colSpan={7} className="text-center text-red-500 bg-red-100 font-semibold p-5">
-                                No Records Found
-                            </TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
             </div>
         </div>
     )
