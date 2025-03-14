@@ -21,15 +21,16 @@ const announcementData = [
     time: "5 Minutes ago",
   },
 ];
+
 export default function AnnouncementSection() {
   return (
-    <div className="col-span-2 flex flex-col rounded-[14px] border-2 px-8 pt-6 pb-8 border-accent-shades-300">
-      <div className="flex flex-row justify-between items-center">
+    <div className="col-span-2 flex flex-col rounded-[14px] border-2 px-4 sm:px-8 pt-6 pb-8 border-accent-shades-300">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
         <span className="font-satoshi font-medium text-[18px] leading-[28px] tracking-[0%] text-secondaryShades-900">
           Announcement
         </span>
         <Select>
-          <SelectTrigger className="w-[138px] border border-gray-300 flex">
+          <SelectTrigger className="w-full sm:w-[138px] border border-gray-300 flex">
             <SelectValue placeholder="May" />
           </SelectTrigger>
         </Select>
@@ -38,7 +39,7 @@ export default function AnnouncementSection() {
         {announcementData.map((item, index) => (
           <div
             key={"announcement" + index}
-            className="flex flex-row justify-between items-center rounded-[6px] border-[0.5px] px-4 py-3 bg-gray-100 border-[#E0E0E0] gap-[95px]"
+            className="flex flex-col sm:flex-row justify-between items-start sm:items-center rounded-[6px] border-[0.5px] px-4 py-3 bg-gray-100 border-[#E0E0E0] gap-4 sm:gap-[95px]"
           >
             <div className="flex flex-col items-start gap-[6px]">
               <span className="font-satoshi font-normal text-base leading-6 tracking-[0%] text-gray-700">
@@ -51,7 +52,7 @@ export default function AnnouncementSection() {
             <div className="flex flex-row gap-5 items-center">
               <Icon
                 icon="bi:pin-angle-fill"
-                className="text-[#686868] text-[18px] cursor-pointer  "
+                className="text-[#686868] text-[18px] cursor-pointer"
               />
               <Icon
                 icon="tabler:dots"
