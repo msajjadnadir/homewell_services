@@ -19,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full flex justify-between items-center px-6 md:px-10 h-16 md:h-20 border-b border-[#E9EBF0] font-satoshi">
+    <div className="w-full flex justify-between items-center px-6 py-6 md:px-10 h-16 md:h-20 border-b border-[#E9EBF0] font-satoshi">
       <div className="ms-8 md:ms-0">
         <span className="text-xl md:text-2xl font-medium text-primaryText-DEFAULT">
           Homewell Services
@@ -34,6 +34,33 @@ const Header = () => {
           className="text-gray-150 cursor-pointer"
           onClick={toggleMobileMenu}
         />
+      </div>
+
+      {/* Header Tabs (Visible only on desktop) */}
+      <div className="hidden md:flex items-center gap-8">
+        {headerData.map((item, index) => (
+          <div key={index} className="relative">
+            <div
+              className="flex items-center gap-1 cursor-pointer"
+              onClick={() => toggleSubMenu(index)}
+            >
+              <span className="text-sm md:text-base text-gray-150">{item.title}</span>
+              <Icon icon="uiw:down" className="text-gray-150" />
+            </div>
+
+            {openMenus[index] && (
+              <div className="absolute top-full mt-2 left-0 bg-white shadow-lg rounded-lg">
+                <ul className="text-gray-700">
+                  {item.subMenu.map((subItem, subIndex) => (
+                    <li key={subIndex} className="px-4 py-2 hover:bg-gray-100">
+                      {subItem}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
 
       {/* Bell Icon and Admin Tab (Always visible) */}
