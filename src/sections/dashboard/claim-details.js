@@ -58,13 +58,14 @@ export default function ClaimDetailsSection() {
       labels: ["Median Ratio"],
     },
   });
+
   return (
     <div className="col-span-1 flex flex-col h-full">
-      <span className="font-satoshi font-bold text-[40px] leading-[54px] tracking-[0.016em] text-primaryText-DEFAULT">
+      <span className="font-satoshi font-bold text-2xl md:text-[40px] leading-[54px] tracking-[0.016em] text-primaryText-DEFAULT">
         Claim Details
       </span>
       <div className="flex flex-col gap-3 mt-[30px] justify-between h-full">
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {claimDetails.map((detail, index) => (
             <div
               key={detail.title}
@@ -86,7 +87,7 @@ export default function ClaimDetailsSection() {
           ))}
         </div>
       </div>
-      <div className="p-9 col-span-1 flex flex-col mt-4 bg-accent-shades-500 rounded-[12px] items-center justify-between shadow-[0px_1px_2px_0px_#0A0D120F,0px_1px_3px_0px_#0A0D121A]">
+      <div className="p-4 md:p-9 col-span-1 flex flex-col mt-4 bg-accent-shades-500 rounded-[12px] items-center justify-between shadow-[0px_1px_2px_0px_#0A0D120F,0px_1px_3px_0px_#0A0D121A]">
         <div className="flex flex-row justify-end w-full">
           <Select>
             <SelectTrigger className="w-[138px] border border-gray-300 flex">
@@ -98,9 +99,10 @@ export default function ClaimDetailsSection() {
           options={state.options}
           series={state.series}
           type="radialBar"
-          width={400}
+          width="100%"
+          height="400"
         />
-        <div className="flex flex-row justify-center w-full px-4 mt-12">
+        <div className="flex flex-row justify-center w-full px-4 mt-6 md:mt-12">
           <span className="font-inter font-bold text-[16.97px] leading-[20.54px] tracking-[0%] text-center text-[#404040]">
             Claim Partial
           </span>

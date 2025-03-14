@@ -40,18 +40,18 @@ const invoices = [
 export default function DocumentExpirationSection() {
   return (
     <div className="mt-[60px] flex flex-col w-full">
-      <span className="font-satoshi font-bold text-[40px] leading-[54px] tracking-[0.016em] text-primaryText-DEFAULT">
+      <span className="font-satoshi font-bold text-2xl sm:text-3xl lg:text-[40px] leading-[54px] tracking-[0.016em] text-primaryText-DEFAULT">
         Document Expiration
       </span>
-      <div className="grid grid-cols-8 gap-5 mt-[30px]">
-        <div className="col-span-3 flex flex-col">
-          <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-8 gap-5 mt-[30px]">
+        <div className="lg:col-span-3 flex flex-col">
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
             <Input
-              className="col-span-2  border border-gray-300 rounded-[6px] h-[45px]"
+              className="sm:col-span-2 border border-gray-300 rounded-[6px] h-[45px]"
               placeholder="Search Here..."
             />
-            <Select className="">
-              <SelectTrigger className="col-span-1 border border-gray-300 rounded-[6px] h-[45px]">
+            <Select>
+              <SelectTrigger className="sm:col-span-1 border border-gray-300 rounded-[6px] h-[45px]">
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
               <SelectContent>
@@ -60,8 +60,8 @@ export default function DocumentExpirationSection() {
                 </SelectGroup>
               </SelectContent>
             </Select>
-            <Select className="">
-              <SelectTrigger className="col-span-2 border border-gray-300 rounded-[6px] h-[45px]">
+            <Select>
+              <SelectTrigger className="sm:col-span-2 border border-gray-300 rounded-[6px] h-[45px]">
                 <SelectValue placeholder="Month" />
               </SelectTrigger>
               <SelectContent>
@@ -90,7 +90,7 @@ export default function DocumentExpirationSection() {
               Clear
             </Button>
           </div>
-          <div className="grid grid-cols-2 gap-3 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8">
             <div className="flex flex-row justify-between items-start px-[14px] pt-4 pb-3 rounded-[8px] bg-gradient-to-br from-[#9C6CFE] to-[#7A41DC] from-[26.04%] to-[87%] shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-1px_rgba(0,0,0,0.06)]">
               <Icon icon="ph:user" className="text-white w-8 h-8 text-[32px]" />
               <div className="flex flex-col items-end">
@@ -115,7 +115,7 @@ export default function DocumentExpirationSection() {
             </div>
           </div>
         </div>
-        <div className="col-span-5 flex w-full">
+        <div className="lg:col-span-5 flex w-full overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow className="bg-[#DED1F6] rounded-t-[8px]">

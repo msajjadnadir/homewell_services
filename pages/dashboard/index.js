@@ -43,14 +43,38 @@ export default function DashboardPage() {
       <Overview />
       <DocumentExpiration />
       <EmployeesCaregivers />
-      <div className="grid grid-cols-3 gap-14 mt-[60px]">
+
+      {/* <div className="grid grid-cols-3 gap-14 mt-[60px]">
+        <RevenueDetails />
+        <ClaimDetails />
+      </div> */}
+
+      {/* <div className="grid grid-cols-3 gap-14 mt-[60px]">
+        <Announcement />
+        <RecentActivity />
+      </div> */}
+
+      <div className="hidden md:grid md:grid-cols-3 gap-14 mt-[60px]">
         <RevenueDetails />
         <ClaimDetails />
       </div>
-      <div className="grid grid-cols-3 gap-14 mt-[60px]">
+
+      <div className="flex flex-col gap-14 mt-[60px] md:hidden">
+        <RevenueDetails />
+        <ClaimDetails />
+      </div>
+
+      <div className="hidden md:grid md:grid-cols-3 gap-14 mt-[60px]">
         <Announcement />
         <RecentActivity />
       </div>
+
+      <div className="flex flex-col gap-14 mt-[60px] md:hidden">
+        <Announcement />
+        <RecentActivity />
+      </div>
+
+
     </div>
   );
 }
