@@ -2,11 +2,15 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Tabs from "@/sections/zone/add/tabs";
 import { zoneTabData } from "@/constants/zone/const";
+import { useRouter } from "next/navigation";
+import { paths } from "@/routes/paths";
+
 
 import BasicSetup from "@/sections/zone/add/basic_setup";
 import Notify from "@/sections/zone/add/notify";
 
 export default function Add() {
+    const router = useRouter();
     const [tab, setTab] = useState(zoneTabData[0]);
 
     return (

@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <div className="w-full flex justify-between items-center px-6 py-6 md:px-10 h-16 md:h-20 border-b border-[#E9EBF0] font-satoshi">
-      <div className="ms-8 md:ms-0">
+      <div className="ms-4 md:ms-0">
         <span className="text-xl md:text-2xl font-medium text-primaryText-DEFAULT">
           Homewell Services
         </span>

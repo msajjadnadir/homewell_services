@@ -1,6 +1,4 @@
-// ----------------------------------------------------------------------
-
-import evv_compliance_report from "../../pages/schedules/evv_compliance_report";
+import merge_pdf from "../../pages/forms/merge_pdf";
 
 const ROOTS = {
   AUTH: "/auth",
@@ -42,7 +40,6 @@ export const paths = {
       shift_reassignment: `/schedules/shift_reassignment`,
     },
     claims: `/claims`,
-    forms: `/forms`,
     time_cards: `/time_cards`,
     evv_compliance: {
       root: `/evv_compliance`,
@@ -75,6 +72,22 @@ export const paths = {
     zone: {
       root: `/zone`,
       add: `/zone/add`,
+    },
+    forms: {
+      root: `/forms`,
+      add: `/forms/add`,
+      radio: `/forms/add/radio`,
+      checkbox: `/forms/add/checkbox`,
+      dropdown: `/forms/add/dropdown`,
+      datepicker: `/forms/add/datepicker`,
+      file: `/forms/add/file`,
+      esign: `/forms/add/esign`,
+      merge_pdf: `/forms/merge_pdf`,
+      publish_pdf: `/forms/publish_pdf`,
+      publish_form: `/forms/publish_form`,
+      users: `/forms/users`,
+      sending: `/forms/sending`,
+      successful: `/forms/successful`,
     },
   },
 };
