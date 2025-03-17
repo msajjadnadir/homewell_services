@@ -40,7 +40,11 @@ export const paths = {
       shift_reassignment: `/schedules/shift_reassignment`,
     },
     claims: `/claims`,
-    time_cards: `/time_cards`,
+    time_cards: {
+      root: `/time_cards/add`,
+      timesheet: `/time_cards/timesheet`,
+      timesheet_plus: `/time_cards/timesheet_plus`,
+    },
     evv_compliance: {
       root: `/evv_compliance`,
       compliance_report: `/evv_compliance/compliance_report`,

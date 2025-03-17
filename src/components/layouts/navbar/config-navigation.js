@@ -58,7 +58,7 @@ export function useNavData() {
       { title: "Forms", path: paths.dashboard.forms.root, icon: ICONS.forms },
       {
         title: "Time Cards",
-        path: paths.dashboard.time_cards,
+        path: paths.dashboard.time_cards.root,
         icon: ICONS.time_cards,
       },
       {
