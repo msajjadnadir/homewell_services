@@ -4,14 +4,11 @@ import { Icon } from "@iconify-icon/react";
 
 const Header = () => {
   const headerData = useHeaderData();
-  const [openMenus, setOpenMenus] = useState({});
+  const [activeMenuIndex, setActiveMenuIndex] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleSubMenu = (index) => {
-    setOpenMenus((prev) => ({
-      ...prev,
-      [index]: !prev[index], // Toggle only the clicked menu
-    }));
+    setActiveMenuIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
   const toggleMobileMenu = () => {
@@ -37,27 +34,43 @@ const Header = () => {
       </div>
 
       {/* Header Tabs (Visible only on desktop) */}
-      <div className="hidden md:flex items-center gap-8">
+      <div className="hidden md:flex items-center gap-6 text-sm z-50">
         {headerData.map((item, index) => (
           <div key={index} className="relative">
             <div
-              className="flex items-center gap-1 cursor-pointer"
+              className="flex items-center gap-3 cursor-pointer"
               onClick={() => toggleSubMenu(index)}
             >
               <span className="text-sm md:text-base text-gray-150">{item.title}</span>
               <Icon icon="uiw:down" className="text-gray-150" />
             </div>
 
-            {openMenus[index] && (
-              <div className="absolute top-full mt-2 left-0 bg-white shadow-lg rounded-lg">
-                <ul className="text-gray-700">
+            {activeMenuIndex === index && (
+              // <div className="absolute w-72 mt-7 left-0 bg-white shadow-lg rounded-lg">
+              //   <ul className="text-gray-700">
+              //     {item.subMenu.map((subItem, subIndex) => (
+              //       <li key={subIndex} className="px-4 py-2 hover:bg-gray-100">
+              //         {subItem}
+              //       </li>
+              //     ))}
+              //   </ul>
+              // </div>
+              <div
+                className={`absolute ${item.title === "Reports" ? "w-[900%]" : "w-[500%]"
+                  } mt-7 left-0 bg-white shadow-lg rounded-lg p-2`}
+              >
+                <ul className="text-gray-700 flex flex-wrap">
                   {item.subMenu.map((subItem, subIndex) => (
-                    <li key={subIndex} className="px-4 py-2 hover:bg-gray-100">
+                    <li
+                      key={subIndex}
+                      className="w-1/3 px-2 py-2 hover:bg-gray-100"
+                    >
                       {subItem}
                     </li>
                   ))}
                 </ul>
               </div>
+
             )}
           </div>
         ))}
@@ -76,9 +89,8 @@ const Header = () => {
 
       {/* Sidebar for Header Tabs (Opens from the right on mobile) */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-30 ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        } md:hidden`}
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-30 ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          } md:hidden`}
       >
         <div className="p-4">
           <div className="flex justify-end">
@@ -99,7 +111,7 @@ const Header = () => {
                   <Icon icon="uiw:down" className="text-gray-150" />
                 </div>
 
-                {openMenus[index] && (
+                {activeMenuIndex === index && (
                   <div className="mt-2 ml-4">
                     <ul className="text-gray-700">
                       {item.subMenu.map((subItem, subIndex) => (

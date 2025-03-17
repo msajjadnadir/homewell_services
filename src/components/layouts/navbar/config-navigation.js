@@ -43,7 +43,14 @@ export function useNavData() {
         path: paths.dashboard.caregivers.root,
         icon: ICONS.caregivers,
       },
-      { title: "Agency", path: paths.dashboard.agency, icon: ICONS.agency },
+      {
+        title: "Agency", path: paths.dashboard.agency, icon: ICONS.agency,
+        subMenu: [
+          { title: "Agency Details", path: "/agency/manage" },
+          { title: "Facility Setup", path: "/agency/settings" },
+          { title: "Zone", path: "/agency/settings" },
+        ],
+      },
       {
         title: "Clients",
         path: paths.dashboard.clients.root,
@@ -54,7 +61,13 @@ export function useNavData() {
         path: paths.dashboard.schedules.root,
         icon: ICONS.schedules,
       },
-      { title: "Claims", path: paths.dashboard.claims, icon: ICONS.claims },
+      { title: "Claims", path: paths.dashboard.claims, icon: ICONS.claims,
+        subMenu: [
+          { title: "Manual Claim", path: "/agency/manage" },
+          { title: "Compile Visit", path: "/agency/settings" },
+          { title: "Claim Visit", path: "/agency/settings" },
+        ],
+      },
       { title: "Forms", path: paths.dashboard.forms.root, icon: ICONS.forms },
       {
         title: "Time Cards",
@@ -90,6 +103,12 @@ export function useNavData() {
         title: "Invoices",
         path: paths.dashboard.invoices,
         icon: ICONS.invoices,
+        subMenu: [
+          { title: "Account", path: "/agency/manage" },
+          { title: "Manual Invoice", path: "/agency/settings" },
+          { title: "Auto Invoice", path: "/agency/settings" },
+          { title: "Invoice List", path: "/agency/settings" },
+        ],
       },
       {
         title: "Announcements",

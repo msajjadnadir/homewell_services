@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavData, NavIcon } from "./config-navigation";
 import { Icon } from "@iconify-icon/react";
 import { useRouter } from "next/navigation";
+import { Circle } from "lucide-react";
 
 export default function Navbar() {
   const navData = useNavData();
@@ -12,6 +13,9 @@ export default function Navbar() {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  const [activeMenu, setActiveMenu] = useState(null);
+
 
   return (
     <>
@@ -54,7 +58,7 @@ export default function Navbar() {
         </div>
 
         {/* Navigation Links */}
-        <div className="flex flex-col gap-2 mt-8">
+        {/* <div className="flex flex-col gap-2 mt-8">
           {navData.map((item, index) => (
             <div
               key={"navbar" + index}
@@ -71,7 +75,73 @@ export default function Navbar() {
               </span>
             </div>
           ))}
+        </div> */}
+
+        {/* Navigation Links */}
+        <div className="flex flex-col gap-2 mt-8">
+          {navData.map((item, index) => (
+            <div key={"navbar" + index} className="flex flex-col">
+              <div
+                className="px-3 py-[10px] gap-4 flex flex-row items-center justify-between hover:cursor-pointer select-none"
+                onClick={() => {
+                  if (item.subMenu) {
+                    setActiveMenu(activeMenu === item.title ? null : item.title);
+                  } else {
+                    router.push(item.path);
+                  }
+                }}
+              >
+                <div className="flex flex-row gap-4 items-center">
+                  <img
+                    src={`/assets/icons/navbar/${item.icon}.svg`}
+                    className="w-5 h-5"
+                    alt={item.icon}
+                  />
+                  <span className="font-['Inter'] text-[14px] font-medium leading-[20px] tracking-[-0.02em] text-gray-150">
+                    {item.title}
+                  </span>
+                </div>
+
+                {/* Arrow Icon (Rotate When Active) */}
+                {item.subMenu && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`w-4 h-4 transition-transform duration-300 ${activeMenu === item.title ? "rotate-180" : ""
+                      }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                )}
+              </div>
+
+              {/* Sub-menu */}
+              {item.subMenu && activeMenu === item.title && (
+                <div className="ml-3 mt-1 pt-2 border-t border-gray-100 flex flex-col gap-2">
+                  {item.subMenu.map((subItem, subIndex) => (
+                    <div
+                      key={"submenu" + subIndex}
+                      className="py-2 flex flex-row items-center gap-5 rounded cursor-pointer"
+                      onClick={() => router.push(subItem.path)}
+                    >
+                      <Circle className="w-4 h-4 text-gray-500" /> {/* Lucide React ka Circle Icon */}
+                      <span className="text-sm text-gray-500">{subItem.title}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
+
+
 
         {/* Logout Section */}
         <div className="px-3 py-[10px] gap-4 flex flex-row items-center hover:cursor-pointer select-none mt-10">
