@@ -94,6 +94,8 @@ export const paths = {
       successful: `/forms/successful`,
     },
     invoices: {
+      root: '/invoices/account',
+      email_branding: '/invoices/account/email_branding',
       invoicing_module_guide: `/invoices/account/invoicing_module_guide`,
       auto_invoicing: `/invoices/auto_invoicing`,
       invoice_list: `/invoices/invoice_list`,
