@@ -23,14 +23,14 @@ export default function EmailBranding() {
       </div>
       <div className="flex flex-col-2 items-center justify-start gap-6">
         <Button
-          variant="default"
-          className="px-10 py-6 text-lg"
+          variant="light"
+          className="border px-10 py-6 text-lg"
           onClick={() => router.push(paths.dashboard.invoices.root)}
         >
           Account
         </Button>
         <Button
-          variant="light"
+          variant="default"
           className="border px-10 py-6 text-lg"
           onClick={() => router.push(paths.dashboard.invoices.email_branding)}
         >
