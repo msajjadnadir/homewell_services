@@ -60,7 +60,7 @@ export const paths = {
       add: `/snapshot/add`,
     },
     map_view: `/map_view`,
-    invoices: `/invoices`,
+  
     announcements: `/announcements`,
     settings: `/settings`,
     dashboardSetup: `${ROOTS.DASHBOARD}/setup`,
@@ -92,6 +92,13 @@ export const paths = {
       users: `/forms/users`,
       sending: `/forms/sending`,
       successful: `/forms/successful`,
+    },
+    invoices: {
+      invoicing_module_guide: `/invoices/account/invoicing_module_guide`,
+      auto_invoicing: `/invoices/auto_invoicing`,
+      invoice_list: `/invoices/invoice_list`,
+      invoice_list_add: `/invoices/invoice_list/add`,
+      manual_invoice_add: `/invoices/manual_invoice/add`,
     },
   },
 };

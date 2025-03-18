@@ -104,10 +104,10 @@ export function useNavData() {
         path: paths.dashboard.invoices,
         icon: ICONS.invoices,
         subMenu: [
-          { title: "Account", path: "/agency/manage" },
-          { title: "Manual Invoice", path: "/agency/settings" },
-          { title: "Auto Invoice", path: "/agency/settings" },
-          { title: "Invoice List", path: "/agency/settings" },
+          { title: "Account", path: "/invoices/account" },
+          { title: "Manual Invoice", path: "/invoices/manual_invoice" },
+          { title: "Auto Invoice", path: "/invoices/auto_invoicing" },
+          { title: "Invoice List", path: "/invoices/invoice_list" },
         ],
       },
       {
