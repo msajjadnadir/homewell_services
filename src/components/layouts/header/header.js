@@ -1,22 +1,34 @@
 import { useState } from "react";
-import { useHeaderData } from "./config-header";
-import { Icon } from "@iconify-icon/react";
+import { useRouter } from "next/navigation"; // For navigation
+import { useHeaderData } from "./config-header"; // Your custom hook for header data
+import { Icon } from "@iconify-icon/react"; // For icons
 
 const Header = () => {
+  const router = useRouter();
   const headerData = useHeaderData();
   const [activeMenuIndex, setActiveMenuIndex] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Toggle sub-menu visibility
   const toggleSubMenu = (index) => {
     setActiveMenuIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
+  // Toggle mobile menu visibility
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Handle sub-menu item click (navigate to the path)
+  const handleSubMenuClick = (path) => {
+    router.push(path); // Navigate to the specified path
+    setIsMobileMenuOpen(false); // Close mobile menu after navigation
+    setActiveMenuIndex(null); // Close sub-menu after navigation
+  };
+
   return (
     <div className="w-full flex justify-between items-center px-6 py-6 md:px-10 h-16 md:h-20 border-b border-[#E9EBF0] font-satoshi">
+      {/* Logo and Date */}
       <div className="ms-4 md:ms-0">
         <span className="text-xl md:text-2xl font-medium text-primaryText-DEFAULT">
           Homewell Services
@@ -45,16 +57,8 @@ const Header = () => {
               <Icon icon="uiw:down" className="text-gray-150" />
             </div>
 
+            {/* Sub-menu for desktop */}
             {activeMenuIndex === index && (
-              // <div className="absolute w-72 mt-7 left-0 bg-white shadow-lg rounded-lg">
-              //   <ul className="text-gray-700">
-              //     {item.subMenu.map((subItem, subIndex) => (
-              //       <li key={subIndex} className="px-4 py-2 hover:bg-gray-100">
-              //         {subItem}
-              //       </li>
-              //     ))}
-              //   </ul>
-              // </div>
               <div
                 className={`absolute ${item.title === "Reports" ? "w-[900%]" : "w-[500%]"
                   } mt-7 left-0 bg-white shadow-lg rounded-lg p-2`}
@@ -63,14 +67,14 @@ const Header = () => {
                   {item.subMenu.map((subItem, subIndex) => (
                     <li
                       key={subIndex}
-                      className="w-1/3 px-2 py-2 hover:bg-gray-100"
+                      className="w-1/3 px-2 py-2 hover:bg-gray-100 cursor-pointer"
+                      onClick={() => handleSubMenuClick(subItem.path)}
                     >
-                      {subItem}
+                      {subItem.title}
                     </li>
                   ))}
                 </ul>
               </div>
-
             )}
           </div>
         ))}
@@ -87,12 +91,13 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Sidebar for Header Tabs (Opens from the right on mobile) */}
+      {/* Mobile Menu (Opens from the right on mobile) */}
       <div
         className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-30 ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           } md:hidden`}
       >
         <div className="p-4">
+          {/* Close button for mobile menu */}
           <div className="flex justify-end">
             <Icon
               icon="ci:close-big"
@@ -100,6 +105,8 @@ const Header = () => {
               onClick={toggleMobileMenu}
             />
           </div>
+
+          {/* Mobile menu content */}
           <div className="mt-4">
             {headerData.map((item, index) => (
               <div key={index} className="relative mb-4">
@@ -111,12 +118,17 @@ const Header = () => {
                   <Icon icon="uiw:down" className="text-gray-150" />
                 </div>
 
+                {/* Sub-menu for mobile */}
                 {activeMenuIndex === index && (
                   <div className="mt-2 ml-4">
                     <ul className="text-gray-700">
                       {item.subMenu.map((subItem, subIndex) => (
-                        <li key={subIndex} className="px-4 py-2 hover:bg-gray-100">
-                          {subItem}
+                        <li
+                          key={subIndex}
+                          className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                          onClick={() => handleSubMenuClick(subItem.path)}
+                        >
+                          {subItem.title}
                         </li>
                       ))}
                     </ul>

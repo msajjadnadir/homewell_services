@@ -56,27 +56,6 @@ export default function Navbar() {
             Homewell Services
           </span>
         </div>
-
-        {/* Navigation Links */}
-        {/* <div className="flex flex-col gap-2 mt-8">
-          {navData.map((item, index) => (
-            <div
-              key={"navbar" + index}
-              className="px-3 py-[10px] gap-4 flex flex-row items-center hover:cursor-pointer select-none"
-              onClick={() => router.push(item.path)}
-            >
-              <img
-                src={`/assets/icons/navbar/${item.icon}.svg`}
-                className="w-5 h-5 fill-red-800"
-                alt={item.icon}
-              />
-              <span className="font-['Inter'] text-[14px] font-medium leading-[20px] tracking-[-0.02em] text-gray-150">
-                {item.title}
-              </span>
-            </div>
-          ))}
-        </div> */}
-
         {/* Navigation Links */}
         <div className="flex flex-col gap-2 mt-8">
           {navData.map((item, index) => (

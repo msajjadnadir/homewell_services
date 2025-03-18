@@ -1,7 +1,9 @@
-import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Calendar } from "lucide-react";
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import {
     Select,
     SelectContent,
@@ -16,16 +18,15 @@ import { paths } from "@/routes/paths";
 
 export default function AddSchedule() {
     const router = useRouter();
+    const [date, setDate] = useState(new Date());
     const [selectedShift, setSelectedShift] = useState("add-shift");
 
     return (
         <div className="flex flex-col w-full mt-10 gap-6 font-satoshi">
-            {/* Shift Selection */}
             <RadioGroup
                 value={selectedShift}
                 onValueChange={setSelectedShift}
-                className="flex gap-6 text-3xl font-semibold"
-            >
+                className="flex gap-6 text-3xl font-semibold">
                 <div className="flex items-center space-x-2">
                     <RadioGroupItem value="add-shift" id="add-shift" />
                     <label htmlFor="add-shift">Add Shift</label>
@@ -36,20 +37,29 @@ export default function AddSchedule() {
                 </div>
             </RadioGroup>
 
-            {/* Form Fields */}
             <div className="grid grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                     <label>Start Date</label>
                     <div className="relative">
-                        <Input placeholder="dd/mm/yyyy" />
-                        <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                        <DatePicker
+                            selected={date}
+                            dateFormat="MM/dd/yyyy"
+                            className="w-full border border-gray-300 rounded-md p-2 pl-10"
+                            placeholderText="Select date"
+                        />
+                        <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
                 </div>
                 <div className="flex flex-col gap-2">
                     <label>End Date</label>
                     <div className="relative">
-                        <Input placeholder="dd/mm/yyyy" />
-                        <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                        <DatePicker
+                            selected={date}
+                            dateFormat="MM/dd/yyyy"
+                            className="w-full border border-gray-300 rounded-md p-2 pl-10"
+                            placeholderText="Select date"
+                        />
+                        <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -69,7 +79,6 @@ export default function AddSchedule() {
                 </div>
             </div>
 
-            {/* Employee Selection (Only in "Add Shift") */}
             {selectedShift === "add-shift" && (
                 <div className="grid grid-cols-2 gap-6">
                     <div className="flex flex-col gap-2">
@@ -185,8 +194,8 @@ export default function AddSchedule() {
                 {selectedShift === "open-shift" ? (
                     <Button variant="default" className="px-10 bg-purple-400 text-white">Schedule Shift</Button>
                 ) : (
-                    <Button 
-                        variant="default" 
+                    <Button
+                        variant="default"
                         className="px-10 bg-purple-500 text-white"
                         onClick={() => router.push(paths.dashboard.schedules.reschedule_shift)}
                     >
