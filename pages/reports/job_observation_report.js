@@ -53,8 +53,8 @@ export default function job_observation_report() {
                 <div className="flex flex-col gap-4">
                     <div className="relative">
                         <DatePicker
-                            selected={endtDate}
-                            onChange={(date) => setEndtDate(date)} 
+                            selected={endDate}
+                            onChange={(date) => setEndDate(date)} 
                             dateFormat="MM/dd/yyyy"
                             className="w-full border border-gray-300 rounded-md p-2 pl-10"
                             placeholderText="Select date"
