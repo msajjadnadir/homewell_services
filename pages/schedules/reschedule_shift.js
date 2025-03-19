@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { format } from "date-fns";
-import { Calendar, Clock } from "lucide-react";
+import { Calendar } from "lucide-react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
     Popover,
@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/popover";
 
 export default function reschedule_shift() {
-    const [startDate, setStartDate] = useState(new Date()); 
+    const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
 
     return (
@@ -26,53 +26,31 @@ export default function reschedule_shift() {
                     <span className="font-medium text-[18px] text-gray-900">Client</span>
                     <Input placeholder="Mike Brown" />
                 </div>
-                <div className="flex flex-col gap-4 relative">
-                    <span className="font-medium text-[18px] text-gray-900">New Date</span>
-                    <Popover>
-                        <PopoverTrigger asChild>
-                            <div className="relative">
-                                <Input
-                                    placeholder="dd/mm/yyyy"
-                                    value={date ? format(date, "dd/MM/yyyy") : ""}
-                                    readOnly
-                                />
-                                <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
-                            </div>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0">
-                            <Calendar
-                                mode="single"
-                                selected={startDate}
-                            onChange={(date) => setStartDate(date)} 
-                                onSelect={setDate}
-                                initialFocus
-                            />
-                        </PopoverContent>
-                    </Popover>
+                <div className="flex flex-col gap-4">
+                    <label>New Date</label>
+                    <div className="relative">
+                        <DatePicker
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                            dateFormat="MM/dd/yyyy"
+                            className="w-full border border-gray-300 rounded-md p-2 pl-10"
+                            placeholderText="Select date"
+                        />
+                        <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
+                    </div>
                 </div>
-                <div className="flex flex-col gap-4 relative">
-                    <span className="font-medium text-[18px] text-gray-900">New Time</span>
-                    <Popover>
-                        <PopoverTrigger asChild>
-                            <div className="relative">
-                                <Input
-                                    placeholder="--:--"
-                                    value={date ? format(date, "--:--") : ""}
-                                    readOnly
-                                />
-                                <Clock className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
-                            </div>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0">
-                            <Calendar
-                                mode="single"
-                                selected={startDate}
-                            onChange={(date) => setStartDate(date)} 
-                                onSelect={setDate}
-                                initialFocus
-                            />
-                        </PopoverContent>
-                    </Popover>
+                <div className="flex flex-col gap-4">
+                    <label>New Time</label>
+                    <div className="relative">
+                        <DatePicker
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                            dateFormat="MM/dd/yyyy"
+                            className="w-full border border-gray-300 rounded-md p-2 pl-10"
+                            placeholderText="Select date"
+                        />
+                        <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
+                    </div>
                 </div>
                 <div className="flex flex-col gap-4">
                     <span className="font-medium text-[18px] text-gray-900">New Duration</span>
