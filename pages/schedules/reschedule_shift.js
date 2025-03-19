@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/popover";
 
 export default function reschedule_shift() {
-    const [date, setDate] = useState(null);
+    const [startDate, setStartDate] = useState(new Date()); 
+    const [endDate, setEndDate] = useState(new Date());
 
     return (
         <div className="flex flex-col w-full gap-6 mt-2 font-satoshi">
