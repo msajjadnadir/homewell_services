@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation";
+import { paths } from "@/routes/paths";
 
 import {
     Table,
@@ -24,9 +26,20 @@ const data = [
     {
         clientName: "Markus Suzak",
     },
+    {
+        clientName: "Jane Smith",
+    },
+    {
+        clientName: "John Doe",
+    },
+    {
+        clientName: "Johnny Bravo",
+    },
 ];
 
 export default function index() {
+    const router = useRouter();
+
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
             <span className="text-5xl font-bold">
@@ -71,7 +84,7 @@ export default function index() {
                                     {invoice.clientName}
                                 </TableCell>
                                 <TableCell className="flex flex-row gap-[10px]">
-                                    <button className="font-medium text-[16px] leading-[21.6px] tracking-[0px] text-gray-900 bg-success-100 px-3 py-1 rounded-[6px]">
+                                    <button onClick={() => router.push(paths.dashboard.claims.manual_claim_edit)} className="font-medium text-[16px] leading-[21.6px] tracking-[0px] text-gray-900 bg-success-100 px-3 py-1 rounded-[6px]">
                                         Edit Claim
                                     </button>
                                 </TableCell>

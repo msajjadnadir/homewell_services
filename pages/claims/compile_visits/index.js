@@ -4,6 +4,8 @@ import { Calendar } from "lucide-react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useRouter } from "next/navigation";
+import { paths } from "@/routes/paths";
 
 import {
     Table,
@@ -39,7 +41,7 @@ const data = [
 ];
 
 export default function index() {
-
+    const router = useRouter();
     const [date, setDate] = useState(new Date());
 
     return (
@@ -51,7 +53,7 @@ export default function index() {
                     </span>
                 </div>
                 <div className="flex flex-row gap-4">
-                    <Button variant="default" className="px-10">
+                    <Button onClick={() => router.push(paths.dashboard.claims.compile_visits_add)} variant="default" className="px-10">
                         Create Claim
                     </Button>
                     <Button variant="default" className="bg-sky-900 px-10">

@@ -60,14 +60,22 @@ const Header = () => {
             {/* Sub-menu for desktop */}
             {activeMenuIndex === index && (
               <div
-                className={`absolute ${item.title === "Reports" ? "w-[900%]" : "w-[500%]"
-                  } mt-7 left-0 bg-white shadow-lg rounded-lg p-2`}
+                className={`absolute mt-7 left-0 bg-white shadow-lg rounded-lg p-2 ${item.title === "Reports" || item.title === "Logs/Time Cards"
+                    ? "w-[475px]"
+                    : item.title === "Manage Lists"
+                      ? "w-[350px]"
+                      : item.title === "Help"
+                        ? "w-[150px]"
+                        : ""
+                  }`}
+
               >
                 <ul className="text-gray-700 flex flex-wrap">
                   {item.subMenu.map((subItem, subIndex) => (
                     <li
                       key={subIndex}
-                      className="w-1/3 px-2 py-2 hover:bg-gray-100 cursor-pointer"
+                      className={`px-2 py-2 hover:bg-gray-100 cursor-pointer ${item.title === "Help" ? "w-full" : "w-1/2"
+                        }`}
                       onClick={() => handleSubMenuClick(subItem.path)}
                     >
                       {subItem.title}

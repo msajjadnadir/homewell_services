@@ -33,6 +33,9 @@ import {
 } from "@/components/ui/pagination";
 import { Checkbox } from "@/components/ui/checkbox";
 
+import { useRouter } from "next/navigation";
+import { paths } from "@/routes/paths";
+
 const data = [
     {
         jobFirstName: "Markus",
@@ -50,7 +53,7 @@ const data = [
 ];
 
 export default function paid() {
-
+    const router = useRouter();
     const [date, setDate] = useState(new Date());
 
     return (
@@ -64,19 +67,19 @@ export default function paid() {
                 </span>
             </div>
             <div className="flex flex-row gap-3">
-                <Button variant="default" className="bg-white text-gray-900 border px-16 py-5">
+                <Button onClick={() => router.push(paths.dashboard.claims.pending)} variant="light" className="border px-16 py-5">
                     Pending
                 </Button>
-                <Button variant="default" className="px-16 py-5">
+                <Button onClick={() => router.push(paths.dashboard.claims.paid)} variant="default" className="px-16 py-5">
                     Paid
                 </Button>
-                <Button variant="default" className="bg-white text-gray-900 border px-16 py-5">
+                <Button onClick={() => router.push(paths.dashboard.claims.sent)} variant="light" className="border px-16 py-5">
                     Sent
                 </Button>
-                <Button variant="default" className="bg-white text-gray-900 border px-16 py-5">
+                <Button onClick={() => router.push(paths.dashboard.claims.rejected)} variant="light" className="border px-16 py-5">
                     Rejected
                 </Button>
-                <Button variant="default" className="bg-white text-gray-900 border px-16 py-5">
+                <Button onClick={() => router.push(paths.dashboard.claims.partial)} variant="light" className="border px-16 py-5">
                     Partial
                 </Button>
             </div>

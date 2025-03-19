@@ -39,7 +39,6 @@ export const paths = {
       overview_review: `/schedules/overview_review`,
       shift_reassignment: `/schedules/shift_reassignment`,
     },
-    claims: `/claims`,
     time_cards: {
       root: `/time_cards/add`,
       timesheet: `/time_cards/timesheet`,
@@ -92,6 +91,15 @@ export const paths = {
       users: `/forms/users`,
       sending: `/forms/sending`,
       successful: `/forms/successful`,
+    },
+    claims: {
+      pending: `/claims/claim_billing_list/pending`,
+      paid: `/claims/claim_billing_list/paid`,
+      sent: `/claims/claim_billing_list/sent`,
+      rejected: `/claims/claim_billing_list/rejected`,
+      partial: `/claims/claim_billing_list/partial`,
+      compile_visits_add: `/claims/compile_visits/add`,
+      manual_claim_edit: `/claims/manual_claim/edit`,
     },
     invoices: {
       root: '/invoices/account',

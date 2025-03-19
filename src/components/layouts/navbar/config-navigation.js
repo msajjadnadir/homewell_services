@@ -46,9 +46,9 @@ export function useNavData() {
       {
         title: "Agency", path: paths.dashboard.agency, icon: ICONS.agency,
         subMenu: [
-          { title: "Agency Details", path: "/agency/manage" },
-          { title: "Facility Setup", path: "/agency/settings" },
-          { title: "Zone", path: "/agency/settings" },
+          // { title: "Agency Details", path: "/agency/manage" },
+          { title: "Facility Setup", path: "/facility_setup/" },
+          { title: "Zone", path: "/zone" },
         ],
       },
       {
@@ -63,9 +63,9 @@ export function useNavData() {
       },
       { title: "Claims", path: paths.dashboard.claims, icon: ICONS.claims,
         subMenu: [
-          { title: "Manual Claim", path: "/agency/manage" },
-          { title: "Compile Visit", path: "/agency/settings" },
-          { title: "Claim Visit", path: "/agency/settings" },
+          { title: "Manual Claim", path: "/claims/manual_claim" },
+          { title: "Compile Visits", path: "/claims/compile_visits" },
+          { title: "Claim Visit", path: "/claims/claim_billing_list/pending" },
         ],
       },
       { title: "Forms", path: paths.dashboard.forms.root, icon: ICONS.forms },
