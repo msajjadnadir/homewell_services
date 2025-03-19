@@ -23,7 +23,8 @@ import {
 } from "@/components/ui/select";
 
 export default function EditClaimBilling() {
-    const [date, setDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date()); 
+    const [endDate, setEndDate] = useState(new Date());
 
     return (
         <div className="flex flex-col space-y-6 w-full font-satoshi">
@@ -63,8 +64,8 @@ export default function EditClaimBilling() {
                 <label className="font-medium">Date of Service *</label>
                 <div className="relative">
                     <DatePicker
-                        selected={date}
-                        onChange={(date) => setDate(date)}
+                        selected={startDate}
+                        onChange={(date) => setStartDate(date)} 
                         dateFormat="MM/dd/yyyy"
                         className="w-full border border-gray-300 rounded-md p-2 pl-10"
                         placeholderText="Select date"

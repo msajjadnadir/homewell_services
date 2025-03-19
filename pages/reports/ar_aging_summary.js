@@ -23,7 +23,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export default function ar_aging_summary() {
-  const [date, setDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
   const options = ["Show $0 Payables"];
 
@@ -41,7 +42,8 @@ export default function ar_aging_summary() {
         </Select>
         <div className="relative">
           <DatePicker
-            selected={date}
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
             dateFormat="MM/dd/yyyy"
             className="w-full border border-gray-300 rounded-md p-2 pl-10"
             placeholderText="Select date"

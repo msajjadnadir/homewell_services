@@ -14,30 +14,31 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export default function weekly_payroll_report() {
-  const [date, setDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
   const options = [
-    "Use Rounded Hours", 
+    "Use Rounded Hours",
     "Show Hours, Min"
   ];
 
   const options2 = [
-    "Employee Code", 
-    "Agency EmpId", 
-    "External Code1", 
-    "External Code2", 
+    "Employee Code",
+    "Agency EmpId",
+    "External Code1",
+    "External Code2",
     "Pay Class",
-    "Pay Rate", 
-    "Regular Pay", 
-    "Overtime Pay", 
+    "Pay Rate",
+    "Regular Pay",
+    "Overtime Pay",
     "Gross Pay"
   ];
-  
+
   return (
     <div className="flex flex-col space-y-8 w-full font-satoshi">
       <span className="text-5xl font-bold">Weekly Payroll Report</span>
       <span className="text-gray-500">
-         The table displays the hours worked per week. You can filter by the
+        The table displays the hours worked per week. You can filter by the
         Zone, Employee, and a date range.
       </span>
       <div className="grid grid-cols-4 gap-6 justify-between">
@@ -59,7 +60,8 @@ export default function weekly_payroll_report() {
         </Select>
         <div className="relative">
           <DatePicker
-            selected={date}
+            selected={startDate}
+            onChange={(date) => setStartDate(date)} 
             dateFormat="MM/dd/yyyy"
             className="w-full border border-gray-300 rounded-md p-2 pl-10"
             placeholderText="Select date"
@@ -71,7 +73,8 @@ export default function weekly_payroll_report() {
         </div>
         <div className="relative">
           <DatePicker
-            selected={date}
+            selected={endDate}
+            onChange={(date) => setEndDate(date)} 
             dateFormat="MM/dd/yyyy"
             className="w-full border border-gray-300 rounded-md p-2 pl-10"
             placeholderText="Select date"

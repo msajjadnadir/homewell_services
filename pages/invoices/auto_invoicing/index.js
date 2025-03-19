@@ -17,7 +17,8 @@ const data = [
 ];
 
 export default function Index() {
-    const [date, setDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
     const [mode, setMode] = useState("pre-bill");
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -44,7 +45,8 @@ export default function Index() {
                 <div className="flex flex-col gap-4">
                     <div className="relative">
                         <DatePicker
-                            selected={date}
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
                             dateFormat="MM/dd/yyyy"
                             className="w-full border border-gray-300 rounded-md p-2 pl-10"
                             placeholderText="Select date"
@@ -55,7 +57,8 @@ export default function Index() {
                 <div className="flex flex-col gap-4">
                     <div className="relative">
                         <DatePicker
-                            selected={date}
+                            selected={endDate}
+                            onChange={(date) => setEndDate(date)}
                             dateFormat="MM/dd/yyyy"
                             className="w-full border border-gray-300 rounded-md p-2 pl-10"
                             placeholderText="Select date"
@@ -148,7 +151,7 @@ export default function Index() {
                                     <label className="font-medium">Additional Charges Amount($)</label>
                                     <Input type="number" placeholder="0" />
                                 </div>
-                            </div>                           
+                            </div>
                             <div className="flex justify-end space-x-4 mt-4">
                                 <Button onClick={() => setIsModalOpen(false)} className="bg-sky-950">Close</Button>
                                 <Button>Create 1 Invoice</Button>

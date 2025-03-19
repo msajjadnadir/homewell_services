@@ -59,7 +59,8 @@ export default function AddCaregiverLocation() {
           <span className="font-medium text-[18px] text-gray-900">Birthday</span>
           <div className="relative">
             <DatePicker
-              selected={date}
+              selected={startDate}
+                            onChange={(date) => setStartDate(date)} 
               dateFormat="MM/dd/yyyy"
               className="w-full border border-gray-300 rounded-md p-2 pl-10"
               placeholderText="Select date"

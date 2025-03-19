@@ -92,7 +92,8 @@ const data = [
 
 export default function paid() {
 
-    const [date, setDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date()); 
+    const [endDate, setEndDate] = useState(new Date());
 
     return (
         <div className="flex flex-col space-y-12 w-full font-satoshi">
@@ -123,7 +124,8 @@ export default function paid() {
                 <div className="flex flex-col gap-4">
                     <div className="relative">
                         <DatePicker
-                            selected={date}
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)} 
                             dateFormat="MM/dd/yyyy"
                             className="w-full border border-gray-300 rounded-md p-2 pl-10"
                             placeholderText="Select date"
@@ -134,7 +136,8 @@ export default function paid() {
                 <div className="flex flex-col gap-4">
                     <div className="relative">
                         <DatePicker
-                            selected={date}
+                            selected={endtDate}
+                            onChange={(date) => setEndtDate(date)} 
                             dateFormat="MM/dd/yyyy"
                             className="w-full border border-gray-300 rounded-md p-2 pl-10"
                             placeholderText="Select date"

@@ -18,9 +18,7 @@ import {
 } from "@/components/ui/pagination";
 
 import { Button } from "@/components/ui/button";
-
 import { PlusIcon } from "lucide-react";
-import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { Checkbox } from "@/components/ui/checkbox";
 
@@ -64,8 +62,6 @@ const data2 = [
 ];
 
 export default function accounts_receivable_report() {
-  const [date, setDate] = useState(new Date());
-
   return (
     <div className="flex flex-col space-y-8 w-full font-satoshi">
       <span className="text-5xl font-bold">Accounts Receivable Report</span>

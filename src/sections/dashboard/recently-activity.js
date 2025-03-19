@@ -20,7 +20,7 @@ const recentlyActivityData = [
 ];
 export default function RecentlyActivitySection() {
   return (
-    <div className="flex flex-col items-center h-full">
+    <div className="flex flex-col xl:items-center h-full bg-gray-100 col-span-2 xl:col-span-1">
       <div className="flex px-6 py-[10px] w-full justify-start bg-gradient-to-br from-[#9C6CFE] to-[#7A41DC] rounded-t-[10px]">
         <span className="font-satoshi font-medium text-[18px] leading-[28px] text-white">
           Recently Activity

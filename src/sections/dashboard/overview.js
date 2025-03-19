@@ -99,8 +99,8 @@ export default function OverviewSection() {
       <span className="font-satoshi font-bold text-2xl sm:text-3xl lg:text-[40px] leading-[54px] tracking-[0.016em] text-primaryText-DEFAULT">
         Overview
       </span>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-        <div className="col-span-1 sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mt-6">
+        <div className="col-span-1 sm:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
           {overViewData.map((item, index) => (
             <div
               key={"overview" + index}
@@ -120,7 +120,7 @@ export default function OverviewSection() {
             </div>
           ))}
         </div>
-        <div className="col-span-1 p-6 sm:p-9 flex flex-col border shadow-[0px_0px_4.92px_0px_#00000040] rounded-[12px] border-[#0A0D121A] items-center justify-between">
+        <div className="xl:col-span-1 col-span-2 p-6 sm:p-9 flex flex-col border shadow-[0px_0px_4.92px_0px_#00000040] rounded-[12px] border-[#0A0D121A] items-center justify-between">
           <span className="font-satoshi font-black text-xl sm:text-2xl leading-9 text-[#2E2E30]">
             Visits vs Schedule
           </span>

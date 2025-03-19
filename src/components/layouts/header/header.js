@@ -37,7 +37,7 @@ const Header = () => {
       </div>
 
       {/* Hamburger Menu Icon (Visible only on mobile) */}
-      <div className="md:hidden">
+      <div className="xl:hidden">
         <Icon
           icon="ci:menu-alt-01"
           className="text-gray-150 cursor-pointer"
@@ -46,7 +46,7 @@ const Header = () => {
       </div>
 
       {/* Header Tabs (Visible only on desktop) */}
-      <div className="hidden md:flex items-center gap-6 text-sm z-50">
+      <div className="hidden xl:flex items-center gap-6 text-sm z-50">
         {headerData.map((item, index) => (
           <div key={index} className="relative">
             <div
@@ -61,7 +61,7 @@ const Header = () => {
             {activeMenuIndex === index && (
               <div
                 className={`absolute mt-7 left-0 bg-white shadow-lg rounded-lg p-2 ${item.title === "Reports" || item.title === "Logs/Time Cards"
-                    ? "w-[475px]"
+                    ? "w-[485px]"
                     : item.title === "Manage Lists"
                       ? "w-[350px]"
                       : item.title === "Help"

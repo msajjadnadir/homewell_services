@@ -14,7 +14,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function InvoiceForm() {
-    const [date, setDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date()); 
+    const [endDate, setEndDate] = useState(new Date());
 
     return (
         <div className="flex flex-col gap-8 w-full font-satoshi">
@@ -35,8 +36,8 @@ export default function InvoiceForm() {
                     <label className="font-medium">Date of Service</label>
                     <div className="relative">
                         <DatePicker
-                            selected={date}
-                            onChange={(date) => setDate(date)}
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)} 
                             dateFormat="dd-MMM-yyyy"
                             className="w-full border border-gray-300 rounded-md p-2 pl-10"
                             placeholderText="Select date"

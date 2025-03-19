@@ -6,7 +6,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function CarePlanDocs() {
-  const [date, setDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date()); 
+    const [endDate, setEndDate] = useState(new Date());
 
   return (
     <div className="flex flex-col mt-[46px] gap-6">
@@ -23,7 +24,8 @@ export default function CarePlanDocs() {
           </label>
           <div className="relative">
             <DatePicker
-              selected={date}
+              selected={startDate}
+                            onChange={(date) => setStartDate(date)} 
               dateFormat="MM/dd/yyyy"
               className="w-full border border-gray-300 rounded-md p-2 pl-10"
               placeholderText="Select date"
@@ -37,7 +39,8 @@ export default function CarePlanDocs() {
           </label>
           <div className="relative">
             <DatePicker
-              selected={date}
+              selected={startDate}
+                            onChange={(date) => setStartDate(date)} 
               dateFormat="MM/dd/yyyy"
               className="w-full border border-gray-300 rounded-md p-2 pl-10"
               placeholderText="Select date"

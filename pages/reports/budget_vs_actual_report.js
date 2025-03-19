@@ -14,7 +14,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export default function budget_vs_actual_report() {
-  const [date, setDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
   const options = ["Show Address", "Show Summary View", "Show Job Code"];
 
@@ -52,7 +53,8 @@ export default function budget_vs_actual_report() {
         <div className="flex flex-col gap-4">
           <div className="relative">
             <DatePicker
-              selected={date}
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
               dateFormat="MM/dd/yyyy"
               className="w-full border border-gray-300 rounded-md p-2 pl-10"
               placeholderText="Select date"
@@ -66,7 +68,8 @@ export default function budget_vs_actual_report() {
         <div className="flex flex-col gap-4">
           <div className="relative">
             <DatePicker
-              selected={date}
+              selected={endDate}
+              onChange={(date) => setEndDate(date)} 
               dateFormat="MM/dd/yyyy"
               className="w-full border border-gray-300 rounded-md p-2 pl-10"
               placeholderText="Select date"

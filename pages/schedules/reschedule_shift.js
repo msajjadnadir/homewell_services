@@ -41,7 +41,8 @@ export default function reschedule_shift() {
                         <PopoverContent className="w-auto p-0">
                             <Calendar
                                 mode="single"
-                                selected={date}
+                                selected={startDate}
+                            onChange={(date) => setStartDate(date)} 
                                 onSelect={setDate}
                                 initialFocus
                             />
@@ -64,7 +65,8 @@ export default function reschedule_shift() {
                         <PopoverContent className="w-auto p-0">
                             <Calendar
                                 mode="single"
-                                selected={date}
+                                selected={startDate}
+                            onChange={(date) => setStartDate(date)} 
                                 onSelect={setDate}
                                 initialFocus
                             />

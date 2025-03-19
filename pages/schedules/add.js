@@ -18,7 +18,8 @@ import { paths } from "@/routes/paths";
 
 export default function AddSchedule() {
     const router = useRouter();
-    const [date, setDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date()); 
+    const [endDate, setEndDate] = useState(new Date());
     const [selectedShift, setSelectedShift] = useState("add-shift");
 
     return (
@@ -42,7 +43,8 @@ export default function AddSchedule() {
                     <label>Start Date</label>
                     <div className="relative">
                         <DatePicker
-                            selected={date}
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)} 
                             dateFormat="MM/dd/yyyy"
                             className="w-full border border-gray-300 rounded-md p-2 pl-10"
                             placeholderText="Select date"
@@ -54,7 +56,8 @@ export default function AddSchedule() {
                     <label>End Date</label>
                     <div className="relative">
                         <DatePicker
-                            selected={date}
+                            selected={endDate}
+                            onChange={(date) => setEndDate(date)} 
                             dateFormat="MM/dd/yyyy"
                             className="w-full border border-gray-300 rounded-md p-2 pl-10"
                             placeholderText="Select date"

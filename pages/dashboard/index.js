@@ -54,7 +54,7 @@ export default function DashboardPage() {
         <RecentActivity />
       </div> */}
 
-      <div className="hidden md:grid md:grid-cols-3 gap-14 mt-[60px]">
+      <div className="hidden md:grid xl:grid-cols-3 gap-14 mt-[60px]">
         <RevenueDetails />
         <ClaimDetails />
       </div>
@@ -64,7 +64,7 @@ export default function DashboardPage() {
         <ClaimDetails />
       </div>
 
-      <div className="hidden md:grid md:grid-cols-3 gap-14 mt-[60px]">
+      <div className="hidden md:grid xl:grid-cols-3 gap-14 mt-[60px]">
         <Announcement />
         <RecentActivity />
       </div>

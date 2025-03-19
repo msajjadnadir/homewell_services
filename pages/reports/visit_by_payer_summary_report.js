@@ -16,7 +16,8 @@ import {
 
 export default function visit_by_payer_summary_report() {
 
-    const [date, setDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date()); 
+    const [endDate, setEndDate] = useState(new Date());
 
     return (
         <div className="flex flex-col space-y-12 w-full font-satoshi">
@@ -75,7 +76,8 @@ export default function visit_by_payer_summary_report() {
                     <label>Start Date</label>
                     <div className="relative">
                         <DatePicker
-                            selected={date}
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)} 
                             dateFormat="MM/dd/yyyy"
                             className="w-full border border-gray-300 rounded-md p-2 pl-10"
                             placeholderText="Select date"
@@ -87,7 +89,8 @@ export default function visit_by_payer_summary_report() {
                     <label>End Date</label>
                     <div className="relative">
                         <DatePicker
-                            selected={date}
+                            selected={endDate}
+                            onChange={(date) => setEndDate(date)} 
                             dateFormat="MM/dd/yyyy"
                             className="w-full border border-gray-300 rounded-md p-2 pl-10"
                             placeholderText="Select date"

@@ -20,7 +20,8 @@ import {
 } from "@/components/ui/popover";
 
 export default function AddCaregiverLocation() {
-  const [date, setDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date()); 
+    const [endDate, setEndDate] = useState(new Date());
 
   return (
     <div className="flex flex-col gap-6 mt-[46px]">
@@ -114,7 +115,8 @@ export default function AddCaregiverLocation() {
             <PopoverContent className="w-auto p-0">
               <Calendar
                 mode="single"
-                selected={date}
+                selected={startDate}
+                            onChange={(date) => setStartDate(date)} 
                 onSelect={setDate}
                 initialFocus
               />
@@ -141,7 +143,8 @@ export default function AddCaregiverLocation() {
             <PopoverContent className="w-auto p-0">
               <Calendar
                 mode="single"
-                selected={date}
+                selected={startDate}
+                            onChange={(date) => setStartDate(date)} 
                 onSelect={setDate}
                 initialFocus
               />

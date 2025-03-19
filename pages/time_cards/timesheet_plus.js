@@ -36,8 +36,7 @@ const data = [
 
 export default function AddTimeSheet() {
     const router = useRouter();
-    const [date, setDate] = useState(new Date());
-
+    
     return (
         <div className="flex flex-col space-y-6 w-full font-satoshi">
             <div className="flex flex-row items-center justify-between">

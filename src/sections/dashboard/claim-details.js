@@ -60,7 +60,7 @@ export default function ClaimDetailsSection() {
   });
 
   return (
-    <div className="col-span-1 flex flex-col h-full">
+    <div className="col-span-2 xl:col-span-1 flex flex-col h-full">
       <span className="font-satoshi font-bold text-2xl md:text-[40px] leading-[54px] tracking-[0.016em] text-primaryText-DEFAULT">
         Claim Details
       </span>
