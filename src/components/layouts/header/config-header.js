@@ -80,7 +80,7 @@ export function useHeaderData() {
       {
         title: "Help",
         subMenu: [
-          { title: "Help Doc", path: "/help/hel_doc" },
+          { title: "Help Doc", path: "/help/help_doc" },
           { title: "Submit Ticket", path: "/help/submit_ticket" },
         ]
       },
