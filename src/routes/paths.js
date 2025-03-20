@@ -1,18 +1,14 @@
-import merge_pdf from "../../pages/forms/merge_pdf";
-
 const ROOTS = {
   AUTH: "/auth",
   DASHBOARD: "/dashboard",
 };
-
-// ----------------------------------------------------------------------
 
 export const paths = {
   auth: {
     login: `${ROOTS.AUTH}/login`,
     reset: `${ROOTS.AUTH}/reset`,
   },
-  // DASHBOARD
+
   dashboard: {
     root: ROOTS.DASHBOARD,
     quick_search: `/quick_search`,
@@ -39,11 +35,19 @@ export const paths = {
       overview_review: `/schedules/overview_review`,
       shift_reassignment: `/schedules/shift_reassignment`,
     },
+    
     time_cards: {
-      root: `/time_cards/add`,
+      root: `/time_cards`,
+      edit: `/time_cards/edit`,
+      add: `/time_cards/add`,
       timesheet: `/time_cards/timesheet`,
       timesheet_plus: `/time_cards/timesheet_plus`,
+      job_list: {
+        root: `/time_cards/job_list`,
+        edit: `/time_cards/job_list/edit`,
+      }
     },
+
     evv_compliance: {
       root: `/evv_compliance`,
       compliance_report: `/evv_compliance/compliance_report`,
@@ -59,7 +63,7 @@ export const paths = {
       add: `/snapshot/add`,
     },
     map_view: `/map_view`,
-  
+
     announcements: `/announcements`,
     settings: `/settings`,
     dashboardSetup: `${ROOTS.DASHBOARD}/setup`,

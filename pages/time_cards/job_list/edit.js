@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 
 import {
@@ -12,69 +11,50 @@ import {
 
 import { Textarea } from "@/components/ui/textarea";
 
-import { useRouter } from "next/navigation";
-import { paths } from "@/routes/paths";
-
-export default function Add() {
-    const router = useRouter();
-
+export default function Edit() {
     return (
         <div className="flex flex-col w-full space-y-6 font-satoshi">
             <div className="flex flex-row items-center justify-between">
-                <span className="text-3xl font-bold">Time Card</span>
-                <div className="flex flex-row gap-4">
-                    <Button variant="default" className="px-10">Add Clients</Button>
-                    <Button onClick={() => router.push(paths.dashboard.time_cards.job_list.root)} variant="default" className="bg-sky-950 px-10">Job List</Button>
-                </div>
+                <span className="text-3xl font-bold">Edit Time Card</span>
             </div>
 
-            <div className="flex flex-row gap-4">
-                <Button variant="default" className="px-10" onClick={() => router.push(paths.dashboard.time_cards.add)}>Add Time Card</Button>
-                <Button className="bg-white border border-gray-300 text-gray-600 px-10" onClick={() => router.push(paths.dashboard.time_cards.timesheet)}>Time Sheet</Button>
-                <Button variant="default" className="bg-white border border-gray-300 text-gray-600 px-10" onClick={() => router.push(paths.dashboard.time_cards.timesheet_plus)}>Time Sheet +</Button>
+            <span className="text-gray-500">
+                You can change date and time of your employee's clock in and/or clock out entries. Please remember that edited date, time and duration will appear in the Original column in reports for audit trail.
+            </span>
+
+            <div className="flex flex-row justify-between w-[60%]">
+                <label className="font-medium">Employee Name</label>
+                <span>----------</span>
             </div>
 
-            <span className="text-gray-500">Manually add a Time Card for an employee. A clock-in and a clock-out record will be created. The status will be recorded as manually entered.</span>
-
-            <div className="flex flex-col gap-2 w-[60%]">
-                <label className="font-medium">Employee Name *</label>
-                <Select>
-                    <SelectTrigger>
-                        <SelectValue placeholder="Select Employee Name" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="code1">Code 1</SelectItem>
-                        <SelectItem value="code2">Code 2</SelectItem>
-                    </SelectContent>
-                </Select>
+            <div className="flex flex-row justify-between w-[60%]">
+                <label className="font-medium">Job</label>
+                <span>----------</span>
             </div>
 
-            <div className="flex flex-col gap-2 w-[60%]">
-                <label className="font-medium">Job Name *</label>
-                <Select>
-                    <SelectTrigger>
-                        <SelectValue placeholder="Select Job Name" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="code1">Code 1</SelectItem>
-                        <SelectItem value="code2">Code 2</SelectItem>
-                    </SelectContent>
-                </Select>
+            <div className="flex flex-row justify-between w-[60%]">
+                <label className="font-medium">Duration</label>
+                <span>----------</span>
+            </div>
+
+            <div className="flex flex-row justify-between w-[60%]">
+                <label className="font-medium">Visit</label>
+                <span>----------</span>
             </div>
 
             <div className="flex flex-col gap-2 w-[60%]">
-                <label className="font-medium">Clock-in Time</label>
+                <label className="font-medium">New Clock-in Date/Time</label>
                 <Input placeholder="Enter Clock-in Time" />
             </div>
 
-            <div className="flex flex-row items-center gap-2">
-                <Checkbox />
-                <label>No Clock-out</label>
+            <div className="flex flex-col gap-2 w-[60%]">
+                <label className="font-medium">New Clock-out Date/Time</label>
+                <Input placeholder="Enter Clock-out Time" />
             </div>
 
             <div className="flex flex-col gap-2 w-[60%]">
-                <label className="font-medium">Clock-out Time</label>
-                <Input placeholder="Enter Clock-out Time" />
+                <label className="font-medium">Work Duration</label>
+                <Input placeholder="Enter Work Duration" />
             </div>
 
             <div className="flex flex-col gap-2 w-[60%]">

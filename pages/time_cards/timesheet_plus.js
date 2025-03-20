@@ -43,12 +43,12 @@ export default function AddTimeSheet() {
                 <span className="text-3xl font-bold">Add New Visit</span>
                 <div className="flex flex-row gap-4">
                     <Button variant="default" className="px-10">Add Clients</Button>
-                    <Button variant="default" className="bg-sky-950 px-10">Job List</Button>
+                    <Button onClick={() => router.push(paths.dashboard.time_cards.job_list.root)} variant="default" className="bg-sky-950 px-10">Job List</Button>
                 </div>
             </div>
 
             <div className="flex flex-row gap-4">
-                <Button variant="default" className="bg-white border border-gray-300 text-gray-600 px-10" onClick={() => router.push(paths.dashboard.time_cards.root)}>Add Time Card</Button>
+                <Button variant="default" className="bg-white border border-gray-300 text-gray-600 px-10" onClick={() => router.push(paths.dashboard.time_cards.add)}>Add Time Card</Button>
                 <Button className="bg-white border border-gray-300 text-gray-600 px-10" onClick={() => router.push(paths.dashboard.time_cards.timesheet)}>Time Sheet</Button>
                 <Button variant="default" className="px-10" onClick={() => router.push(paths.dashboard.time_cards.timesheet_plus)}>Time Sheet +</Button>
             </div>

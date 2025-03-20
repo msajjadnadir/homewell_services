@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useNavData, NavIcon } from "./config-navigation";
+import { useNavData } from "./config-navigation";
 import { Icon } from "@iconify-icon/react";
 import { useRouter } from "next/navigation";
 import { Circle } from "lucide-react";
+import { paths } from "@/routes/paths";
 
 export default function Navbar() {
   const navData = useNavData();
@@ -123,7 +124,7 @@ export default function Navbar() {
 
 
         {/* Logout Section */}
-        <div className="px-3 py-[10px] gap-4 flex flex-row items-center hover:cursor-pointer select-none mt-10">
+        <div onClick={() => router.push(paths.auth.login)} className="px-3 py-[10px] gap-4 flex flex-row items-center hover:cursor-pointer select-none mt-10">
           <Icon
             icon={"streamline:logout-1"}
             color="#D55F5A"

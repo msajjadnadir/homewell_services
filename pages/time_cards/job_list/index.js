@@ -4,6 +4,10 @@ import { Calendar } from "lucide-react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+import { useRouter } from "next/navigation";
+import { paths } from "@/routes/paths";
+
 import {
     Select,
     SelectContent,
@@ -91,8 +95,8 @@ const data = [
 ];
 
 export default function paid() {
-
-    const [startDate, setStartDate] = useState(new Date()); 
+    const router = useRouter();
+    const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
 
     return (
@@ -125,7 +129,7 @@ export default function paid() {
                     <div className="relative">
                         <DatePicker
                             selected={startDate}
-                            onChange={(date) => setStartDate(date)} 
+                            onChange={(date) => setStartDate(date)}
                             dateFormat="MM/dd/yyyy"
                             className="w-full border border-gray-300 rounded-md p-2 pl-10"
                             placeholderText="Select date"
@@ -137,7 +141,7 @@ export default function paid() {
                     <div className="relative">
                         <DatePicker
                             selected={endDate}
-                            onChange={(date) => setEndDate(date)} 
+                            onChange={(date) => setEndDate(date)}
                             dateFormat="MM/dd/yyyy"
                             className="w-full border border-gray-300 rounded-md p-2 pl-10"
                             placeholderText="Select date"
@@ -231,7 +235,9 @@ export default function paid() {
                                     {data.updatedBy}
                                 </TableCell>
                                 <TableCell className="text-gray-900">
-                                    Edit
+                                    <Button className="bg-green-100 text-gray-800" onClick={() => router.push(paths.dashboard.time_cards.job_list.edit)}>
+                                        Edit
+                                    </Button>
                                 </TableCell>
                             </TableRow>
                         ))}

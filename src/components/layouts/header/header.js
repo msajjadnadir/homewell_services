@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation"; // For navigation
 import { useHeaderData } from "./config-header"; // Your custom hook for header data
 import { Icon } from "@iconify-icon/react"; // For icons
+import { paths } from "@/routes/paths";
 
 const Header = () => {
   const router = useRouter();
@@ -61,12 +62,12 @@ const Header = () => {
             {activeMenuIndex === index && (
               <div
                 className={`absolute mt-7 left-0 bg-white shadow-lg rounded-lg p-2 ${item.title === "Reports" || item.title === "Logs/Time Cards"
-                    ? "w-[485px]"
-                    : item.title === "Manage Lists"
-                      ? "w-[350px]"
-                      : item.title === "Help"
-                        ? "w-[150px]"
-                        : ""
+                  ? "w-[485px]"
+                  : item.title === "Manage Lists"
+                    ? "w-[350px]"
+                    : item.title === "Help"
+                      ? "w-[150px]"
+                      : ""
                   }`}
 
               >
@@ -90,14 +91,32 @@ const Header = () => {
 
       {/* Bell Icon and Admin Tab (Always visible) */}
       <div className="flex items-center gap-4 md:gap-8">
+        {/* Bell Icon */}
         <div className="w-8 h-8 flex items-center justify-center">
           <Icon icon="iconoir:bell-notification" className="text-[#FE5C73]" />
         </div>
-        <div className="flex items-center gap-1">
-          <span className="text-sm md:text-base font-medium text-gray-150">Admin</span>
-          <Icon icon="uiw:down" className="text-gray-150" />
+
+        {/* Admin Dropdown */}
+        <div className="relative group">
+          <button className="flex items-center gap-1 text-sm md:text-base font-medium text-gray-150">
+            Admin
+            <Icon icon="uiw:down" className="text-gray-150" />
+          </button>
+
+          {/* Dropdown Menu */}
+          <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <button className="flex items-center gap-2 w-full px-4 py-2 text-gray-700 hover:bg-gray-100">
+              <Icon icon="lucide:key" className="w-4 h-4" />
+              Update Password
+            </button>
+            <button onClick={() => router.push(paths.auth.login)} className="flex items-center gap-2 w-full px-4 py-2 text-red-500 hover:bg-red-100">
+              <Icon icon="lucide:log-out" className="w-4 h-4" />
+              Logout
+            </button>
+          </div>
         </div>
       </div>
+
 
       {/* Mobile Menu (Opens from the right on mobile) */}
       <div

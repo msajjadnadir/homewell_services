@@ -1,8 +1,10 @@
-"use client";
-
+import { useState } from "react";
+import { Calendar } from "lucide-react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Calendar } from "lucide-react";
+
 import {
   Select,
   SelectContent,
@@ -11,7 +13,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export default function AddCaregiverPage() {
+export default function Add() {
+  const [startDate, setStartDate] = useState(new Date());
   return (
     <div className="flex flex-col w-full">
       <span className="font-satoshi font-bold text-[40px] leading-[54px] tracking-[0.016em] text-[#00261C]">
@@ -47,7 +50,7 @@ export default function AddCaregiverPage() {
           <div className="flex items-center gap-3 border p-1 rounded">
             <label
               htmlFor="file-upload"
-              className="cursor-pointer bg-gray-400 text-white px-4 py-1 rounded-md hover:bg-blue-600 transition-colors"
+              className="cursor-pointer bg-gray-100 text-dark px-4 py-1 rounded-md hover:bg-blue-600 transition-colors"
             >
               Choose File
             </label>
@@ -69,9 +72,17 @@ export default function AddCaregiverPage() {
           <label className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Expiration Date (if applicable)
           </label>
-          <div className="relative">
-            <Input placeholder="dd/mm/yyyy" />
-            <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+          <div className="flex flex-col gap-4">
+            <div className="relative">
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                dateFormat="MM/dd/yyyy"
+                className="w-full border border-gray-300 rounded-md p-2 pl-10"
+                placeholderText="Select date"
+              />
+              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
+            </div>
           </div>
         </div>
       </div>
