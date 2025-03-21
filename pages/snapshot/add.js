@@ -17,7 +17,7 @@ export default function add() {
         <p className="text-gray-400 mt-6">
           Enter a description and select a start date. The date is based on the work-week specified in the Agency details. The end date is determined by the Payroll Period.                    </p>
       </div>
-      <div className="grid gap-6 w-[50%]">
+      <div className="grid gap-6 lg:w-[60%]">
         <div className="flex flex-col gap-[16px]">
           <label className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Decription

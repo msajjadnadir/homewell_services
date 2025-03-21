@@ -16,20 +16,20 @@ import {
 export default function Add() {
   const [startDate, setStartDate] = useState(new Date());
   return (
-    <div className="flex flex-col w-full">
-      <span className="font-satoshi font-bold text-[40px] leading-[54px] tracking-[0.016em] text-[#00261C]">
+    <div className="flex flex-col w-full font-satoshi">
+      <span className="font-bold lg:text-5xl text-3xl">
         Upload New Document
       </span>
 
-      <div className="grid grid-cols-2 gap-6 mt-10">
+      <div className="grid lg:grid-cols-2 gap-6 mt-10">
         <div className="flex flex-col gap-4">
-          <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
+          <span className="font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Document Name
           </span>
           <Input placeholder="Enter Document Name" />
         </div>
         <div className="flex flex-col gap-4">
-          <label className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
+          <label className="font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Category
           </label>
           <Select>
@@ -42,9 +42,9 @@ export default function Add() {
           </Select>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-6 mt-6">
+      <div className="grid lg:grid-cols-2 gap-6 mt-6">
         <div className="flex flex-col gap-4">
-          <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
+          <span className="font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Upload file
           </span>
           <div className="flex items-center gap-3 border p-1 rounded">
@@ -69,7 +69,7 @@ export default function Add() {
           </div>
         </div>
         <div className="flex flex-col gap-[16px]">
-          <label className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
+          <label className="font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Expiration Date (if applicable)
           </label>
           <div className="flex flex-col gap-4">

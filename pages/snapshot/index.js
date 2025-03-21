@@ -7,7 +7,7 @@ export default function Index() {
 
     return (
         <div className="flex flex-col w-full select-none font-satoshi">
-            <div className="flex flex-row justify-between items-center">
+            <div className="flex xl:flex-row flex-col gap-2 justify-between">
                 <div className="flex flex-col">
                     <p className="text-4xl font-semibold">Snapshot</p>
                     <p className="text-gray-400 mt-6">

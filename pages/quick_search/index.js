@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import Action from "@/sections/quick_search/action";
 import Filter from "@/sections/quick_search/filter";

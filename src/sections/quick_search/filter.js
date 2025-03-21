@@ -6,12 +6,12 @@ export default function Filter({ selectedType, setSelectedType }) {
   return (
     <div className="flex flex-col gap-6">
       <label className="font-medium text-gray-900">Search By</label>
-      <div className="flex flex-row gap-4 items-center">
-        <div className="flex items-center me-24">
+      <div className="flex flex-row gap-8 items-center">
+        <div className="flex items-center">
           <RadioGroup
             value={selectedType}
             onValueChange={setSelectedType}
-            className="flex flex-row gap-6"
+            className="flex flex-row gap-2"
           >
             <div className="flex items-center space-x-2">
               <RadioGroupItem name="type" value="job" id="job" />

@@ -24,7 +24,7 @@ export default function Add() {
             {tab === "Notify" && <Notify />}
 
             <div className="flex flex-row items-center mt-20 justify-between">
-                <div className="flex flex-row items-center gap-3">
+                <div className="flex flex-row items-center xl:gap-3 gap-2">
                     <Button variant="outline" className="px-10 py-5">
                         Previous
                     </Button>

@@ -5,13 +5,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 export default function CaregiversFilter() {
   return (
     <div className="mt-11 flex flex-col">
-      <div className="flex flex-row gap-6 items-center w-[90%]">
+      <div className="flex xl:flex-row flex-col gap-6 xl:w-[90%]">
         <Select>
           <SelectTrigger>
             <SelectValue placeholder="Select Zone" />

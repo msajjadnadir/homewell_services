@@ -31,7 +31,7 @@ export default function leftMenu() {
       <span className="font-satoshi font-bold text-[28px] leading-[37.8px] tracking-[0.016em] text-gray-900">
         Left Menu
       </span>
-      <div className="grid grid-cols-3 gap-6 mt-9 gap-x-24 gap-y-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-9 gap-x-24 gap-y-8">
         {checkData.map((item, index) => (
           <div
             key={item.label}

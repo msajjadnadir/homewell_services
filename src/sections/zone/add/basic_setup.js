@@ -11,7 +11,7 @@ export default function basic_setup() {
   return (
     <div className="flex flex-col mt-[46px] gap-6">
       <span className="text-gray-500">Enter the basic details about the Job. Required fields are in Red</span>
-      <div className="grid grid-cols-2">
+      <div className="grid xl:grid-cols-2">
         <div className="flex flex-col gap-2">
           <label className="">
             Zone Name *

@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 export default function CaregiversFilter() {
   return (
     <div className="mt-11 flex flex-col">
-      <div className="flex flex-row gap-6 items-center">
+      <div className="flex xl:flex-row flex-col gap-6">
         <Select>
           <SelectTrigger>
             <SelectValue placeholder="Filter for Search" />

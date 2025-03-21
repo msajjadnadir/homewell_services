@@ -8,7 +8,7 @@ export default function index() {
     return (
         <div className="flex flex-col w-full gap-8 font-satoshi">
             <h2 className="text-2xl font-bold">New Announcement</h2>
-            <Card className="p-6 w-[75%]">
+            <Card className="p-6 xl:w-[75%]">
                 <div className="flex flex-col gap-4 mt-4">
                     <div>
                         <label className="font-medium">Title</label>
@@ -46,7 +46,7 @@ export default function index() {
                 </div>
             </Card>
 
-            <div className="w-[75%]">
+            <div className="xl:w-[75%]">
                 <h2 className="text-2xl font-bold">Past Announcements</h2>
                 <div className="flex flex-col gap-4 mt-4">
                     {[1, 2, 3].map((_, index) => (

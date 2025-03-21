@@ -6,11 +6,11 @@ export default function CaregiversAction() {
   const router = useRouter();
 
   return (
-    <div className="flex flex-row w-full justify-between items-center select-none">
+    <div className="flex lg:flex-row flex-col w-full justify-between lg:items-center select-none">
       <span className="font-satoshi font-bold text-[40px] leading-[54px] tracking-[1.6%] text-primaryText">
         Caregivers
       </span>
-      <div className="flex flex-row gap-3 items-center">
+      <div className="flex lg:flex-row flex-col gap-3 lg:items-center zl:mt-0 mt-5">
         <Button
           variant="default"
           size="lg"

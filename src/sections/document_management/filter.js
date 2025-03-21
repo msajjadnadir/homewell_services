@@ -6,52 +6,33 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Calendar } from "lucide-react";
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function CaregiversFilter() {
+  const [startDate, setStartDate] = useState(new Date());
   return (
     <div className="mt-11 flex flex-col">
-      <div className="flex flex-row gap-6 items-center">
+      <div className="flex xl:flex-row flex-col gap-6 items-center">
         <Select>
           <SelectTrigger>
             <SelectValue placeholder="Filter by Category" />
           </SelectTrigger>
         </Select>
-        <Input placeholder="dd/mm/yyy" />
+        <div className="relative w-full">
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            dateFormat="MM/dd/yyyy"
+            className="w-full border border-gray-300 rounded-md p-2 pl-10"
+            placeholderText="Select date"
+          />
+          <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
+        </div>
         <Input placeholder="Search Document" />
       </div>
-      {/* <div className="flex flex-row items-center justify-between mt-[38px]">
-        <div className="flex flex-row gap-4 select-none">
-          <Button variant="default" className="bg-success-500 px-[42px]">
-            Search
-          </Button>
-          <Button variant="default" className="bg-warning-500 px-[42px]">
-            Clear
-          </Button>
-        </div>
-        <div className="flex flex-row gap-4">
-          <div className="px-[17px] py-[14px] rounded-[14px] shadow backdrop-blur-md">
-            <span className="font-satoshi font-bold text-base leading-[21.6px] text-secondaryShades-base">
-              ALL : 290
-            </span>
-          </div>
-          <div className="px-[17px] py-[14px] rounded-[14px] shadow backdrop-blur-md">
-            <span className="font-satoshi font-bold text-base leading-[21.6px] text-secondaryShades-base">
-              ACTIVE : 228
-            </span>
-          </div>
-          <div className="px-[17px] py-[14px] rounded-[14px] shadow backdrop-blur-md">
-            <span className="font-satoshi font-bold text-base leading-[21.6px] text-secondaryShades-base">
-              INACTIVE : 11
-            </span>
-          </div>
-          <div className="px-[17px] py-[14px] rounded-[14px] shadow backdrop-blur-md">
-            <span className="font-satoshi font-bold text-base leading-[21.6px] text-secondaryShades-base">
-              TERMINATED : 51
-            </span>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 }

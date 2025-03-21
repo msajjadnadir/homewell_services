@@ -10,11 +10,11 @@ import {
 import { Button } from "@/components/ui/button";
 
 
-export default function edit() {
+export default function add() {
     return (
-        <div className="flex flex-col space-y-6 font-satoshi">
+        <div className="flex flex-col xl:w-[60%] w-full space-y-6 font-satoshi">
 
-            <span className="font-bold text-5xl">
+            <span className="font-bold lg:text-5xl text-3xl">
                 Edit Facility Setup
             </span>
 
@@ -61,7 +61,7 @@ export default function edit() {
                 <span className="font-medium mb-4">
                     Select the Clearing House SFTP Setup
                 </span>
-                <div className="flex flex-row gap-12 mb-6">
+                <div className="flex lg:flex-row flex-col gap-12 mb-6">
                     <div className="flex items-center space-x-6">
                         <Checkbox id="terms" className="w-6 h-6" />
                         <label
@@ -95,7 +95,7 @@ export default function edit() {
                         </label>
                     </div>
                 </div>
-                <div className="flex flex-row gap-12">
+                <div className="flex lg:flex-row flex-col gap-12">
                     <div className="flex items-center space-x-6">
                         <Checkbox id="terms" className="w-6 h-6" />
                         <label
@@ -271,7 +271,7 @@ export default function edit() {
                 <Input placeholder="Enter Address Line 2" />
             </div>
 
-            <div className="mt-6 w-[50%]">
+            <div className="mt-6 lg:w-[60%] w-full">
                 <span>
                     Zip/Country/City/State
                 </span>

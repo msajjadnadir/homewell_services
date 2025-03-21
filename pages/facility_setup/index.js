@@ -27,7 +27,7 @@ export default function shift_swap_request() {
                 Facility Setup
             </span>
 
-            <div className="flex flex-col-2 w-[75%] gap-6">
+            <div className="flex lg:flex-row flex-col justify-between lg:w-[75%] gap-6">
                 <Input placeholder="Search Facility" />
                 <Button onClick={() => router.push(paths.dashboard.facility_setup.add)}
                 >Add Facility Setup</Button>

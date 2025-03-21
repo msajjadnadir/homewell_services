@@ -19,7 +19,7 @@ export default function AdminSettings() {
                 <CardHeader>
                     <CardTitle>General Settings</CardTitle>
                 </CardHeader>
-                <CardContent className="grid grid-cols-2 gap-6">
+                <CardContent className="grid lg:grid-cols-2 gap-6">
                     <div>
                         <label className="font-medium">Organization Name</label>
                         <Input placeholder="Enter Organization Name" />
@@ -44,7 +44,7 @@ export default function AdminSettings() {
                 <CardHeader>
                     <CardTitle>Billing & Payment Settings</CardTitle>
                 </CardHeader>
-                <CardContent className="grid grid-cols-2 gap-6">
+                <CardContent className="grid lg:grid-cols-2 gap-6">
                     <div>
                         <label className="font-medium">Default Billing Cycle</label>
                         <Select>
@@ -69,7 +69,7 @@ export default function AdminSettings() {
                 <CardHeader>
                     <CardTitle>Security Settings</CardTitle>
                 </CardHeader>
-                <CardContent className="grid grid-cols-2 gap-6">
+                <CardContent className="grid lg:grid-cols-2 gap-6">
                     <div>
                         <label className="font-medium">Enable Two-Factor Authentication</label>
                         <Select>
@@ -98,7 +98,7 @@ export default function AdminSettings() {
                 <CardHeader>
                     <CardTitle>Notification Preferences</CardTitle>
                 </CardHeader>
-                <CardContent className="grid grid-cols-2 gap-6">
+                <CardContent className="grid lg:grid-cols-2 gap-6">
                     <div>
                         <label className="font-medium">Receive Email Notifications</label>
                         <Select>
@@ -131,7 +131,7 @@ export default function AdminSettings() {
                 <CardHeader>
                     <CardTitle>System Preferences</CardTitle>
                 </CardHeader>
-                <CardContent className="grid grid-cols-2 gap-6">
+                <CardContent className="grid lg:grid-cols-2 gap-6">
                     <div>
                         <label className="font-medium">Enable Auto Logout (Idle Time in Minutes)</label>
                         <Input placeholder="Enter Minutes" />
