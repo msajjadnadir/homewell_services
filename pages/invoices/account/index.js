@@ -10,7 +10,7 @@ export default function index() {
   return (
     <div className="flex flex-col w-full font-satoshi gap-12">
       <div className="flex flex-col-2 items-center justify-between">
-        <span className="text-5xl font-bold">Invoicing Account Setup</span>
+        <span className="xl:text-5xl text-3xl font-bold">Invoicing Account Setup</span>
         <Button
           variant="default"
           className="px-10 py-6 text-lg"

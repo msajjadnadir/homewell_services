@@ -42,7 +42,7 @@ export default function index() {
 
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
-            <span className="text-5xl font-bold">
+            <span className="xl:text-5xl text-3xl font-bold">
                 Manual Claim (Claim Billing Client List)
             </span>
             <span className="text-gray-500">

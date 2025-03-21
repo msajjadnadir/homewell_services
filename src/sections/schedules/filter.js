@@ -31,7 +31,7 @@ export default function CaregiversFilter() {
           </SelectTrigger>
         </Select>
         <div className="flex flex-col">
-          <div className="relative">
+          <div className="relative w-full">
             <DatePicker
               selected={startDate}
               onChange={(date) => setStartDate(date)} 

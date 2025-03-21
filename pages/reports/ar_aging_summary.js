@@ -30,8 +30,8 @@ export default function ar_aging_summary() {
 
   return (
     <div className="flex flex-col space-y-8 w-full font-satoshi">
-      <span className="text-5xl font-bold">A/R Aging Summary</span>
-      <div className="grid grid-cols-4 gap-6 justify-between">
+      <span className="lg:text-5xl text-3xl font-bold">A/R Aging Summary</span>
+      <div className="flex lg:flex-row flex-col gap-6 justify-between">
         <Select>
           <SelectTrigger>
             <SelectValue placeholder="Select Payer" />
@@ -40,7 +40,7 @@ export default function ar_aging_summary() {
             <SelectItem value="option">Option</SelectItem>
           </SelectContent>
         </Select>
-        <div className="relative">
+        <div className="relative w-full">
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}
@@ -71,8 +71,8 @@ export default function ar_aging_summary() {
         </div>
       </div>
       <div className="flex flex-row items-center justify-between">
-        <div className="flex flex-row gap-4 select-none">
-          <div className="grid grid-cols-4 gap-6">
+        <div className="flex lg:flex-row flex-col gap-4 select-none">
+          <div className="flex gap-6">
             {options.map((option, index) => (
               <div key={index} className="flex items-center space-x-2">
                 <Checkbox id={option} className="w-5 h-5" />
@@ -83,7 +83,7 @@ export default function ar_aging_summary() {
             ))}
           </div>
         </div>
-        <div className="flex flex-row gap-4">
+        <div className="flex lg:flex-row flex-col gap-4">
           <Button variant="default" className="bg-sky-900 px-10">
             Export Excel
           </Button>

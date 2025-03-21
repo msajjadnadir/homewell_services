@@ -73,7 +73,7 @@ export default function UpdateClaimBilling() {
 
             <div className="flex flex-col gap-2">
                 <label className="font-medium">Date of Service *</label>
-                <div className="relative">
+                <div className="relative w-full">
                     <DatePicker
                         selected={startDate}
                         onChange={(date) => setStartDate(date)} 

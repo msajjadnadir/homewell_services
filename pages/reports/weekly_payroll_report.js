@@ -36,7 +36,7 @@ export default function weekly_payroll_report() {
 
   return (
     <div className="flex flex-col space-y-8 w-full font-satoshi">
-      <span className="text-5xl font-bold">Weekly Payroll Report</span>
+      <span className="xl:text-5xl text-3xl font-bold">Weekly Payroll Report</span>
       <span className="text-gray-500">
         The table displays the hours worked per week. You can filter by the
         Zone, Employee, and a date range.
@@ -58,7 +58,7 @@ export default function weekly_payroll_report() {
             <SelectItem value="option">Option</SelectItem>
           </SelectContent>
         </Select>
-        <div className="relative">
+        <div className="relative w-full">
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)} 
@@ -71,7 +71,7 @@ export default function weekly_payroll_report() {
             size={20}
           />
         </div>
-        <div className="relative">
+        <div className="relative w-full">
           <DatePicker
             selected={endDate}
             onChange={(date) => setEndDate(date)} 
@@ -95,7 +95,7 @@ export default function weekly_payroll_report() {
           </Button>
         </div>
         <div className="flex flex-row gap-4 select-none">
-          <div className="grid grid-cols-4 gap-6">
+          <div className="flex xl:flex-row flex-col gap-6">
             {options.map((option, index) => (
               <div key={index} className="flex items-center space-x-2">
                 <Checkbox id={option} className="w-5 h-5" />
@@ -115,7 +115,7 @@ export default function weekly_payroll_report() {
           </Button>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-6">
+      <div className="flex xl:flex-row flex-col gap-6">
         <label className="col-span-4 font-medium">Select Fileds to Display in Reports</label>
         {options2.map((option2, index) => (
           <div key={index} className="flex items-center space-x-2">

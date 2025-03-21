@@ -28,7 +28,7 @@ export default function Index() {
     return (
         <div className="flex flex-col space-y-10 w-full font-satoshi">
             <div className="flex flex-row items-center justify-between">
-                <span className="text-5xl font-bold">Invoice List</span>
+                <span className="xl:text-5xl text-3xl font-bold">Invoice List</span>
                 <div className="flex flex-row gap-4 select-none">
                     <Button onClick={() => router.push(paths.dashboard.invoices.auto_invoicing)} variant="default">Auto Invoicing</Button>
                     <Button variant="default" className="bg-sky-950 px-10" onClick={() => router.push(paths.dashboard.invoices.invoice_list_add)}>Create Manaul Invoice</Button>
@@ -36,8 +36,8 @@ export default function Index() {
             </div>
             <div className="grid grid-cols-3 gap-6">
                 <Input placeholder="Search Name or Email" />
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+                
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -47,9 +47,9 @@ export default function Index() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+         
+                
+                    <div className="relative w-full">
                         <DatePicker
                             selected={endDate}
                             onChange={(date) => setEndDate(date)}  
@@ -59,7 +59,7 @@ export default function Index() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
+               
             </div>
             <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row gap-4 select-none">

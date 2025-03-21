@@ -21,7 +21,7 @@ export default function merge_pdf() {
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
             <div className="flex flex-row gap-6 justify-between">
-                <span className="text-5xl font-bold">
+                <span className="xl:text-5xl text-3xl font-bold">
                     Merge PDF
                 </span>
                 <div className="flex flex-row gap-3">

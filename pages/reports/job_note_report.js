@@ -18,7 +18,7 @@ export default function job_note_report() {
 
     return (
         <div className="flex flex-col space-y-12 w-full font-satoshi">
-            <span className="text-5xl font-bold">
+            <span className="xl:text-5xl text-3xl font-bold">
                 Job Note Report
             </span>
             <div className="grid grid-cols-5 gap-6">
@@ -46,8 +46,8 @@ export default function job_note_report() {
                         <SelectItem value="option">Option</SelectItem>
                     </SelectContent>
                 </Select>
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+                
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -57,9 +57,9 @@ export default function job_note_report() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
+         
                 <div className="flex flex-col gap-4">
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={endDate}
                             onChange={(date) => setEndDate(date)} 
@@ -71,7 +71,7 @@ export default function job_note_report() {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-4 gap-6">
+            <div className="flex xl:flex-row flex-col gap-6">
                 {options.map((option, index) => (
                     <div key={index} className="flex items-center space-x-2">
                         <Checkbox id={option} className="w-5 h-5" />

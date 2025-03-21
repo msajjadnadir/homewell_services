@@ -21,7 +21,7 @@ export default function visit_by_payer_summary_report() {
 
     return (
         <div className="flex flex-col space-y-12 w-full font-satoshi">
-            <span className="text-5xl font-bold">
+            <span className="xl:text-5xl text-3xl font-bold">
                 Visit by Payer Summary Report
             </span>
             <div className="grid grid-cols-10 gap-2">
@@ -37,7 +37,7 @@ export default function visit_by_payer_summary_report() {
                     </SelectContent>
                 </Select>
             </div>
-            <div className="grid grid-cols-4 gap-6">
+            <div className="flex xl:flex-row flex-col gap-6">
                 <Select>
                     <SelectTrigger>
                         <SelectValue placeholder="Select Job" />
@@ -74,7 +74,7 @@ export default function visit_by_payer_summary_report() {
             <div className="grid grid-cols-3 gap-6">
                 <div className="flex flex-col gap-4">
                     <label>Start Date</label>
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -87,7 +87,7 @@ export default function visit_by_payer_summary_report() {
                 </div>
                 <div className="flex flex-col gap-4">
                     <label>End Date</label>
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={endDate}
                             onChange={(date) => setEndDate(date)} 

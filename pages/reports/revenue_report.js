@@ -77,7 +77,7 @@ export default function revenue_report() {
 
   return (
     <div className="flex flex-col space-y-8 w-full font-satoshi">
-      <span className="text-5xl font-bold">Revenue Report</span>
+      <span className="xl:text-5xl text-3xl font-bold">Revenue Report</span>
       <div className="grid grid-cols-4 gap-6 justify-between">
         <Select>
           <SelectTrigger>
@@ -87,7 +87,7 @@ export default function revenue_report() {
             <SelectItem value="option">Option</SelectItem>
           </SelectContent>
         </Select>
-        <div className="relative">
+        <div className="relative w-full">
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)} 
@@ -100,7 +100,7 @@ export default function revenue_report() {
             size={20}
           />
         </div>
-        <div className="relative">
+        <div className="relative w-full">
           <DatePicker
             selected={endDate}
             onChange={(date) => setEndDate(date)} 

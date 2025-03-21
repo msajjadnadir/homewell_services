@@ -45,7 +45,7 @@ export default function DragDropForm() {
                 <h2 className="text-center font-medium mb-4">Drag and drop form fields here</h2>
                 <Card className="p-4">
                     <div className="flex flex-col gap-4">
-                        <div className="relative">
+                        <div className="relative w-full">
                             <DatePicker
                                 selected={startDate}
                                 onChange={(date) => setStartDate(date)}

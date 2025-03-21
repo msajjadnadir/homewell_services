@@ -74,7 +74,7 @@ export default function CombinedPage() {
     return (
         <div className="flex flex-col space-y-12 w-full font-satoshi">
             <div className="flex flex-row gap-6 items-center justify-between">
-                <span className="text-5xl font-bold">Edit Card List</span>
+                <span className="xl:text-5xl text-3xl font-bold">Edit Card List</span>
                 <div className="flex flex-row gap-3">
                     <Button onClick={() => router.push(paths.dashboard.time_cards.add)} variant="default" className="px-16 py-5">
                         Add Time Card
@@ -87,7 +87,7 @@ export default function CombinedPage() {
             <div className="grid grid-cols-5 gap-6">
                 <Input placeholder="Select Zone" />
                 <div className="flex flex-col gap-4">
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)}
@@ -98,8 +98,7 @@ export default function CombinedPage() {
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
                 </div>
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+                                    <div className="relative w-full">
                         <DatePicker
                             selected={endDate}
                             onChange={(date) => setEndDate(date)}
@@ -109,7 +108,7 @@ export default function CombinedPage() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
+              
                 <Select>
                     <SelectTrigger>
                         <SelectValue placeholder="Select Employee" />

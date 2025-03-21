@@ -21,7 +21,7 @@ export default function budget_vs_actual_report() {
 
   return (
     <div className="flex flex-col space-y-8 w-full font-satoshi">
-      <span className="text-5xl font-bold">Budget vs Actual Report</span>
+      <span className="xl:text-5xl text-3xl font-bold">Budget vs Actual Report</span>
       <span className="text-gray-500">
         Compare actual hours worked versus budgeted hours a for Job. The
         budgeted hours is specified in the Job. Reporting option 1 is based on a
@@ -51,7 +51,7 @@ export default function budget_vs_actual_report() {
           </SelectContent>
         </Select>
         <div className="flex flex-col gap-4">
-          <div className="relative">
+          <div className="relative w-full">
             <DatePicker
               selected={startDate}
               onChange={(date) => setStartDate(date)}
@@ -66,7 +66,7 @@ export default function budget_vs_actual_report() {
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <div className="relative">
+          <div className="relative w-full">
             <DatePicker
               selected={endDate}
               onChange={(date) => setEndDate(date)} 
@@ -81,7 +81,7 @@ export default function budget_vs_actual_report() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-6">
+      <div className="flex xl:flex-row flex-col gap-6">
         <label className="col-span-4 font-medium">Output Options</label>
         {options.map((option, index) => (
           <div key={index} className="flex items-center space-x-2">

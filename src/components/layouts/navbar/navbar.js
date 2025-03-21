@@ -23,7 +23,7 @@ export default function Navbar() {
       {/* Menu Button (Visible on Mobile/Tablet) */}
       <button
         onClick={toggleSidebar}
-        className="fixed top-4 left-4 sm:hidden p-2 bg-gray-800 text-white rounded-lg z-50"
+        className="fixed top-9 left-4 sm:hidden p-2 bg-gray-800 text-white rounded-lg z-50"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

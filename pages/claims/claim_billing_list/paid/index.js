@@ -60,7 +60,7 @@ export default function paid() {
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
             <div className="flex flex-col gap-6">
-                <span className="text-5xl font-bold">
+                <span className="xl:text-5xl text-3xl font-bold">
                     Claim Biling List
                 </span>
                 <span className="text-purple-500">
@@ -88,7 +88,7 @@ export default function paid() {
                 <Input placeholder="Search" />
                 <Input placeholder="Payer" />
                 <div className="flex flex-col gap-4">
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)}
@@ -99,8 +99,7 @@ export default function paid() {
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
                 </div>
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+                                    <div className="relative w-full">
                         <DatePicker
                             selected={endDate}
                             onChange={(date) => setEndDate(date)}
@@ -110,7 +109,7 @@ export default function paid() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
+              
                 <div className="flex flex-col">
                     <Button variant="default" className="px-10 py-5">
                         Search

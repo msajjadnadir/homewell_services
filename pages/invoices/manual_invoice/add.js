@@ -34,7 +34,7 @@ export default function InvoiceForm() {
             <div className="grid grid-cols-2 gap-12">
                 <div className="flex flex-col gap-4">
                     <label className="font-medium">Date of Service</label>
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 

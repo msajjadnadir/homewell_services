@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 export default function weekly_overtime_threshold() {
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
-            <span className="text-5xl font-bold">
+            <span className="xl:text-5xl text-3xl font-bold">
                 Weekly Overtime Threshold
             </span>
             <span className="text-gray-500">
@@ -22,17 +22,17 @@ export default function weekly_overtime_threshold() {
                     </SelectContent>
                 </Select>
             </div>
-            <div className="flex flex-row items-center justify-between">
+            <div className="flex lg:flex-row flex-col gap-4 justify-between">
                 <div className="flex flex-row gap-4 select-none">
-                    <Button variant="default" className="bg-success-500 px-10">
+                    <Button variant="default" className="w-full bg-success-500 px-10">
                         Search
                     </Button>
-                    <Button variant="default" className="bg-warning-500 px-10">
+                    <Button variant="default" className="w-full bg-warning-500 px-10">
                         Clear
                     </Button>
                 </div>
                 <div className="flex flex-row gap-4">
-                    <Button variant="default" className="bg-sky-900 px-10">
+                    <Button variant="default" className="w-full bg-sky-900 px-10">
                         Export Excel
                     </Button>
                 </div>

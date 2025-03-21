@@ -41,7 +41,7 @@ export default function AddSchedule() {
             <div className="grid grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                     <label>Start Date</label>
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -54,7 +54,7 @@ export default function AddSchedule() {
                 </div>
                 <div className="flex flex-col gap-2">
                     <label>End Date</label>
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={endDate}
                             onChange={(date) => setEndDate(date)} 

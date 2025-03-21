@@ -25,7 +25,7 @@ export default function timecard_export_report() {
 
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
-            <span className="text-5xl font-bold">
+            <span className="xl:text-5xl text-3xl font-bold">
                 Timecard Export Report
             </span>
             <span className="text-gray-500">
@@ -88,7 +88,7 @@ export default function timecard_export_report() {
                     </div>
                 </RadioGroup>
             </div>
-            <div className="grid grid-cols-4 gap-6">
+            <div className="flex xl:flex-row flex-col gap-6">
                 <Select>
                     <SelectTrigger>
                         <SelectValue placeholder="Select Employee" />
@@ -105,8 +105,8 @@ export default function timecard_export_report() {
                         <SelectItem value="option">Option</SelectItem>
                     </SelectContent>
                 </Select>
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+                
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -116,9 +116,9 @@ export default function timecard_export_report() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+         
+                
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -128,7 +128,7 @@ export default function timecard_export_report() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
+         
             </div>
             <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row gap-4 select-none">

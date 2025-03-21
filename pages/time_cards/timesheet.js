@@ -70,7 +70,7 @@ export default function AddTimeSheet() {
             <div className="flex flex-col-2 gap-6 w-[60%]">
                 <div className="flex flex-col gap-2 w-full">
                     <label className="font-medium">YYYY-MM-DD HH:MM</label>
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -83,7 +83,7 @@ export default function AddTimeSheet() {
                 </div>
                 <div className="flex flex-col gap-2 w-full">
                     <label className="font-medium">YYYY-MM-DD HH:MM</label>
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={endDate}
                             onChange={(date) => setEndDate(date)} 

@@ -28,7 +28,7 @@ export default function reschedule_shift() {
                 </div>
                 <div className="flex flex-col gap-4">
                     <label>New Date</label>
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)}
@@ -41,7 +41,7 @@ export default function reschedule_shift() {
                 </div>
                 <div className="flex flex-col gap-4">
                     <label>New Time</label>
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)}

@@ -49,7 +49,7 @@ export default function index() {
         <div className="flex flex-col space-y-8 w-full font-satoshi">
             <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row">
-                    <span className="text-5xl font-bold">
+                    <span className="xl:text-5xl text-3xl font-bold">
                         Compile Visits
                     </span>
                 </div>
@@ -69,8 +69,8 @@ export default function index() {
             <div className="grid grid-cols-5 gap-6">
                 <Input placeholder="Select Payer" />
                 <Input placeholder="Search Name, ID etc.." />
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+                
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -80,9 +80,9 @@ export default function index() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
+         
                 <div className="flex flex-col gap-4">
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={endDate}
                             onChange={(date) => setEndDate(date)} 

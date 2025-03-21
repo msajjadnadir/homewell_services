@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { format } from "date-fns";
 import { Calendar } from "lucide-react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function AddCaregiverLocation() {
-  const [date, setDate] = useState(null);
+  const [startDate, setStartDate] = useState(new Date());
 
   return (
     <div className="flex flex-col gap-6 mt-[46px]">
@@ -57,7 +56,7 @@ export default function AddCaregiverLocation() {
         </div>
         <div className="flex flex-col gap-4 relative">
           <span className="font-medium text-[18px] text-gray-900">Birthday</span>
-          <div className="relative">
+          <div className="relative w-full">
             <DatePicker
               selected={startDate}
                             onChange={(date) => setStartDate(date)} 

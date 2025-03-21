@@ -9,11 +9,11 @@ import {
 
 export default function kpi_report() {
   return (
-    <div className="flex flex-col space-y-8 w-full font-satoshi">
-      <span className="text-5xl font-bold">KPI Report</span>
-
-      <div className="flex flex-row items-center justify-between">
-        <div className="grid grid-cols-6 gap-6">
+    <div className="flex flex-col gap-4 w-full font-satoshi">
+      <span className="xl:text-5xl text-3xl font-bold">KPI Report</span>
+      <div className="flex xl:flex-row flex-col justify-between">
+        <div className="flex xl:flex-row flex-col gap-6 w-[48%
+        ]">
           <Select>
             <SelectTrigger>
               <SelectValue placeholder="Select Year" />
@@ -26,20 +26,20 @@ export default function kpi_report() {
             Search
           </Button>
         </div>
-        <div className="flex flex-row gap-4">
-          <Button variant="default" className="bg-sky-900 px-10">
+        <div className="flex xl:flex-row flex-col gap-4">
+          <Button variant="default" className="w-full bg-sky-900 px-10">
             Export Excel
           </Button>
-          <Button variant="default" className="bg-sky-900 px-10">
+          <Button variant="default" className="w-full bg-sky-900 px-10">
             Download PDF
           </Button>
         </div>
       </div>
-      <div className="flex flex-row gap-4">
-        <Button variant="default" className="bg-gray-500 px-10">
-          Currebt Year by Month
+      <div className="flex xl:flex-row flex-col gap-4">
+        <Button variant="default" className="w-full bg-gray-500 px-10">
+          Current Year by Month
         </Button>
-        <Button variant="default" className="bg-warning-500 px-10">
+        <Button variant="default" className="w-full bg-warning-500 px-10">
           Yearly Report
         </Button>
       </div>

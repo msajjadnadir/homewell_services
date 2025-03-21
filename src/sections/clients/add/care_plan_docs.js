@@ -6,8 +6,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function CarePlanDocs() {
-  const [startDate, setStartDate] = useState(new Date()); 
-    const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
   return (
     <div className="flex flex-col mt-[46px] gap-6">
@@ -22,10 +22,10 @@ export default function CarePlanDocs() {
           <label className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Document Date
           </label>
-          <div className="relative">
+          <div className="relative w-full">
             <DatePicker
               selected={startDate}
-                            onChange={(date) => setStartDate(date)} 
+              onChange={(date) => setStartDate(date)}
               dateFormat="MM/dd/yyyy"
               className="w-full border border-gray-300 rounded-md p-2 pl-10"
               placeholderText="Select date"
@@ -37,10 +37,10 @@ export default function CarePlanDocs() {
           <label className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Renewal Date
           </label>
-          <div className="relative">
+          <div className="relative w-full">
             <DatePicker
               selected={startDate}
-                            onChange={(date) => setStartDate(date)} 
+              onChange={(date) => setStartDate(date)}
               dateFormat="MM/dd/yyyy"
               className="w-full border border-gray-300 rounded-md p-2 pl-10"
               placeholderText="Select date"
@@ -62,7 +62,7 @@ export default function CarePlanDocs() {
         <div className="flex items-center gap-3 border p-2">
           <label
             htmlFor="file-upload"
-            className="cursor-pointer bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
+            className="cursor-pointer bg-gray-100 text-dark px-4 py-2 rounded-md hover:bg-gray-200 transition-colors"
           >
             Choose File
           </label>

@@ -93,7 +93,7 @@ export default function AddCaregiverLocation() {
           <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Hire Date
           </span>
-          <div className="relative">
+          <div className="relative w-full">
             <DatePicker
               selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -108,7 +108,7 @@ export default function AddCaregiverLocation() {
           <span className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Birthday
           </span>
-          <div className="relative">
+          <div className="relative w-full">
             <DatePicker
               selected={startDate}
                             onChange={(date) => setStartDate(date)} 

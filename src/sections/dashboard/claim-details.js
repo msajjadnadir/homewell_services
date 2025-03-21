@@ -2,7 +2,14 @@
 import { Icon } from "@iconify-icon/react";
 import { useState } from "react";
 import ReactApexChart from "react-apexcharts";
-import { Select, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const claimDetails = [
   {
@@ -93,6 +100,22 @@ export default function ClaimDetailsSection() {
             <SelectTrigger className="w-[138px] border border-gray-300 flex">
               <SelectValue placeholder="May" />
             </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="january">January</SelectItem>
+                <SelectItem value="february">February</SelectItem>
+                <SelectItem value="march">March</SelectItem>
+                <SelectItem value="april">April</SelectItem>
+                <SelectItem value="may">May</SelectItem>
+                <SelectItem value="june">June</SelectItem>
+                <SelectItem value="july">July</SelectItem>
+                <SelectItem value="august">August</SelectItem>
+                <SelectItem value="september">September</SelectItem>
+                <SelectItem value="october">October</SelectItem>
+                <SelectItem value="november">November</SelectItem>
+                <SelectItem value="december">December</SelectItem>
+              </SelectGroup>
+            </SelectContent>
           </Select>
         </div>
         <ReactApexChart

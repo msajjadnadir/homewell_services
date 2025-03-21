@@ -12,7 +12,7 @@ export default function employee_weekly_summary_report() {
 
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
-            <span className="text-5xl font-bold">
+            <span className="xl:text-5xl text-3xl font-bold">
                 Employee Weekly Summary Report
             </span>
             <div className="grid grid-cols-4 gap-2">
@@ -38,7 +38,7 @@ export default function employee_weekly_summary_report() {
             <div className="grid grid-cols-4 gap-2">
                 <label className="col-span-4 font-medium">Select Date</label>
                 <div className="flex flex-col-4 gap-4 col-span-4">
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 

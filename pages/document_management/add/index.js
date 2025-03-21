@@ -73,7 +73,7 @@ export default function Add() {
             Expiration Date (if applicable)
           </label>
           <div className="flex flex-col gap-4">
-            <div className="relative">
+            <div className="relative w-full">
               <DatePicker
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}

@@ -23,7 +23,7 @@ export default function AddCaregiverCertification() {
           <label className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Certificate Date
           </label>
-          <div className="relative">
+          <div className="relative w-full">
             <DatePicker
               selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -38,7 +38,7 @@ export default function AddCaregiverCertification() {
           <label className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Renewal Date
           </label>
-          <div className="relative">
+          <div className="relative w-full">
             <DatePicker
               selected={startDate}
                             onChange={(date) => setStartDate(date)} 

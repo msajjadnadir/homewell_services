@@ -11,12 +11,12 @@ export default function activity_reporting() {
 
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
-            <span className="text-5xl font-bold">
+            <span className="xl:text-5xl text-3xl font-bold">
                 Activity Reporting
             </span>
             <div className="grid grid-cols-5 gap-6">
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+                
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -26,7 +26,7 @@ export default function activity_reporting() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
+         
                 <Select>
                     <SelectTrigger>
                         <SelectValue placeholder="Select Zone" />
@@ -43,8 +43,8 @@ export default function activity_reporting() {
                         <SelectItem value="option">Option</SelectItem>
                     </SelectContent>
                 </Select>
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+                
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -54,9 +54,9 @@ export default function activity_reporting() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+         
+                
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -66,7 +66,7 @@ export default function activity_reporting() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
+         
             </div>
             <div className="grid grid-cols-3 gap-6">
                 <Select>

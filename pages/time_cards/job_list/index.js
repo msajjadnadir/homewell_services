@@ -102,7 +102,7 @@ export default function paid() {
     return (
         <div className="flex flex-col space-y-12 w-full font-satoshi">
             <div className="flex flex-row gap-6 items-center justify-between">
-                <span className="text-5xl font-bold">
+                <span className="xl:text-5xl text-3xl font-bold">
                     Time Card List
                 </span>
                 <div className="flex flex-row gap-3">
@@ -126,7 +126,7 @@ export default function paid() {
                     </SelectContent>
                 </Select>
                 <div className="flex flex-col gap-4">
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)}
@@ -137,8 +137,7 @@ export default function paid() {
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
                 </div>
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+                                    <div className="relative w-full">
                         <DatePicker
                             selected={endDate}
                             onChange={(date) => setEndDate(date)}
@@ -148,7 +147,7 @@ export default function paid() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
+              
                 <div className="flex flex-col">
                     <Button variant="default" className="px-10 py-5">
                         Search

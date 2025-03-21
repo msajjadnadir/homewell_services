@@ -20,7 +20,7 @@
 //           className="mt-8 w-full flex flex-col"
 //           onSubmit={(e) => handleLogin(e)}
 //         >
-//           <div className="relative">
+//           <div className="relative w-full">
 //             <label
 //               htmlFor="email"
 //               className="block font-satoshi text-base leading-[21.6px] font-normal text-[#535353]"
@@ -103,7 +103,7 @@ export default function LoginPage() {
                     className="mt-8 w-full flex flex-col"
                     onSubmit={(e) => handleLogin(e)}
                 >
-                    <div className="relative">
+                    <div className="relative w-full">
                         <label
                             htmlFor="email"
                             className="block font-satoshi text-base leading-[21.6px] font-normal text-[#535353]"

@@ -36,7 +36,7 @@ import {
 export default function alert_log_dashboard() {
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
-            <span className="text-5xl font-bold">
+            <span className="xl:text-5xl text-3xl font-bold">
                 Alert Log Dashboard
             </span>
             <div className="grid grid-cols-2 gap-6">
@@ -65,7 +65,7 @@ export default function alert_log_dashboard() {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-4 gap-6">
+            <div className="flex xl:flex-row flex-col gap-6">
                 <div className="border border-gray-100 shadow-lg flex flex-col items-center justify-center p-8 rounded-lg space-y-2">
                     <span className="font-bold text-3xl">All Zones</span>
                     <span className="text-gray-500">Zone Names</span>

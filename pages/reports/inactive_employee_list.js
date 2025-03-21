@@ -12,10 +12,10 @@ export default function inactive_employee_list() {
 
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
-            <span className="text-5xl font-bold">
+            <span className="xl:text-5xl text-3xl font-bold">
                 Inactive Employee List
             </span>
-            <div className="grid grid-cols-4 gap-6">
+            <div className="flex xl:flex-row flex-col gap-6">
                 <Input placeholder="Search Text" />
                 <Select>
                     <SelectTrigger>
@@ -26,7 +26,7 @@ export default function inactive_employee_list() {
                     </SelectContent>
                 </Select>
                 <div className="flex flex-col gap-4">
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)}
@@ -38,7 +38,7 @@ export default function inactive_employee_list() {
                     </div>
                 </div>
                 <div className="flex flex-col gap-4">
-                    <div className="relative">
+                    <div className="relative w-full">
                         <DatePicker
                             selected={endDate}
                             onChange={(date) => setEndDate(date)} 

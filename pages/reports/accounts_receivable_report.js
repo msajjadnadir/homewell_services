@@ -64,7 +64,7 @@ const data2 = [
 export default function accounts_receivable_report() {
   return (
     <div className="flex flex-col space-y-8 w-full font-satoshi">
-      <span className="text-5xl font-bold">Accounts Receivable Report</span>
+      <span className="xl:text-5xl text-3xl font-bold">Accounts Receivable Report</span>
       <div className="flex flex-row items-center justify-between">
         <div className="flex flex-row gap-4 select-none">
           <div className="flex flex-row gap-4 select-none">

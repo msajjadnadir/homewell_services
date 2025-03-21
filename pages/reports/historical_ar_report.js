@@ -77,7 +77,7 @@ export default function historical_ar_report() {
 
   return (
     <div className="flex flex-col space-y-8 w-full font-satoshi">
-      <span className="text-5xl font-bold">Historical A/R Report</span>
+      <span className="xl:text-5xl text-3xl font-bold">Historical A/R Report</span>
       <div className="grid grid-cols-5 gap-6 justify-between">
         <Select>
           <SelectTrigger>
@@ -97,7 +97,7 @@ export default function historical_ar_report() {
       <div className="grid grid-cols-5 gap-6">
         <div className="flex flex-col gap-2">
           <label className="font-medium">As of</label>
-          <div className="relative">
+          <div className="relative w-full">
             <DatePicker
               selected={startDate}
               onChange={(date) => setStartDate(date)}

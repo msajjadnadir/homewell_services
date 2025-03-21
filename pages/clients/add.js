@@ -15,15 +15,25 @@ import Insurance from "@/sections/clients/add/insurance";
 import CustomPrompts from "@/sections/clients/add/custom_prompts";
 import Authorizations from "@/sections/clients/add/authorizations";
 
-export default function add() {
-  const [tab, setTab] = useState(clientsTabData[0]);
+export default function Add() {
+  const [tabIndex, setTabIndex] = useState(0);
+  const tab = clientsTabData[tabIndex];
+  
+  const handlePrevious = () => {
+    if (tabIndex > 0) setTabIndex(tabIndex - 1);
+  };
+
+  const handleNext = () => {
+    if (tabIndex < clientsTabData.length - 1) setTabIndex(tabIndex + 1);
+  };
+
   return (
-    <div className="flex flex-col font-satoshi  w-full">
+    <div className="flex flex-col font-satoshi w-full">
       <span className="font-bold text-[40px] leading-[54px] tracking-[0.016em] text-[#00261C]">
         Add Client
       </span>
 
-      <Tabs tab={tab} setTab={setTab} />
+      <Tabs tab={tab} setTab={(newTab) => setTabIndex(clientsTabData.indexOf(newTab))} />
       {tab === "Basic Setup" && <BasicSetup />}
       {tab === "Location" && <Location />}
       {tab === "Advanced" && <Advanced />}
@@ -36,30 +46,35 @@ export default function add() {
       {tab === "Custom Prompts" && <CustomPrompts />}
       {tab === "Authorizations" && <Authorizations />}
 
-
       <div className="flex flex-row items-center mt-20 justify-between">
         <div className="flex flex-row items-center gap-3">
-          <Button variant="outline" className="px-10 py-5">
+          <Button 
+            variant="outline" 
+            className="px-10 py-5"
+            onClick={handlePrevious} 
+            disabled={tabIndex === 0}>
             Previous
           </Button>
-          <Button variant="outline" className="px-10 py-5">
-            Save
+          <Button 
+            variant="outline" 
+            className="px-10 py-5"
+            onClick={handleNext} 
+            disabled={tabIndex === clientsTabData.length - 1}>
+            Next
           </Button>
         </div>
-        <Button variant="default" className="px-10 py-5">
-          Next
-        </Button>
+
+        {tab === "Authorizations" && (
+          <Button variant="default" className="px-10 py-5">
+            Save
+          </Button>
+        )}
       </div>
 
       <div className="bg-gray-200 text-gray-700 font-medium px-20 py-4 mt-16">
-        <span className="block">
-          Job: ALEXA SARAH ALEFELD (794890)
-        </span>
-        <span className="block">
-          Created by: GARRIDO, GLYZZA (GLYGAR940973), Created date is: Jun 04, 2024 11:19 PM
-        </span>
+        <span className="block">Job: ALEXA SARAH ALEFELD (794890)</span>
+        <span className="block">Created by: GARRIDO, GLYZZA (GLYGAR940973), Created date is: Jun 04, 2024 11:19 PM</span>
       </div>
-
     </div>
   );
 }

@@ -16,7 +16,7 @@ export default function AddCaregiverCertification() {
           <label className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Certificate Date
           </label>
-          <div className="relative">
+          <div className="relative w-full">
             <Input placeholder="dd/mm/yyyy" />
             <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
           </div>
@@ -25,7 +25,7 @@ export default function AddCaregiverCertification() {
           <label className="font-satoshi font-medium text-[18px] leading-[30px] tracking-[-0.48px] text-gray-900">
             Renewal Date
           </label>
-          <div className="relative">
+          <div className="relative w-full">
             <Input placeholder="dd/mm/yyyy" />
             <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
           </div>

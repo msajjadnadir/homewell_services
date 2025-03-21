@@ -13,13 +13,13 @@ export default function overlapping_shifts_report() {
 
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
-            <span className="text-5xl font-bold">
+            <span className="xl:text-5xl text-3xl font-bold">
                 Overlapping Shifts Report
             </span>
             <span className="text-gray-500">
                 This report can be used for both payroll and billing exports for a selected date range. If the job is performed in a different timezone select "Show in Job timezone" before clicking the Search button. The Output Options lets you group by the Job, show/hide Job code, and show/hide additional fields. Click here to refer to the help guide
             </span>
-            <div className="grid grid-cols-4 gap-6">
+            <div className="flex xl:flex-row flex-col gap-6">
                 <Select>
                     <SelectTrigger>
                         <SelectValue placeholder="Select Zone" />
@@ -36,8 +36,8 @@ export default function overlapping_shifts_report() {
                         <SelectItem value="option">Option</SelectItem>
                     </SelectContent>
                 </Select>
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+                
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -47,9 +47,9 @@ export default function overlapping_shifts_report() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
-                <div className="flex flex-col gap-4">
-                    <div className="relative">
+         
+                
+                    <div className="relative w-full">
                         <DatePicker
                             selected={startDate}
                             onChange={(date) => setStartDate(date)} 
@@ -59,7 +59,7 @@ export default function overlapping_shifts_report() {
                         />
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
-                </div>
+         
             </div>
             <div className="flex flex-row gap-">
                 <RadioGroup defaultValue="option-one" className="flex flex-row gap-36">
