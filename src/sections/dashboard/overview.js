@@ -95,8 +95,8 @@ export default function OverviewSection() {
   });
 
   return (
-    <div className="mt-12 flex flex-col w-full">
-      <span className="font-satoshi font-bold text-2xl sm:text-3xl lg:text-[40px] leading-[54px] tracking-[0.016em] text-primaryText-DEFAULT">
+    <div className="mt-12 flex flex-col w-full font-satoshi">
+      <span className="font-bold text-2xl sm:text-3xl lg:text-[40px] leading-[54px] tracking-[0.016em] text-primaryText-DEFAULT">
         Overview
       </span>
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6 mt-6">
@@ -107,10 +107,10 @@ export default function OverviewSection() {
               className="flex flex-row justify-between items-start rounded-[14px] backdrop-blur-[8px] shadow-[0px_4px_6px_-2px_#0A0D120D,0px_12px_16px_-4px_#0A0D121A] p-4 sm:p-6 xl:mt-0 mt-6"
             >
               <div className="flex flex-col gap-2 sm:gap-4">
-                <span className="font-satoshi font-bold text-sm sm:text-base leading-[21.6px] text-secondaryShades-base">
+                <span className="font-bold text-sm sm:text-base leading-[21.6px] text-secondaryShades-base">
                   {item.title}
                 </span>
-                <span className="font-satoshi font-black text-xl sm:text-2xl lg:text-[28px] leading-[37.8px] tracking-[1px] text-secondaryShades-900">
+                <span className="font-black text-xl sm:text-2xl lg:text-[28px] leading-[37.8px] tracking-[1px] text-secondaryShades-900">
                   {item.value}
                 </span>
               </div>
@@ -121,7 +121,7 @@ export default function OverviewSection() {
           ))}
         </div>
         <div className="xl:col-span-1 col-span-2 p-6 sm:p-9 flex flex-col border shadow-[0px_0px_4.92px_0px_#00000040] rounded-[12px] border-[#0A0D121A] items-center justify-between xl:mt-0 mt-6">
-          <span className="font-satoshi font-black text-xl sm:text-2xl leading-9 text-[#2E2E30]">
+          <span className="font-black text-xl sm:text-2xl leading-9 text-[#2E2E30]">
             Visits vs Schedule
           </span>
           <ReactApexChart

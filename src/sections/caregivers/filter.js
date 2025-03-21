@@ -1,6 +1,7 @@
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -12,20 +13,59 @@ export default function CaregiversFilter() {
   return (
     <div className="mt-11 flex flex-col">
       <div className="flex lg:flex-row flex-col gap-6 items-center">
-        <Select>
+      <Select>
           <SelectTrigger>
             <SelectValue placeholder="Select Zone" />
           </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              {[
+                "Zone 1",
+                "Zone 2",
+                "Zone 3",
+              ].map((zone) => (
+                <SelectItem key={zone} value={zone.toLowerCase()}>
+                  {zone}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
         </Select>
         <Select>
           <SelectTrigger>
             <SelectValue placeholder="All" />
           </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              {[
+                "Option 1",
+                "Option 2",
+                "Option 3",
+              ].map((option) => (
+                <SelectItem key={option} value={option.toLowerCase()}>
+                  {option}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
         </Select>
         <Select>
           <SelectTrigger>
             <SelectValue placeholder="First Name" />
           </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              {[
+                "First Name",
+                "Middle Name",
+                "Last Name",
+              ].map((name) => (
+                <SelectItem key={name} value={name.toLowerCase()}>
+                  {name}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
         </Select>
         <Input placeholder="LARA" />
       </div>

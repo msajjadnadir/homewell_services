@@ -51,7 +51,7 @@ const Header = () => {
         {headerData.map((item, index) => (
           <div key={index} className="relative">
             <div
-              className="flex items-center gap-3 cursor-pointer"
+              className="flex items-center gap-3 cursor-pointer uppercase"
               onClick={() => toggleSubMenu(index)}
             >
               <span className="text-sm md:text-base text-gray-150">{item.title}</span>
@@ -98,8 +98,8 @@ const Header = () => {
 
         {/* Admin Dropdown */}
         <div className="relative group">
-          <button className="flex items-center gap-1 text-sm md:text-base font-medium text-gray-150">
-            Admin
+          <button className="flex items-center gap-1 text-sm md:text-base font-medium text-gray-150 uppercase">
+            John Doe
             <Icon icon="uiw:down" className="text-gray-150" />
           </button>
 

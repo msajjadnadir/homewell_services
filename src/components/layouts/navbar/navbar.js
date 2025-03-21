@@ -43,7 +43,7 @@ export default function Navbar() {
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 w-[320px] p-6 overflow-y-auto border border-[#00000010] bg-white z-40 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed inset-y-0 left-0 w-[350px] p-6 overflow-y-auto border border-[#00000010] bg-white z-40 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full font-satoshi"
           } sm:translate-x-0 sm:relative sm:flex sm:flex-col sm:h-screen`}
       >
         {/* Title Section */}
@@ -58,7 +58,7 @@ export default function Navbar() {
           </span>
         </div>
         {/* Navigation Links */}
-        <div className="flex flex-col gap-2 mt-8">
+        <div className="flex flex-col gap-2 mt-8 uppercase">
           {navData.map((item, index) => (
             <div key={"navbar" + index} className="flex flex-col">
               <div
