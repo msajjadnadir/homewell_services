@@ -6,7 +6,7 @@ import List from "@/sections/caregivers/list";
 
 export default function CaregiversPage() {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full font-satoshi">
       <Action />
       <Filter />
       <List />

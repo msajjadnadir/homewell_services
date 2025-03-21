@@ -40,22 +40,22 @@ export default function CaregiversFilter() {
         </div>
         <div className="flex lg:flex-row flex-col lg:mt-0 mt-6 gap-4">
           <div className="px-[17px] py-[14px] rounded-[14px] shadow backdrop-blur-md">
-            <span className="font-satoshi font-bold text-base leading-[21.6px] text-secondaryShades-base">
+            <span className="font-bold text-base leading-[21.6px] text-secondaryShades-base">
               ALL : 290
             </span>
           </div>
           <div className="px-[17px] py-[14px] rounded-[14px] shadow backdrop-blur-md">
-            <span className="font-satoshi font-bold text-base leading-[21.6px] text-secondaryShades-base">
+            <span className="font-bold text-base leading-[21.6px] text-secondaryShades-base">
               ACTIVE : 228
             </span>
           </div>
           <div className="px-[17px] py-[14px] rounded-[14px] shadow backdrop-blur-md">
-            <span className="font-satoshi font-bold text-base leading-[21.6px] text-secondaryShades-base">
+            <span className="font-bold text-base leading-[21.6px] text-secondaryShades-base">
               INACTIVE : 11
             </span>
           </div>
           <div className="px-[17px] py-[14px] rounded-[14px] shadow backdrop-blur-md">
-            <span className="font-satoshi font-bold text-base leading-[21.6px] text-secondaryShades-base">
+            <span className="font-bold text-base leading-[21.6px] text-secondaryShades-base">
               TERMINATED : 51
             </span>
           </div>

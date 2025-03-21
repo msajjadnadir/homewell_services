@@ -17,7 +17,7 @@ export default function AdminSettings() {
             {/* General Settings */}
             <Card className="border-none shadow">
                 <CardHeader>
-                    <CardTitle>General Settings</CardTitle>
+                    <CardTitle className="text-xl">General Settings</CardTitle>
                 </CardHeader>
                 <CardContent className="grid lg:grid-cols-2 gap-6">
                     <div>
@@ -42,7 +42,7 @@ export default function AdminSettings() {
             {/* Billing & Payment Settings */}
             <Card className="border-none shadow">
                 <CardHeader>
-                    <CardTitle>Billing & Payment Settings</CardTitle>
+                    <CardTitle className="text-xl">Billing & Payment Settings</CardTitle>
                 </CardHeader>
                 <CardContent className="grid lg:grid-cols-2 gap-6">
                     <div>
@@ -67,7 +67,7 @@ export default function AdminSettings() {
             {/* Security Settings */}
             <Card className="border-none shadow">
                 <CardHeader>
-                    <CardTitle>Security Settings</CardTitle>
+                    <CardTitle className="text-xl">Security Settings</CardTitle>
                 </CardHeader>
                 <CardContent className="grid lg:grid-cols-2 gap-6">
                     <div>
@@ -86,7 +86,9 @@ export default function AdminSettings() {
                         <label className="font-medium">Allowed IP Addresses</label>
                         <Input placeholder="Enter Allowed IP Addresses" />
                     </div>
-                    <div className="col-span-2">
+                </CardContent>
+                <CardContent className="grid lg:grid-col gap-6">
+                    <div>
                         <label className="font-medium">Reset Admin Password</label>
                         <Input type="password" placeholder="Enter New Password" />
                     </div>
@@ -96,7 +98,7 @@ export default function AdminSettings() {
             {/* Notification Preferences */}
             <Card className="border-none shadow">
                 <CardHeader>
-                    <CardTitle>Notification Preferences</CardTitle>
+                    <CardTitle className="text-xl">Notification Preferences</CardTitle>
                 </CardHeader>
                 <CardContent className="grid lg:grid-cols-2 gap-6">
                     <div>
@@ -129,7 +131,7 @@ export default function AdminSettings() {
             {/* System Preferences */}
             <Card className="border-none shadow">
                 <CardHeader>
-                    <CardTitle>System Preferences</CardTitle>
+                    <CardTitle className="text-xl">System Preferences</CardTitle>
                 </CardHeader>
                 <CardContent className="grid lg:grid-cols-2 gap-6">
                     <div>

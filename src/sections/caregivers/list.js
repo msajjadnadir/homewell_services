@@ -70,25 +70,25 @@ export default function CaregiversList() {
       <Table>
         <TableHeader>
           <TableRow className="bg-[#DED1F6] rounded-t-[8px]">
-            <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
+            <TableHead className="font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
               Employee Code  
             </TableHead>
-            <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
+            <TableHead className="font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
               Employee Name
             </TableHead>
-            <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
+            <TableHead className="font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
               City
             </TableHead>
-            <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
+            <TableHead className="font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
               State
             </TableHead>
-            <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
+            <TableHead className="font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
               Zone
             </TableHead>
-            <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
+            <TableHead className="font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
               Status
             </TableHead>
-            <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
+            <TableHead className="font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
               Action
             </TableHead>
           </TableRow>
@@ -96,30 +96,30 @@ export default function CaregiversList() {
         <TableBody>
           {invoices.map((invoice, index) => (
             <TableRow key={"invoice" + index}>
-              <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
+              <TableCell className="font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
                 {invoice.employeeCode}
               </TableCell>
-              <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
+              <TableCell className="font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
                 {invoice.employeeName}
               </TableCell>
-              <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
+              <TableCell className="font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
                 {invoice.city}
               </TableCell>
-              <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
+              <TableCell className="font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
                 {invoice.state}
               </TableCell>
-              <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
+              <TableCell className="font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
                 {invoice.zone}
               </TableCell>
-              <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
+              <TableCell className="font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
                 {invoice.status}
               </TableCell>
               <TableCell className="flex flex-row gap-[10px]">
-                <button className="font-satoshi font-medium text-[16px] leading-[21.6px] tracking-[0px] text-gray-900 bg-success-100 px-3 py-1 rounded-[6px]">
+                <button className="font-medium text-[16px] leading-[21.6px] tracking-[0px] text-gray-900 bg-success-100 px-3 py-1 rounded-[6px]">
                   Edit
                 </button>
                 <button 
-                  className="font-satoshi font-medium text-[16px] leading-[21.6px] tracking-[0px] text-gray-900 bg-primaryShades-100 px-3 py-1 rounded-[6px]"
+                  className="font-medium text-[16px] leading-[21.6px] tracking-[0px] text-gray-900 bg-primaryShades-100 px-3 py-1 rounded-[6px]"
                   onClick={() => router.push(paths.dashboard.caregivers.view)}
                 >
                   View

@@ -99,12 +99,12 @@ export default function OverviewSection() {
       <span className="font-satoshi font-bold text-2xl sm:text-3xl lg:text-[40px] leading-[54px] tracking-[0.016em] text-primaryText-DEFAULT">
         Overview
       </span>
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6 mt-6">
         <div className="col-span-1 sm:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
           {overViewData.map((item, index) => (
             <div
               key={"overview" + index}
-              className="flex flex-row justify-between items-start rounded-[14px] backdrop-blur-[8px] shadow-[0px_4px_6px_-2px_#0A0D120D,0px_12px_16px_-4px_#0A0D121A] p-4 sm:p-6"
+              className="flex flex-row justify-between items-start rounded-[14px] backdrop-blur-[8px] shadow-[0px_4px_6px_-2px_#0A0D120D,0px_12px_16px_-4px_#0A0D121A] p-4 sm:p-6 xl:mt-0 mt-6"
             >
               <div className="flex flex-col gap-2 sm:gap-4">
                 <span className="font-satoshi font-bold text-sm sm:text-base leading-[21.6px] text-secondaryShades-base">
@@ -120,7 +120,7 @@ export default function OverviewSection() {
             </div>
           ))}
         </div>
-        <div className="xl:col-span-1 col-span-2 p-6 sm:p-9 flex flex-col border shadow-[0px_0px_4.92px_0px_#00000040] rounded-[12px] border-[#0A0D121A] items-center justify-between">
+        <div className="xl:col-span-1 col-span-2 p-6 sm:p-9 flex flex-col border shadow-[0px_0px_4.92px_0px_#00000040] rounded-[12px] border-[#0A0D121A] items-center justify-between xl:mt-0 mt-6">
           <span className="font-satoshi font-black text-xl sm:text-2xl leading-9 text-[#2E2E30]">
             Visits vs Schedule
           </span>

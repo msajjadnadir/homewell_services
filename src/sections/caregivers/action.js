@@ -7,7 +7,7 @@ export default function CaregiversAction() {
 
   return (
     <div className="flex lg:flex-row flex-col w-full justify-between lg:items-center select-none">
-      <span className="font-satoshi font-bold text-[40px] leading-[54px] tracking-[1.6%] text-primaryText">
+      <span className="font-bold text-[40px] leading-[54px] tracking-[1.6%] text-primaryText">
         Caregivers
       </span>
       <div className="flex lg:flex-row flex-col gap-3 lg:items-center zl:mt-0 mt-5">

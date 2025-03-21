@@ -20,7 +20,7 @@ export default function index() {
                     </div>
                     <div>
                         <label className="font-medium">Service Authorizations</label>
-                        <div className="flex gap-4 mt-2">
+                        <div className="flex md:flex-row flex-col gap-4 mt-2">
                             <div className="flex items-center gap-2">
                                 <Checkbox id="caregivers" />
                                 <label htmlFor="caregivers">Caregivers</label>
@@ -39,7 +39,7 @@ export default function index() {
                         <label className="font-medium">Send Time</label>
                         <Input placeholder="Send Now" />
                     </div>
-                    <div className="flex justify-end gap-4 mt-4">
+                    <div className="flex md:flex-row flex-col xl:justify-end gap-4 mt-4">
                         <Button className="px-8 bg-red-500">Cancel</Button>
                         <Button className="px-8">Send Announcement</Button>
                     </div>

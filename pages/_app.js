@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
       <Navbar />
       <div className="flex flex-col w-full p-6 min-h-screen overflow-y-auto">
         <Header />
-        <div className="flex p-10">
+        <div className="flex lg:px-10 px-2 py-10">
           {page}
         </div>
       </div>
