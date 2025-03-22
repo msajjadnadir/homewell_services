@@ -46,7 +46,7 @@ export function useNavData() {
       {
         title: "Agency", path: paths.dashboard.agency, icon: ICONS.agency,
         subMenu: [
-          { title: "Agency Details", path: "/agency" },
+          // { title: "Agency Details", path: "/agency" },
           { title: "Facility Setup", path: "/facility_setup/" },
           { title: "Zone", path: "/zone" },
         ],

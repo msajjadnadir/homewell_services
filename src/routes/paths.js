@@ -79,10 +79,12 @@ export const paths = {
     zone: {
       root: `/zone`,
       add: `/zone/add`,
+      edit: `/zone/edit`,
     },
     forms: {
       root: `/forms`,
       add: `/forms/add`,
+      edit: `/forms/edit`,
       radio: `/forms/add/radio`,
       checkbox: `/forms/add/checkbox`,
       dropdown: `/forms/add/dropdown`,

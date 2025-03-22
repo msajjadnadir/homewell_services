@@ -17,6 +17,9 @@ import {
   PaginationNext,
 } from "@/components/ui/pagination";
 
+import { useRouter } from "next/navigation";
+import { paths } from "@/routes/paths";
+
 const data = [
   {
     zoneName: "HAMPTON ROADS",
@@ -49,6 +52,7 @@ const data = [
 ];
 
 export default function list() {
+  const router = useRouter();
 
   return (
     <div className="flex flex-col mt-[60px] gap-5 items-start justify-start">
@@ -94,7 +98,7 @@ export default function list() {
                 {invoice.totalJobs}
               </TableCell>
               <TableCell className="flex flex-row gap-[10px]">
-                <button className="font-medium text-[16px] leading-[21.6px] tracking-[0px] text-gray-900 bg-success-100 px-3 py-1 rounded-[6px]">
+                <button onClick={() => router.push(paths.dashboard.zone.edit)} className="font-medium text-[16px] leading-[21.6px] tracking-[0px] text-gray-900 bg-success-100 px-3 py-1 rounded-[6px]">
                   Edit
                 </button>
               </TableCell>

@@ -7,7 +7,7 @@ export default function QuickSearchPage() {
   const [selectedType, setSelectedType] = useState("job"); // Default "job"
   
   return (
-    <div className="flex flex-col w-full font-satoshi gap-6">
+    <div className="flex flex-col w-full font-satoshi gap-4">
       <Action />
       <Filter selectedType={selectedType} setSelectedType={setSelectedType} />
       <List selectedType={selectedType} />

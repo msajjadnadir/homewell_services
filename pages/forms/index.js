@@ -124,12 +124,12 @@ export default function index() {
                                     {data.status}
                                 </TableCell>
                                 <TableCell className="flex flex-row gap-2 text-gray-900">
-                                    <button className="font-medium text-[16px] leading-5 px-4 py-1 rounded bg-yellow-100">
+                                    <button onClick={() => router.push(paths.dashboard.forms.edit)} className="font-medium text-[16px] leading-5 px-4 py-1 rounded bg-yellow-100">
                                         Edit
                                     </button>
                                     <button
                                         className="font-medium text-[16px] leading-6 px-4 py-1 rounded bg-green-100"
-                                        onClick={() => router.push(paths.dashboard.caregivers.view)}
+                                        onClick={() => router.push(paths.dashboard.forms.esign)}
                                     >
                                         E-Sign
                                     </button>
