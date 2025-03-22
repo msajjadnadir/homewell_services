@@ -1,9 +1,9 @@
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { paths } from "@/routes/paths";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-
 import {
     Table,
     TableBody,
@@ -12,14 +12,33 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
+import {
+    Pagination,
+    PaginationContent,
+    PaginationItem,
+    PaginationPrevious,
+    PaginationLink,
+    PaginationEllipsis,
+    PaginationNext,
+} from "@/components/ui/pagination";
 
-const data = [
-    {
-        facilityName: "Home Service LLC",
-    },
-];
-export default function shift_swap_request() {
+const data = Array.from({ length: 50 }, (_, i) => ({
+    facilityName: `Facilty Name  ${i + 1}`,
+}));
+
+export default function ShiftSwapRequest() {
     const router = useRouter();
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
+
+    const totalPages = Math.ceil(data.length / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentData = data.slice(startIndex, endIndex);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
 
     return (
         <div className="flex flex-col w-full space-y-10 font-satoshi">
@@ -29,8 +48,9 @@ export default function shift_swap_request() {
 
             <div className="flex lg:flex-row flex-col justify-between lg:w-[75%] gap-6">
                 <Input placeholder="Search Facility" />
-                <Button onClick={() => router.push(paths.dashboard.facility_setup.add)}
-                >Add Facility Setup</Button>
+                <Button onClick={() => router.push(paths.dashboard.facility_setup.add)}>
+                    Add Facility Setup
+                </Button>
             </div>
 
             <div className="flex flex-col gap-5">
@@ -49,7 +69,7 @@ export default function shift_swap_request() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {data.map((item, index) => (
+                        {currentData.map((item, index) => (
                             <TableRow key={index} className="border-b">
                                 <TableCell className="font-medium text-[16px] text-gray-900">
                                     {item.facilityName}
@@ -69,8 +89,34 @@ export default function shift_swap_request() {
                         ))}
                     </TableBody>
                 </Table>
+                <Pagination className="justify-start">
+                    <PaginationContent>
+                        <PaginationItem>
+                            <PaginationPrevious
+                                href="#"
+                                onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
+                            />
+                        </PaginationItem>
+                        {Array.from({ length: totalPages }, (_, i) => (
+                            <PaginationItem key={i + 1}>
+                                <PaginationLink
+                                    href="#"
+                                    onClick={() => handlePageChange(i + 1)}
+                                    isActive={currentPage === i + 1}
+                                >
+                                    {i + 1}
+                                </PaginationLink>
+                            </PaginationItem>
+                        ))}
+                        <PaginationItem>
+                            <PaginationNext
+                                href="#"
+                                onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
+                            />
+                        </PaginationItem>
+                    </PaginationContent>
+                </Pagination>
             </div>
-
         </div>
     );
 }

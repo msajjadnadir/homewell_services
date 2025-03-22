@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Table,
   TableBody,
@@ -18,19 +19,32 @@ import {
 import { useRouter } from "next/navigation";
 import { paths } from "@/routes/paths";
 
-const invoices = [
-  {
-    jobCode: "123456",
-    jobName: "Lorem Ipsum",
-    zone: "New York",
-    authorizedPhone: "VA",
-    status: "Active",
-  },
-];
+// Generate 50 records dynamically
+const invoices = Array.from({ length: 50 }, (_, index) => ({
+  jobCode: `123456${index + 1}`,
+  jobName: `Job Name ${index + 1}`,
+  zone: `Zone ${index + 1}`,
+  authorizedPhone: `Phone ${index + 1}`,
+  status: index % 2 === 0 ? "Active" : "Inactive", // Alternate status
+}));
 
-export default function CaregiversList() {
-
+export default function List() {
   const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20; // Display 20 records per page
+
+  // Calculate total pages
+  const totalPages = Math.ceil(invoices.length / itemsPerPage);
+
+  // Get current page data
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentData = invoices.slice(startIndex, endIndex);
+
+  // Handle page change
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div className="flex flex-col mt-[60px] gap-5 items-start justify-start">
@@ -47,7 +61,7 @@ export default function CaregiversList() {
               Zone
             </TableHead>
             <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
-              Authorized Phonr
+              Authorized Phone
             </TableHead>
             <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
               Status
@@ -58,7 +72,7 @@ export default function CaregiversList() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {invoices.map((invoice, index) => (
+          {currentData.map((invoice, index) => (
             <TableRow key={"invoice" + index}>
               <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
                 {invoice.jobCode}
@@ -79,7 +93,7 @@ export default function CaregiversList() {
                 <button className="font-satoshi font-medium text-[16px] leading-[21.6px] tracking-[0px] text-gray-900 bg-success-100 px-3 py-1 rounded-[6px]">
                   Edit
                 </button>
-                <button 
+                <button
                   className="font-satoshi font-medium text-[16px] leading-[21.6px] tracking-[0px] text-gray-900 bg-primaryShades-100 px-3 py-1 rounded-[6px]"
                   onClick={() => router.push(paths.dashboard.clients.view)}
                 >
@@ -90,22 +104,32 @@ export default function CaregiversList() {
           ))}
         </TableBody>
       </Table>
+
+      {/* Pagination */}
       <Pagination className="justify-start">
         <PaginationContent>
           <PaginationItem>
-            <PaginationPrevious href="#" />
+            <PaginationPrevious
+              href="#"
+              onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
+            />
           </PaginationItem>
+          {Array.from({ length: totalPages }, (_, i) => (
+            <PaginationItem key={i + 1}>
+              <PaginationLink
+                href="#"
+                onClick={() => handlePageChange(i + 1)}
+                isActive={currentPage === i + 1}
+              >
+                {i + 1}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
           <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">2</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" />
+            <PaginationNext
+              href="#"
+              onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
+            />
           </PaginationItem>
         </PaginationContent>
       </Pagination>

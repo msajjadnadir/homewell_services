@@ -36,40 +36,57 @@ import {
     PaginationNext,
 } from "@/components/ui/pagination";
 
-const employeeData = [
-    {
-        code: "Jane",
-        employee: "Name",
-        duration: "10:00",
+// Function to generate dynamic data
+const generateEmployeeData = () => {
+    return Array.from({ length: 50 }, (_, i) => ({
+        code: `EMP${i + 1}`,
+        employee: `Employee ${i + 1}`,
+        duration: `${Math.floor(Math.random() * 10)}:00`,
         alarms: "--",
-    },
-];
+    }));
+};
 
-const jobData = [
-    {
-        code: "Jane",
-        job: "Job Name",
-        duration: "10:00",
-        budgetedHours: "10:00",
+const generateJobData = () => {
+    return Array.from({ length: 50 }, (_, i) => ({
+        code: `JOB${i + 1}`,
+        job: `Job ${i + 1}`,
+        duration: `${Math.floor(Math.random() * 10)}:00`,
+        budgetedHours: `${Math.floor(Math.random() * 10)}:00`,
         alarms: "--",
-    },
-];
+    }));
+};
 
-const timecardData = [
-    {
-        date: "02/02/2025",
-        jobName: "--",
-        in: "2:00 PM",
-        out: "10:00 PM",
+const generateTimecardData = () => {
+    return Array.from({ length: 50 }, (_, i) => ({
+        date: `02/${String(i + 1).padStart(2, '0')}/2025`,
+        jobName: `Job ${i + 1}`,
+        in: `${Math.floor(Math.random() * 12) + 1}:00 PM`,
+        out: `${Math.floor(Math.random() * 12) + 1}:00 PM`,
         duration: "Enabled",
-    },
-];
+    }));
+};
+
+const employeeData = generateEmployeeData();
+const jobData = generateJobData();
+const timecardData = generateTimecardData();
 
 export default function CombinedPage() {
     const router = useRouter();
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [view, setView] = useState("employee");
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
+
+    // Calculate the total number of pages
+    const totalPages = Math.ceil(employeeData.length / itemsPerPage);
+
+    // Get the current page data
+    const getCurrentPageData = (data) => {
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        return data.slice(startIndex, endIndex);
+    };
 
     return (
         <div className="flex flex-col space-y-12 w-full font-satoshi">
@@ -98,17 +115,16 @@ export default function CombinedPage() {
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
                     </div>
                 </div>
-                                    <div className="relative w-full">
-                        <DatePicker
-                            selected={endDate}
-                            onChange={(date) => setEndDate(date)}
-                            dateFormat="MM/dd/yyyy"
-                            className="w-full border border-gray-300 rounded-md p-2 pl-10"
-                            placeholderText="Select date"
-                        />
-                        <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
-                    </div>
-              
+                <div className="relative w-full">
+                    <DatePicker
+                        selected={endDate}
+                        onChange={(date) => setEndDate(date)}
+                        dateFormat="MM/dd/yyyy"
+                        className="w-full border border-gray-300 rounded-md p-2 pl-10"
+                        placeholderText="Select date"
+                    />
+                    <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
+                </div>
                 <Select>
                     <SelectTrigger>
                         <SelectValue placeholder="Select Employee" />
@@ -178,7 +194,7 @@ export default function CombinedPage() {
                         </TableHeader>
                         <TableBody>
                             {view === "employee"
-                                ? employeeData.map((employee, index) => (
+                                ? getCurrentPageData(employeeData).map((employee, index) => (
                                     <TableRow key={"employee" + index}>
                                         <TableCell className="text-gray-900">{employee.code}</TableCell>
                                         <TableCell className="text-gray-900">{employee.employee}</TableCell>
@@ -186,7 +202,7 @@ export default function CombinedPage() {
                                         <TableCell className="text-gray-900">{employee.alarms}</TableCell>
                                     </TableRow>
                                 ))
-                                : jobData.map((job, index) => (
+                                : getCurrentPageData(jobData).map((job, index) => (
                                     <TableRow key={"job" + index}>
                                         <TableCell className="text-gray-900">{job.code}</TableCell>
                                         <TableCell className="text-gray-900">{job.job}</TableCell>
@@ -217,7 +233,7 @@ export default function CombinedPage() {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {timecardData.map((timecard, index) => (
+                            {getCurrentPageData(timecardData).map((timecard, index) => (
                                 <TableRow key={"timecard" + index}>
                                     <TableCell className="text-gray-900">{timecard.date}</TableCell>
                                     <TableCell className="text-gray-900">{timecard.jobName}</TableCell>
@@ -237,19 +253,17 @@ export default function CombinedPage() {
                 <Pagination className="justify-start">
                     <PaginationContent>
                         <PaginationItem>
-                            <PaginationPrevious href="#" />
+                            <PaginationPrevious href="#" onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} />
                         </PaginationItem>
+                        {Array.from({ length: totalPages }, (_, i) => (
+                            <PaginationItem key={i + 1}>
+                                <PaginationLink href="#" isActive={currentPage === i + 1} onClick={() => setCurrentPage(i + 1)}>
+                                    {i + 1}
+                                </PaginationLink>
+                            </PaginationItem>
+                        ))}
                         <PaginationItem>
-                            <PaginationLink href="#">1</PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                            <PaginationLink href="#">2</PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                            <PaginationEllipsis />
-                        </PaginationItem>
-                        <PaginationItem>
-                            <PaginationNext href="#" />
+                            <PaginationNext href="#" onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))} />
                         </PaginationItem>
                     </PaginationContent>
                 </Pagination>

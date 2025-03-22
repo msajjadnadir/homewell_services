@@ -51,7 +51,7 @@ const generateEmployees = () => {
 export default function DataList({ selectedType }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = 20;
+  const recordsPerPage = 10;
 
   const jobs = generateJobs();
   const employees = generateEmployees();

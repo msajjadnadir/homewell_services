@@ -7,7 +7,7 @@ export default function Action() {
 
   return (
     <div className="flex flex-row w-full justify-between items-center select-none">
-      <span className="text-4xl font-light">
+      <span className="lg:text-5xl text-4xl font-bold">
         Quick Search
       </span>
     </div>

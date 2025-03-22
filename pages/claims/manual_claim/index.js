@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
@@ -22,23 +23,24 @@ import {
     PaginationNext,
 } from "@/components/ui/pagination";
 
-const data = [
-    {
-        clientName: "Markus Suzak",
-    },
-    {
-        clientName: "Jane Smith",
-    },
-    {
-        clientName: "John Doe",
-    },
-    {
-        clientName: "Johnny Bravo",
-    },
-];
+const generateData = () => {
+    return Array.from({ length: 50 }, (_, i) => ({
+        clientName: `Client ${i + 1}`,
+    }));
+};
 
-export default function index() {
+const data = generateData();
+
+export default function Index() {
     const router = useRouter();
+    const itemsPerPage = 10;
+    const totalPages = Math.ceil(data.length / itemsPerPage);
+    const [currentPage, setCurrentPage] = React.useState(1);
+
+    const paginatedData = data.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
 
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
@@ -78,7 +80,7 @@ export default function index() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {data.map((invoice, index) => (
+                        {paginatedData.map((invoice, index) => (
                             <TableRow key={"invoice" + index}>
                                 <TableCell className="font-medium text-gray-900">
                                     {invoice.clientName}
@@ -95,23 +97,21 @@ export default function index() {
                 <Pagination className="justify-start">
                     <PaginationContent>
                         <PaginationItem>
-                            <PaginationPrevious href="#" />
+                            <PaginationPrevious href="#" onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} />
                         </PaginationItem>
+                        {Array.from({ length: totalPages }, (_, i) => (
+                            <PaginationItem key={i}>
+                                <PaginationLink href="#" onClick={() => setCurrentPage(i + 1)}>
+                                    {i + 1}
+                                </PaginationLink>
+                            </PaginationItem>
+                        ))}
                         <PaginationItem>
-                            <PaginationLink href="#">1</PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                            <PaginationLink href="#">2</PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                            <PaginationEllipsis />
-                        </PaginationItem>
-                        <PaginationItem>
-                            <PaginationNext href="#" />
+                            <PaginationNext href="#" onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} />
                         </PaginationItem>
                     </PaginationContent>
                 </Pagination>
             </div>
         </div>
-    )
+    );
 }

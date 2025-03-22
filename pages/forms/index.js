@@ -21,47 +21,29 @@ import {
     PaginationEllipsis,
     PaginationNext,
 } from "@/components/ui/pagination";
+import { useState } from "react";
 
-const data = [
-    {
-        employeeAgreement: "Employee Agreement",
+const generateData = () => {
+    return Array.from({ length: 50 }, (_, i) => ({
+        employeeAgreement: `Employee Agreement ${i + 1}`,
         createdOn: "02/02/2025",
         createdBy: "Dan Brown",
         updatedOn: "02/02/2025",
-        status: "Active ",
-    },
-    {
-        employeeAgreement: "Employee Agreement",
-        createdOn: "02/02/2025",
-        createdBy: "Dan Brown",
-        updatedOn: "02/02/2025",
-        status: "Active ",
-    },
-    {
-        employeeAgreement: "Employee Agreement",
-        createdOn: "02/02/2025",
-        createdBy: "Dan Brown",
-        updatedOn: "02/02/2025",
-        status: "Active ",
-    },
-    {
-        employeeAgreement: "Employee Agreement",
-        createdOn: "02/02/2025",
-        createdBy: "Dan Brown",
-        updatedOn: "02/02/2025",
-        status: "Active ",
-    },
-    {
-        employeeAgreement: "Employee Agreement",
-        createdOn: "02/02/2025",
-        createdBy: "Dan Brown",
-        updatedOn: "02/02/2025",
-        status: "Active ",
-    },
-];
+        status: "Active",
+    }));
+};
 
-export default function index() {
+const data = generateData();
+const itemsPerPage = 10;
+
+export default function Index() {
     const router = useRouter();
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+    const totalPages = Math.ceil(data.length / itemsPerPage);
 
     return (
         <div className="flex flex-col space-y-8 w-full font-satoshi">
@@ -85,57 +67,26 @@ export default function index() {
                 <Table>
                     <TableHeader>
                         <TableRow className="bg-[#DED1F6] rounded-t-[8px]">
-                            <TableHead className="text-gray-900 font-medium">
-                                Form Name
-                            </TableHead>
-                            <TableHead className="text-gray-900 font-medium">
-                                Created on
-                            </TableHead>
-                            <TableHead className="text-gray-900 font-medium">
-                                Created by
-                            </TableHead>
-                            <TableHead className="text-gray-900 font-medium">
-                                Updated on
-                            </TableHead>
-                            <TableHead className="text-gray-900 font-medium">
-                                Status
-                            </TableHead>
-                            <TableHead className="text-gray-900 font-medium">
-                                Action
-                            </TableHead>
+                            <TableHead className="text-gray-900 font-medium">Form Name</TableHead>
+                            <TableHead className="text-gray-900 font-medium">Created on</TableHead>
+                            <TableHead className="text-gray-900 font-medium">Created by</TableHead>
+                            <TableHead className="text-gray-900 font-medium">Updated on</TableHead>
+                            <TableHead className="text-gray-900 font-medium">Status</TableHead>
+                            <TableHead className="text-gray-900 font-medium">Action</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {data.map((data, index) => (
-                            <TableRow key={"data" + index}>
-                                <TableCell className="text-gray-900 font-medium">
-                                    {data.employeeAgreement}
-                                </TableCell>
-                                <TableCell className="text-gray-900 font-medium">
-                                    {data.createdOn}
-                                </TableCell>
-                                <TableCell className="text-gray-900 font-medium">
-                                    {data.createdBy}
-                                </TableCell>
-                                <TableCell className="text-gray-900 font-medium">
-                                    {data.updatedOn}
-                                </TableCell>
-                                <TableCell className="text-green-500 font-medium">
-                                    {data.status}
-                                </TableCell>
+                        {currentItems.map((item, index) => (
+                            <TableRow key={index}>
+                                <TableCell className="text-gray-900 font-medium">{item.employeeAgreement}</TableCell>
+                                <TableCell className="text-gray-900 font-medium">{item.createdOn}</TableCell>
+                                <TableCell className="text-gray-900 font-medium">{item.createdBy}</TableCell>
+                                <TableCell className="text-gray-900 font-medium">{item.updatedOn}</TableCell>
+                                <TableCell className="text-green-500 font-medium">{item.status}</TableCell>
                                 <TableCell className="flex flex-row gap-2 text-gray-900">
-                                    <button onClick={() => router.push(paths.dashboard.forms.edit)} className="font-medium text-[16px] leading-5 px-4 py-1 rounded bg-yellow-100">
-                                        Edit
-                                    </button>
-                                    <button
-                                        className="font-medium text-[16px] leading-6 px-4 py-1 rounded bg-green-100"
-                                        onClick={() => router.push(paths.dashboard.forms.esign)}
-                                    >
-                                        E-Sign
-                                    </button>
-                                    <button className="font-medium text-[16px] leading-5 px-4 py-1 rounded bg-red-300">
-                                        Delete
-                                    </button>
+                                    <button onClick={() => router.push(paths.dashboard.forms.edit)} className="font-medium text-[16px] leading-5 px-4 py-1 rounded bg-yellow-100">Edit</button>
+                                    <button className="font-medium text-[16px] leading-6 px-4 py-1 rounded bg-green-100" onClick={() => router.push(paths.dashboard.forms.esign)}>E-Sign</button>
+                                    <button className="font-medium text-[16px] leading-5 px-4 py-1 rounded bg-red-300">Delete</button>
                                 </TableCell>
                             </TableRow>
                         ))}
@@ -144,23 +95,19 @@ export default function index() {
                 <Pagination className="justify-start">
                     <PaginationContent>
                         <PaginationItem>
-                            <PaginationPrevious href="#" />
+                            <PaginationPrevious href="#" onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} />
                         </PaginationItem>
+                        {Array.from({ length: totalPages }, (_, i) => (
+                            <PaginationItem key={i}>
+                                <PaginationLink href="#" onClick={() => setCurrentPage(i + 1)}>{i + 1}</PaginationLink>
+                            </PaginationItem>
+                        ))}
                         <PaginationItem>
-                            <PaginationLink href="#">1</PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                            <PaginationLink href="#">2</PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                            <PaginationEllipsis />
-                        </PaginationItem>
-                        <PaginationItem>
-                            <PaginationNext href="#" />
+                            <PaginationNext href="#" onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} />
                         </PaginationItem>
                     </PaginationContent>
                 </Pagination>
             </div>
         </div>
-    )
+    );
 }
