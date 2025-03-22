@@ -116,5 +116,10 @@ export const paths = {
       invoice_list_add: `/invoices/invoice_list/add`,
       manual_invoice_add: `/invoices/manual_invoice/add`,
     },
+    tickets: {
+      root: `/help/tickets`,
+      add: `/help/tickets/add`,
+      edit: `/help/tickets/edit`,
+    },
   },
 };
