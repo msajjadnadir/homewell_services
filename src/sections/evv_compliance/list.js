@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Table,
   TableBody,
@@ -15,73 +16,50 @@ import {
   PaginationEllipsis,
   PaginationNext,
 } from "@/components/ui/pagination";
-
-const invoices = [
-  {
-    verificationMethod: "GPS Check-in",
-    successfull: "100",
-    failed: "25",
-  },
-  {
-    verificationMethod: "GPS Check-in",
-    successfull: "100",
-    failed: "25",
-  },
-  {
-    verificationMethod: "GPS Check-in",
-    successfull: "100",
-    failed: "25",
-  },
-  {
-    verificationMethod: "GPS Check-in",
-    successfull: "100",
-    failed: "25",
-  },
-  {
-    verificationMethod: "GPS Check-in",
-    successfull: "100",
-    failed: "25",
-  },
-];
-
-const invoices2 = [
-  {
-    caregiver: "Markus Suzak",
-    client: "Jane Smith",
-    shiftDate: "02/10/2025",
-    isue: "GPS Mismatch",
-  },
-  {
-    caregiver: "Markus Suzak",
-    client: "Jane Smith",
-    shiftDate: "02/10/2025",
-    isue: "GPS Mismatch",
-  },
-  {
-    caregiver: "Markus Suzak",
-    client: "Jane Smith",
-    shiftDate: "02/10/2025",
-    isue: "GPS Mismatch",
-  },
-  {
-    caregiver: "Markus Suzak",
-    client: "Jane Smith",
-    shiftDate: "02/10/2025",
-    isue: "GPS Mismatch",
-  },
-  {
-    caregiver: "Markus Suzak",
-    client: "Jane Smith",
-    shiftDate: "02/10/2025",
-    isue: "GPS Mismatch",
-  },
-];
-
 import { useRouter } from "next/navigation";
 import { paths } from "@/routes/paths";
 
+// Generate 50 records dynamically
+const generateInvoices = () => {
+  return Array.from({ length: 50 }, (_, index) => ({
+    verificationMethod: "GPS Check-in",
+    successfull: Math.floor(Math.random() * 200) + 1,
+    failed: Math.floor(Math.random() * 100),
+  }));
+};
+
+const generateInvoices2 = () => {
+  return Array.from({ length: 50 }, (_, index) => ({
+    caregiver: `Caregiver ${index + 1}`,
+    client: `Client ${index + 1}`,
+    shiftDate: `02/${(index % 12) + 1}/2025`,
+    isue: "GPS Mismatch",
+  }));
+};
+
 export default function CaregiversList() {
   const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(1);
+  const recordsPerPage = 5;
+
+  const invoices = generateInvoices();
+  const invoices2 = generateInvoices2();
+
+  const totalPages = Math.ceil(invoices.length / recordsPerPage);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const displayedInvoices = invoices.slice(
+    (currentPage - 1) * recordsPerPage,
+    currentPage * recordsPerPage
+  );
+
+  const displayedInvoices2 = invoices2.slice(
+    (currentPage - 1) * recordsPerPage,
+    currentPage * recordsPerPage
+  );
 
   return (
     <>
@@ -89,32 +67,20 @@ export default function CaregiversList() {
         <span className="font-satoshi font-bold text-3xl">
           EVV Verification Breakdown
         </span>
-        <Table>
+        <Table className="text-lg">
           <TableHeader>
             <TableRow className="bg-[#DED1F6] rounded-t-[8px]">
-              <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
-                Verification Method
-              </TableHead>
-              <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
-                Success
-              </TableHead>
-              <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
-                Failed
-              </TableHead>
+              <TableHead className="text-gray-900 font-medium">Verification Method</TableHead>
+              <TableHead className="text-gray-900 font-medium">Success</TableHead>
+              <TableHead className="text-gray-900 font-medium">Failed</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {invoices.map((invoice, index) => (
-              <TableRow key={"invoice" + index}>
-                <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
-                  {invoice.verificationMethod}
-                </TableCell>
-                <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-green-500">
-                  {invoice.successfull}
-                </TableCell>
-                <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-red-500">
-                  {invoice.failed}
-                </TableCell>
+            {displayedInvoices.map((invoice, index) => (
+              <TableRow key={index}>
+                <TableCell className="text-gray-900 font-medium">{invoice.verificationMethod}</TableCell>
+                <TableCell className="text-green-500 font-medium">{invoice.successfull}</TableCell>
+                <TableCell className="text-red-500 font-medium">{invoice.failed}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -125,45 +91,28 @@ export default function CaregiversList() {
         <span className="font-satoshi font-bold text-3xl">
           EVV Issues and Non-Compliance Check-ins
         </span>
-        <Table>
+        <Table className="text-lg">
           <TableHeader>
             <TableRow className="bg-[#DED1F6] rounded-t-[8px]">
-              <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
-                Caregiver
-              </TableHead>
-              <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
-                Client
-              </TableHead>
-              <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
-                Shift Date
-              </TableHead>
-              <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
-                Issue
-              </TableHead>
-              <TableHead className="font-satoshi font-bold text-5 leading-[27px] tracking-[0px] text-secondaryShades-900">
-                Action
-              </TableHead>
+              <TableHead className="text-gray-900 font-medium">Caregiver</TableHead>
+              <TableHead className="text-gray-900 font-medium">Client</TableHead>
+              <TableHead className="text-gray-900 font-medium">Shift Date</TableHead>
+              <TableHead className="text-gray-900 font-medium">Issue</TableHead>
+              <TableHead className="text-gray-900 font-medium">Action</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {invoices2.map((invoice, index) => (
-              <TableRow key={"invoice" + index}>
-                <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
-                  {invoice.caregiver}
-                </TableCell>
-                <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
-                  {invoice.client}
-                </TableCell>
-                <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-gray-900">
-                  {invoice.shiftDate}
-                </TableCell>
-                <TableCell className="font-satoshi font-medium text-[20px] leading-[27px] tracking-[0px] text-red-500">
-                  {invoice.isue}
-                </TableCell>
-                <TableCell className="flex flex-row gap-[10px]">
-                  <button 
-                    className="font-satoshi font-medium bg-yellow-100 px-4 py-1 rounded-lg" 
-                    onClick={() => router.push(paths.dashboard.evv_compliance.compliance_report)}>
+            {displayedInvoices2.map((invoice, index) => (
+              <TableRow key={index}>
+                <TableCell className="text-gray-900 font-medium">{invoice.caregiver}</TableCell>
+                <TableCell className="text-gray-900 font-medium">{invoice.client}</TableCell>
+                <TableCell className="text-gray-900 font-medium">{invoice.shiftDate}</TableCell>
+                <TableCell className="text-red-500 font-medium">{invoice.isue}</TableCell>
+                <TableCell>
+                  <button
+                    className="bg-yellow-100 px-4 py-1 rounded-lg"
+                    onClick={() => router.push(paths.dashboard.evv_compliance.compliance_report)}
+                  >
                     Review
                   </button>
                 </TableCell>
@@ -174,19 +123,26 @@ export default function CaregiversList() {
         <Pagination className="justify-start">
           <PaginationContent>
             <PaginationItem>
-              <PaginationPrevious href="#" />
+              <PaginationPrevious
+                href="#"
+                onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
+              />
             </PaginationItem>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <PaginationItem key={index}>
+                <PaginationLink
+                  href="#"
+                  onClick={() => handlePageChange(index + 1)}
+                >
+                  {index + 1}
+                </PaginationLink>
+              </PaginationItem>
+            ))}
             <PaginationItem>
-              <PaginationLink href="#">1</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">2</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationEllipsis />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationNext href="#" />
+              <PaginationNext
+                href="#"
+                onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
+              />
             </PaginationItem>
           </PaginationContent>
         </Pagination>

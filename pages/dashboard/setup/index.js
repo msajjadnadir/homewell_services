@@ -1,9 +1,16 @@
-"use client";
-import { Select, SelectTrigger, SelectValue } from "@/components/ui/select";
 import ShowOverview from "@/sections/dashboard/setup/showOverview";
 import Other from "@/sections/dashboard/setup/other";
 import { useRouter } from "next/navigation";
 import { paths } from "@/routes/paths";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function SetupPage() {
   const router = useRouter();
@@ -20,8 +27,17 @@ export default function SetupPage() {
             </span>
             <Select>
               <SelectTrigger>
-                <SelectValue placeholder="Select a zone" />
+                <SelectValue placeholder="All" />
               </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {["Zone 1", "Zone 2", "Zone 3"].map((month) => (
+                    <SelectItem key={month} value={month.toLowerCase()}>
+                      {month}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
             </Select>
           </div>
         </div>
